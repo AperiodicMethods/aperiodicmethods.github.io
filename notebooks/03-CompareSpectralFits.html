@@ -1,0 +1,1085 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compare Spectral Fitting &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IRASA" href="04-IRASA.html" />
+    <link rel="prev" title="Running Spectral Fitting" href="02-FittingSimSpectra.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-SpectralFitting.html">
+   Spectral Fitting Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-FittingSimSpectra.html">
+   Running Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Compare Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DFA.html">
+   Detrended Fluctuation Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Hurst.html">
+   Hurst Exponent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Information.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/03-CompareSpectralFits.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/03-CompareSpectralFits.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistically-compare-methods">
+   Statistically Compare Methods
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="compare-spectral-fitting">
+<h1>Compare Spectral Fitting<a class="headerlink" href="#compare-spectral-fitting" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.fake</span> <span class="kn">import</span> <span class="n">SimFits</span><span class="p">,</span> <span class="n">print_res</span>
+<span class="kn">from</span> <span class="nn">apm.core.db</span> <span class="kn">import</span> <span class="n">APMDB</span>
+<span class="kn">from</span> <span class="nn">apm.core.io</span> <span class="kn">import</span> <span class="n">load_pickle</span>
+<span class="kn">from</span> <span class="nn">apm.plts.fake</span> <span class="kn">import</span> <span class="n">violin_errors</span><span class="p">,</span> <span class="n">boxplot_errors</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">color_red_or_green</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notebook Settings</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up project database object</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check available simualted model fit files</span>
+<span class="n">sim_files</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">check_files</span><span class="p">(</span><span class="s1">&#39;sims&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect all fits together</span>
+<span class="n">all_fits</span> <span class="o">=</span> <span class="n">SimFits</span><span class="p">()</span>
+<span class="n">all_fits</span><span class="o">.</span><span class="n">get_fit_funcs</span><span class="p">()</span>
+<span class="n">all_fits</span><span class="o">.</span><span class="n">get_err_dict</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">f_name</span> <span class="ow">in</span> <span class="n">sim_files</span><span class="p">:</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">sims_path</span><span class="p">)</span>
+
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">SimFits</span><span class="p">()</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">errs</span> <span class="o">=</span> <span class="n">data</span>
+    
+    <span class="n">all_fits</span> <span class="o">=</span> <span class="n">all_fits</span> <span class="o">+</span> <span class="n">temp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check how many PSDs are included in simulated data model fits</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="p">[</span><span class="s1">&#39;RAN-EA&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the average errors per method</span>
+<span class="n">print_res</span><span class="p">(</span><span class="n">all_fits</span><span class="o">.</span><span class="n">calc_avg_errs</span><span class="p">(</span><span class="n">avg</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   RAN      		 0.01631
+   RLM-EO   		 0.02156
+   OLS-EO   		 0.02282
+   EXP-EO   		 0.02282
+   FOOOF    		 0.02331
+   RLM      		 0.02386
+   RAN-EO   		 0.02607
+   RLM-EA   		 0.02644
+   OLS-EA   		 0.02734
+   EXP-EA   		 0.02734
+   RAN-EA   		 0.02895
+   OLS      		 0.02906
+   EXP      		 0.02906
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the number of fits that pass a threshold, per method</span>
+<span class="n">print_res</span><span class="p">(</span><span class="n">all_fits</span><span class="o">.</span><span class="n">calc_perc_good</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="mf">0.025</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   RAN      		 0.60000
+   FOOOF    		 0.56000
+   RLM-EO   		 0.54000
+   RLM      		 0.54000
+   OLS-EO   		 0.54000
+   EXP-EO   		 0.54000
+   RLM-EA   		 0.48000
+   RAN-EO   		 0.48000
+   OLS      		 0.48000
+   EXP      		 0.48000
+   RAN-EA   		 0.46000
+   OLS-EA   		 0.44000
+   EXP-EA   		 0.44000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create boxplot of errors</span>
+<span class="n">boxplot_errors</span><span class="p">(</span><span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-CompareSpectralFits_11_0.png" src="../_images/03-CompareSpectralFits_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mains</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;OLS&#39;</span><span class="p">,</span> <span class="s1">&#39;RLM&#39;</span><span class="p">,</span> <span class="s1">&#39;RAN&#39;</span><span class="p">,</span> <span class="s1">&#39;EXP&#39;</span><span class="p">,</span> <span class="s1">&#39;FOOOF&#39;</span><span class="p">]</span>
+<span class="n">alphas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;OLS-EA&#39;</span><span class="p">,</span> <span class="s1">&#39;RLM-EA&#39;</span><span class="p">,</span> <span class="s1">&#39;RAN-EA&#39;</span><span class="p">,</span> <span class="s1">&#39;EXP-EA&#39;</span><span class="p">,</span> <span class="s1">&#39;FOOOF&#39;</span><span class="p">]</span>
+<span class="n">oscs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;OLS-EO&#39;</span><span class="p">,</span> <span class="s1">&#39;RLM-EO&#39;</span><span class="p">,</span> <span class="s1">&#39;RAN-EO&#39;</span><span class="p">,</span> <span class="s1">&#39;EXP-EO&#39;</span><span class="p">,</span> <span class="s1">&#39;FOOOF&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">main_dicts</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span> <span class="p">:</span> <span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">mains</span><span class="p">}</span>
+<span class="n">alphas_dicts</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span> <span class="p">:</span> <span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">}</span>
+<span class="n">oscs_dicts</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span> <span class="p">:</span> <span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">oscs</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">violin_errors</span><span class="p">(</span><span class="n">main_dicts</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">make_fig_name</span><span class="p">(</span><span class="s1">&#39;SpectralFitting-Main&#39;</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-CompareSpectralFits_14_0.png" src="../_images/03-CompareSpectralFits_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">violin_errors</span><span class="p">(</span><span class="n">alphas_dicts</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">make_fig_name</span><span class="p">(</span><span class="s1">&#39;SpectralFitting-EA&#39;</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-CompareSpectralFits_15_0.png" src="../_images/03-CompareSpectralFits_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">violin_errors</span><span class="p">(</span><span class="n">oscs_dicts</span><span class="p">,</span> <span class="n">ylim</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">make_fig_name</span><span class="p">(</span><span class="s1">&#39;SpectralFitting-EO&#39;</span><span class="p">,</span> <span class="n">file_type</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-CompareSpectralFits_16_0.png" src="../_images/03-CompareSpectralFits_16_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Violin plot of error distributions</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">violin_errors</span><span class="p">(</span><span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+
+<span class="c1">#if SAVE_FIG:</span>
+<span class="c1">#    plt.savefig(db.make_fig_name(&#39;violin_plot&#39;, file_type=&#39;pdf&#39;))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-CompareSpectralFits_17_0.png" src="../_images/03-CompareSpectralFits_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="statistically-compare-methods">
+<h2>Statistically Compare Methods<a class="headerlink" href="#statistically-compare-methods" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run comparisons between methods</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="n">all_fits</span><span class="o">.</span><span class="n">comp_errs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out color-coded dataframe of comparison results</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comps</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">all_fits</span><span class="o">.</span><span class="n">errs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">color_red_or_green</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col12 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col0 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col1 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col2 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col3 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col4 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col5 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col6 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col7 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col8 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col9 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col10 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col11 {
+            color:  red;
+        }    #T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col12 {
+            color:  red;
+        }</style><table id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >OLS</th>        <th class="col_heading level0 col1" >OLS-EA</th>        <th class="col_heading level0 col2" >OLS-EO</th>        <th class="col_heading level0 col3" >RLM</th>        <th class="col_heading level0 col4" >RLM-EA</th>        <th class="col_heading level0 col5" >RLM-EO</th>        <th class="col_heading level0 col6" >RAN</th>        <th class="col_heading level0 col7" >RAN-EA</th>        <th class="col_heading level0 col8" >RAN-EO</th>        <th class="col_heading level0 col9" >EXP</th>        <th class="col_heading level0 col10" >EXP-EA</th>        <th class="col_heading level0 col11" >EXP-EO</th>        <th class="col_heading level0 col12" >FOOOF</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row0" class="row_heading level0 row0" >OLS</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col0" class="data row0 col0" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col1" class="data row0 col1" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col2" class="data row0 col2" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col3" class="data row0 col3" >0.525930</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col4" class="data row0 col4" >0.235726</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col5" class="data row0 col5" >0.078760</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col6" class="data row0 col6" >0.110507</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col7" class="data row0 col7" >0.557893</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col8" class="data row0 col8" >0.214647</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col9" class="data row0 col9" >0.983500</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col10" class="data row0 col10" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col11" class="data row0 col11" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row0_col12" class="data row0 col12" >0.055304</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row1" class="row_heading level0 row1" >OLS-EA</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col0" class="data row1 col0" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col1" class="data row1 col1" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col2" class="data row1 col2" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col3" class="data row1 col3" >0.912171</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col4" class="data row1 col4" >0.341428</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col5" class="data row1 col5" >0.115999</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col6" class="data row1 col6" >0.178853</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col7" class="data row1 col7" >0.903975</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col8" class="data row1 col8" >0.344938</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col9" class="data row1 col9" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col10" class="data row1 col10" >0.978001</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col11" class="data row1 col11" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row1_col12" class="data row1 col12" >0.114408</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row2" class="row_heading level0 row2" >OLS-EO</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col0" class="data row2 col0" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col1" class="data row2 col1" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col2" class="data row2 col2" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col3" class="data row2 col3" >0.288395</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col4" class="data row2 col4" >0.654082</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col5" class="data row2 col5" >0.732920</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col6" class="data row2 col6" >0.777448</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col7" class="data row2 col7" >0.209597</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col8" class="data row2 col8" >0.656572</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col9" class="data row2 col9" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col10" class="data row2 col10" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col11" class="data row2 col11" >0.978001</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row2_col12" class="data row2 col12" >0.868588</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row3" class="row_heading level0 row3" >RLM</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col0" class="data row3 col0" >0.525930</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col1" class="data row3 col1" >0.912171</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col2" class="data row3 col2" >0.288395</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col3" class="data row3 col3" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col4" class="data row3 col4" >0.530438</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col5" class="data row3 col5" >0.192598</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col6" class="data row3 col6" >0.225010</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col7" class="data row3 col7" >0.983500</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col8" class="data row3 col8" >0.452396</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col9" class="data row3 col9" >0.525930</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col10" class="data row3 col10" >0.912171</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col11" class="data row3 col11" >0.288395</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row3_col12" class="data row3 col12" >0.163755</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row4" class="row_heading level0 row4" >RLM-EA</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col0" class="data row4 col0" >0.235726</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col1" class="data row4 col1" >0.341428</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col2" class="data row4 col2" >0.654082</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col3" class="data row4 col3" >0.530438</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col4" class="data row4 col4" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col5" class="data row4 col5" >0.530438</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col6" class="data row4 col6" >0.571874</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col7" class="data row4 col7" >0.400322</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col8" class="data row4 col8" >0.956019</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col9" class="data row4 col9" >0.235726</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col10" class="data row4 col10" >0.341428</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col11" class="data row4 col11" >0.654082</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row4_col12" class="data row4 col12" >0.534966</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row5" class="row_heading level0 row5" >RLM-EO</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col0" class="data row5 col0" >0.078760</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col1" class="data row5 col1" >0.115999</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col2" class="data row5 col2" >0.732920</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col3" class="data row5 col3" >0.192598</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col4" class="data row5 col4" >0.530438</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col5" class="data row5 col5" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col6" class="data row5 col6" >0.923113</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col7" class="data row5 col7" >0.132877</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col8" class="data row5 col8" >0.486256</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col9" class="data row5 col9" >0.078760</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col10" class="data row5 col10" >0.115999</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col11" class="data row5 col11" >0.735516</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row5_col12" class="data row5 col12" >0.934070</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row6" class="row_heading level0 row6" >RAN</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col0" class="data row6 col0" >0.110507</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col1" class="data row6 col1" >0.178853</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col2" class="data row6 col2" >0.777448</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col3" class="data row6 col3" >0.225010</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col4" class="data row6 col4" >0.571874</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col5" class="data row6 col5" >0.923113</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col6" class="data row6 col6" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col7" class="data row6 col7" >0.235726</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col8" class="data row6 col8" >0.590772</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col9" class="data row6 col9" >0.117607</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col10" class="data row6 col10" >0.178853</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col11" class="data row6 col11" >0.777448</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row6_col12" class="data row6 col12" >0.782738</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row7" class="row_heading level0 row7" >RAN-EA</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col0" class="data row7 col0" >0.557893</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col1" class="data row7 col1" >0.903975</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col2" class="data row7 col2" >0.209597</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col3" class="data row7 col3" >0.983500</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col4" class="data row7 col4" >0.400322</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col5" class="data row7 col5" >0.132877</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col6" class="data row7 col6" >0.235726</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col7" class="data row7 col7" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col8" class="data row7 col8" >0.415948</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col9" class="data row7 col9" >0.557893</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col10" class="data row7 col10" >0.906706</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col11" class="data row7 col11" >0.209597</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row7_col12" class="data row7 col12" >0.212111</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row8" class="row_heading level0 row8" >RAN-EO</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col0" class="data row8 col0" >0.214647</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col1" class="data row8 col1" >0.344938</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col2" class="data row8 col2" >0.656572</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col3" class="data row8 col3" >0.452396</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col4" class="data row8 col4" >0.956019</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col5" class="data row8 col5" >0.486256</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col6" class="data row8 col6" >0.590772</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col7" class="data row8 col7" >0.415948</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col8" class="data row8 col8" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col9" class="data row8 col9" >0.214647</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col10" class="data row8 col10" >0.344938</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col11" class="data row8 col11" >0.674103</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row8_col12" class="data row8 col12" >0.586021</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row9" class="row_heading level0 row9" >EXP</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col0" class="data row9 col0" >0.983500</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col1" class="data row9 col1" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col2" class="data row9 col2" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col3" class="data row9 col3" >0.525930</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col4" class="data row9 col4" >0.235726</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col5" class="data row9 col5" >0.078760</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col6" class="data row9 col6" >0.117607</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col7" class="data row9 col7" >0.557893</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col8" class="data row9 col8" >0.214647</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col9" class="data row9 col9" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col10" class="data row9 col10" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col11" class="data row9 col11" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row9_col12" class="data row9 col12" >0.055304</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row10" class="row_heading level0 row10" >EXP-EA</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col0" class="data row10 col0" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col1" class="data row10 col1" >0.978001</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col2" class="data row10 col2" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col3" class="data row10 col3" >0.912171</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col4" class="data row10 col4" >0.341428</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col5" class="data row10 col5" >0.115999</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col6" class="data row10 col6" >0.178853</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col7" class="data row10 col7" >0.906706</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col8" class="data row10 col8" >0.344938</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col9" class="data row10 col9" >0.567195</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col10" class="data row10 col10" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col11" class="data row10 col11" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row10_col12" class="data row10 col12" >0.114408</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row11" class="row_heading level0 row11" >EXP-EO</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col0" class="data row11 col0" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col1" class="data row11 col1" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col2" class="data row11 col2" >0.978001</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col3" class="data row11 col3" >0.288395</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col4" class="data row11 col4" >0.654082</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col5" class="data row11 col5" >0.735516</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col6" class="data row11 col6" >0.777448</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col7" class="data row11 col7" >0.209597</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col8" class="data row11 col8" >0.674103</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col9" class="data row11 col9" >0.122536</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col10" class="data row11 col10" >0.147700</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col11" class="data row11 col11" >1.000000</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row11_col12" class="data row11 col12" >0.868588</td>
+            </tr>
+            <tr>
+                        <th id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9level0_row12" class="row_heading level0 row12" >FOOOF</th>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col0" class="data row12 col0" >0.055304</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col1" class="data row12 col1" >0.114408</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col2" class="data row12 col2" >0.868588</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col3" class="data row12 col3" >0.163755</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col4" class="data row12 col4" >0.534966</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col5" class="data row12 col5" >0.934070</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col6" class="data row12 col6" >0.782738</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col7" class="data row12 col7" >0.212111</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col8" class="data row12 col8" >0.586021</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col9" class="data row12 col9" >0.055304</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col10" class="data row12 col10" >0.114408</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col11" class="data row12 col11" >0.868588</td>
+                        <td id="T_418a8be2_d482_11ea_8b6d_dca90476eaa9row12_col12" class="data row12 col12" >1.000000</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="02-FittingSimSpectra.html" title="previous page">Running Spectral Fitting</a>
+    <a class='right-next' id="next-link" href="04-IRASA.html" title="next page">IRASA</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

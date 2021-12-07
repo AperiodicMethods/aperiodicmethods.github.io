@@ -1,0 +1,1047 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Running Spectral Fitting &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compare Spectral Fitting" href="03-CompareSpectralFits.html" />
+    <link rel="prev" title="Spectral Fitting Methods" href="01-SpectralFitting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-SpectralFitting.html">
+   Spectral Fitting Methods
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Running Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-CompareSpectralFits.html">
+   Compare Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DFA.html">
+   Detrended Fluctuation Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Hurst.html">
+   Hurst Exponent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Information.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/02-FittingSimSpectra.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/02-FittingSimSpectra.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editorial-note">
+   Editorial Note
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-settings">
+   Setup &amp; Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-out-psd-generation-and-test-fitting">
+   Check out PSD generation and test fitting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-a-fits-on-simulated-power-spectra">
+   Run a Fits on Simulated Power Spectra
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="running-spectral-fitting">
+<h1>Running Spectral Fitting<a class="headerlink" href="#running-spectral-fitting" title="Permalink to this headline">¶</a></h1>
+<p>Fitting spectral methods on simulated power spectra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">scipy.stats.mstats</span> <span class="kn">import</span> <span class="n">normaltest</span>
+
+<span class="kn">from</span> <span class="nn">fooof.sim</span> <span class="kn">import</span> <span class="n">gen_power_spectrum</span><span class="p">,</span> <span class="n">gen_group_power_spectra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.fit</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">apm.fake</span> <span class="kn">import</span> <span class="n">SimFits</span><span class="p">,</span> <span class="n">print_res</span>
+<span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_psds</span><span class="p">,</span> <span class="n">plot_psds_two</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">color_red_or_green</span>
+
+<span class="kn">from</span> <span class="nn">apm.core.db</span> <span class="kn">import</span> <span class="n">APMDB</span>
+<span class="kn">from</span> <span class="nn">apm.core.io</span> <span class="kn">import</span> <span class="n">save_pickle</span><span class="p">,</span> <span class="n">load_pickle</span>
+
+<span class="kn">from</span> <span class="nn">apm.sim.peaks</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="editorial-note">
+<h2>Editorial Note<a class="headerlink" href="#editorial-note" title="Permalink to this headline">¶</a></h2>
+<p>Still some work to do here to check the simulation code and make sure everything is updated properly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># OLD:</span>
+<span class="kn">from</span> <span class="nn">apm.sim.peaks</span> <span class="kn">import</span> <span class="n">_check_duplicate</span>
+<span class="n">CEN_FREQS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/Users/tom/Documents/GitCode/AperiodicMethods/apm/sim/data/freqs.npy&#39;</span><span class="p">)</span>
+<span class="n">PROBS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/Users/tom/Documents/GitCode/AperiodicMethods/apm/sim/data/probs.npy&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gen_osc_def</span><span class="p">(</span><span class="n">n_oscs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Generate a plausible oscillation distribution for a synthetic PSD.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_oscs : int, optional</span>
+<span class="sd">        Number of oscillations to generate. If None, picked at random. Default: None.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    oscs : list of list of [float, float, float], or []</span>
+<span class="sd">        Oscillation definitions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">n_oscs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">n_oscs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">])</span>
+
+    <span class="c1"># Initialize list of oscillation definitions</span>
+    <span class="n">oscs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Define the power and bandwidth possibilities and probabilities</span>
+    <span class="n">pow_opts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">]</span>
+    <span class="n">pow_probs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]</span>
+    <span class="n">bw_opts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">bw_probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># Generate oscillation definitions</span>
+    <span class="k">for</span> <span class="n">osc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_oscs</span><span class="p">):</span>
+
+        <span class="n">cur_cen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">CEN_FREQS</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">PROBS</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="n">_check_duplicate</span><span class="p">(</span><span class="n">cur_cen</span><span class="p">,</span> <span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">oscs</span><span class="p">]):</span>
+            <span class="n">cur_cen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">CEN_FREQS</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">PROBS</span><span class="p">)</span>
+
+        <span class="n">cur_amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pow_opts</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">pow_probs</span><span class="p">)</span>
+        <span class="n">cur_bw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">bw_opts</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">bw_probs</span><span class="p">)</span>
+
+        <span class="n">oscs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">cur_cen</span><span class="p">,</span> <span class="n">cur_amp</span><span class="p">,</span> <span class="n">cur_bw</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">oscs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setup-settings">
+<h2>Setup &amp; Settings<a class="headerlink" href="#setup-settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up project database object</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># General simulation settings</span>
+<span class="n">f_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+
+<span class="n">off_val</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">noise</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="check-out-psd-generation-and-test-fitting">
+<h2>Check out PSD generation and test fitting<a class="headerlink" href="#check-out-psd-generation-and-test-fitting" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a single simulated test power spectrum</span>
+<span class="n">exp_val</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">peak_gen</span> <span class="o">=</span> <span class="n">gen_peak_def</span><span class="p">()</span>
+
+<span class="n">peaks</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">peak_gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Old version</span>
+<span class="n">fs</span><span class="p">,</span> <span class="n">psd</span> <span class="o">=</span> <span class="n">sim_psd</span><span class="p">(</span><span class="n">f_range</span><span class="p">,</span> <span class="n">exp_val</span><span class="p">,</span> <span class="n">peaks</span><span class="p">,</span> <span class="n">noise</span><span class="p">)</span>
+<span class="c1"># Plot and check a simulated spectrum, plotted in semi-log and log space</span>
+<span class="n">plot_psds_two</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-FittingSimSpectra_10_0.png" src="../_images/02-FittingSimSpectra_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate an example power spectrum</span>
+<span class="n">fs</span><span class="p">,</span> <span class="n">psd</span> <span class="o">=</span> <span class="n">gen_power_spectrum</span><span class="p">(</span><span class="n">f_range</span><span class="p">,</span> <span class="p">[</span><span class="n">off_val</span><span class="p">,</span> <span class="n">exp_val</span><span class="p">],</span> <span class="n">peaks</span><span class="p">,</span> <span class="n">noise</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot and check a simulated spectrum, plotted in semi-log and log space</span>
+<span class="n">plot_psds_two</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-FittingSimSpectra_12_0.png" src="../_images/02-FittingSimSpectra_12_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test out fits</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;True exponent value is &#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">exp_val</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;OLS fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_ols</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLM fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_rlm</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLM-EA fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_rlm_alph</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLM-EO fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_rlm_oscs</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RAN fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_ransac</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RAN-EA fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_ransac_alph</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RAN-EO fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_ransac_oscs</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EXP fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_exp</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EXP-EA fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_exp_alph</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EXP-EO fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_exp_oscs</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FOOOF fit: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fit_fooof</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">psd</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True exponent value is  1 
+
+OLS fit: 	 -1.0033812568656857
+RLM fit: 	 -1.0006323377358153
+RLM-EA fit: 	 -1.0001652080596204
+RLM-EO fit: 	 -1.0000017151081606
+RAN fit: 	 -1.0033812568656857
+RAN-EA fit: 	 -1.0031025599698833
+RAN-EO fit: 	 -1.0003220896839073
+EXP fit: 	 -1.0033812574602508
+EXP-EA fit: 	 -1.0031025608166226
+EXP-EO fit: 	 -1.0003220905128827
+FOOOF fit: 	 -1.0001338625412473
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="run-a-fits-on-simulated-power-spectra">
+<h2>Run a Fits on Simulated Power Spectra<a class="headerlink" href="#run-a-fits-on-simulated-power-spectra" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings</span>
+<span class="n">n_psds</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">f_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">exp_val</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NEW VERSION.</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">psds</span><span class="p">,</span> <span class="n">sim_params</span> <span class="o">=</span> <span class="n">gen_group_power_spectra</span><span class="p">(</span>\
+    <span class="n">n_psds</span><span class="p">,</span> <span class="n">f_range</span><span class="p">,</span> <span class="p">[</span><span class="n">off_val</span><span class="p">,</span> <span class="n">exp_val</span><span class="p">],</span> <span class="n">gen_peak_def</span><span class="p">(),</span> <span class="n">noise</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulated power spectrum from the group</span>
+<span class="n">plot_psds</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">psds</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-FittingSimSpectra_17_0.png" src="../_images/02-FittingSimSpectra_17_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># OLD: Simulate a group of PSDs</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">psds</span> <span class="o">=</span> <span class="n">sim_n_psds</span><span class="p">(</span><span class="n">n_psds</span><span class="p">,</span> <span class="n">f_range</span><span class="p">,</span> <span class="n">exp_val</span><span class="p">,</span> <span class="n">gen_osc_def</span><span class="p">,</span> <span class="n">noise</span><span class="p">)</span>
+<span class="n">plot_psds</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">psds</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-FittingSimSpectra_18_0.png" src="../_images/02-FittingSimSpectra_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Check out some of the simulated power spectra</span>
+<span class="c1"># for ind, psd in enumerate(psds.T):</span>
+<span class="c1">#     if ind &lt; 5:</span>
+<span class="c1">#         plt.figure()</span>
+<span class="c1">#         plt.plot(freqs, psd)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize and set up for simulated data testing</span>
+<span class="n">sims</span> <span class="o">=</span> <span class="n">SimFits</span><span class="p">()</span>
+<span class="n">sims</span><span class="o">.</span><span class="n">get_fit_funcs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the fitting functions being used</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sims</span><span class="o">.</span><span class="n">fit_funcs</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;OLS&#39;, &#39;OLS-EA&#39;, &#39;OLS-EO&#39;, &#39;RLM&#39;, &#39;RLM-EA&#39;, &#39;RLM-EO&#39;, &#39;RAN&#39;, &#39;RAN-EA&#39;, &#39;RAN-EO&#39;, &#39;EXP&#39;, &#39;EXP-EA&#39;, &#39;EXP-EO&#39;, &#39;FOOOF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit spectra: this fits all methods</span>
+<span class="n">sims</span><span class="o">.</span><span class="n">fit_spectra</span><span class="p">(</span><span class="n">exp_val</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">psds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate metrics</span>
+<span class="n">avgs</span> <span class="o">=</span> <span class="n">sims</span><span class="o">.</span><span class="n">calc_avg_errs</span><span class="p">()</span>
+<span class="n">perc_good</span> <span class="o">=</span> <span class="n">sims</span><span class="o">.</span><span class="n">calc_perc_good</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check errors per fitting method</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;AVERAGE FIT ERRORS&#39;</span><span class="p">)</span>
+<span class="n">print_res</span><span class="p">(</span><span class="n">avgs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AVERAGE FIT ERRORS
+   RAN      		 0.01631
+   RLM-EO   		 0.02156
+   OLS-EO   		 0.02282
+   EXP-EO   		 0.02282
+   FOOOF    		 0.02331
+   RLM      		 0.02386
+   RAN-EO   		 0.02607
+   RLM-EA   		 0.02644
+   OLS-EA   		 0.02734
+   EXP-EA   		 0.02734
+   RAN-EA   		 0.02895
+   OLS      		 0.02906
+   EXP      		 0.02906
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check errors per fitting method</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PERCENTAGE FITS BELOW ERROR THRESHOLD&#39;</span><span class="p">)</span>
+<span class="n">print_res</span><span class="p">(</span><span class="n">perc_good</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PERCENTAGE FITS BELOW ERROR THRESHOLD
+   RAN      		 0.60000
+   FOOOF    		 0.56000
+   RLM-EO   		 0.54000
+   RLM      		 0.54000
+   OLS-EO   		 0.54000
+   EXP-EO   		 0.54000
+   RLM-EA   		 0.48000
+   RAN-EO   		 0.48000
+   OLS      		 0.48000
+   EXP      		 0.48000
+   RAN-EA   		 0.46000
+   OLS-EA   		 0.44000
+   EXP-EA   		 0.44000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sims</span><span class="o">.</span><span class="n">errs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlation structure between fit erros</span>
+<span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OLS</th>
+      <th>OLS-EA</th>
+      <th>OLS-EO</th>
+      <th>RLM</th>
+      <th>RLM-EA</th>
+      <th>RLM-EO</th>
+      <th>RAN</th>
+      <th>RAN-EA</th>
+      <th>RAN-EO</th>
+      <th>EXP</th>
+      <th>EXP-EA</th>
+      <th>EXP-EO</th>
+      <th>FOOOF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>OLS</th>
+      <td>1.000000</td>
+      <td>0.643093</td>
+      <td>0.210546</td>
+      <td>0.918442</td>
+      <td>0.572122</td>
+      <td>0.175599</td>
+      <td>0.644432</td>
+      <td>-0.108848</td>
+      <td>0.080234</td>
+      <td>1.000000</td>
+      <td>0.643093</td>
+      <td>0.210546</td>
+      <td>0.436796</td>
+    </tr>
+    <tr>
+      <th>OLS-EA</th>
+      <td>0.643093</td>
+      <td>1.000000</td>
+      <td>0.263324</td>
+      <td>0.602124</td>
+      <td>0.888575</td>
+      <td>0.262357</td>
+      <td>0.573546</td>
+      <td>-0.050512</td>
+      <td>0.083468</td>
+      <td>0.643093</td>
+      <td>1.000000</td>
+      <td>0.263324</td>
+      <td>0.403284</td>
+    </tr>
+    <tr>
+      <th>OLS-EO</th>
+      <td>0.210546</td>
+      <td>0.263324</td>
+      <td>1.000000</td>
+      <td>0.297150</td>
+      <td>0.488060</td>
+      <td>0.981551</td>
+      <td>0.542989</td>
+      <td>-0.078459</td>
+      <td>0.530920</td>
+      <td>0.210546</td>
+      <td>0.263324</td>
+      <td>1.000000</td>
+      <td>0.749639</td>
+    </tr>
+    <tr>
+      <th>RLM</th>
+      <td>0.918442</td>
+      <td>0.602124</td>
+      <td>0.297150</td>
+      <td>1.000000</td>
+      <td>0.610150</td>
+      <td>0.272509</td>
+      <td>0.799291</td>
+      <td>-0.117162</td>
+      <td>0.112791</td>
+      <td>0.918442</td>
+      <td>0.602124</td>
+      <td>0.297150</td>
+      <td>0.527146</td>
+    </tr>
+    <tr>
+      <th>RLM-EA</th>
+      <td>0.572122</td>
+      <td>0.888575</td>
+      <td>0.488060</td>
+      <td>0.610150</td>
+      <td>1.000000</td>
+      <td>0.492970</td>
+      <td>0.718926</td>
+      <td>-0.067759</td>
+      <td>0.222590</td>
+      <td>0.572122</td>
+      <td>0.888575</td>
+      <td>0.488060</td>
+      <td>0.573173</td>
+    </tr>
+    <tr>
+      <th>RLM-EO</th>
+      <td>0.175599</td>
+      <td>0.262357</td>
+      <td>0.981551</td>
+      <td>0.272509</td>
+      <td>0.492970</td>
+      <td>1.000000</td>
+      <td>0.535027</td>
+      <td>-0.080089</td>
+      <td>0.523772</td>
+      <td>0.175599</td>
+      <td>0.262357</td>
+      <td>0.981551</td>
+      <td>0.710450</td>
+    </tr>
+    <tr>
+      <th>RAN</th>
+      <td>0.644432</td>
+      <td>0.573546</td>
+      <td>0.542989</td>
+      <td>0.799291</td>
+      <td>0.718926</td>
+      <td>0.535027</td>
+      <td>1.000000</td>
+      <td>-0.066922</td>
+      <td>0.254887</td>
+      <td>0.644432</td>
+      <td>0.573546</td>
+      <td>0.542989</td>
+      <td>0.731605</td>
+    </tr>
+    <tr>
+      <th>RAN-EA</th>
+      <td>-0.108848</td>
+      <td>-0.050512</td>
+      <td>-0.078459</td>
+      <td>-0.117162</td>
+      <td>-0.067759</td>
+      <td>-0.080089</td>
+      <td>-0.066922</td>
+      <td>1.000000</td>
+      <td>-0.155701</td>
+      <td>-0.108848</td>
+      <td>-0.050512</td>
+      <td>-0.078459</td>
+      <td>0.030796</td>
+    </tr>
+    <tr>
+      <th>RAN-EO</th>
+      <td>0.080234</td>
+      <td>0.083468</td>
+      <td>0.530920</td>
+      <td>0.112791</td>
+      <td>0.222590</td>
+      <td>0.523772</td>
+      <td>0.254887</td>
+      <td>-0.155701</td>
+      <td>1.000000</td>
+      <td>0.080234</td>
+      <td>0.083468</td>
+      <td>0.530920</td>
+      <td>0.307172</td>
+    </tr>
+    <tr>
+      <th>EXP</th>
+      <td>1.000000</td>
+      <td>0.643093</td>
+      <td>0.210546</td>
+      <td>0.918442</td>
+      <td>0.572122</td>
+      <td>0.175599</td>
+      <td>0.644432</td>
+      <td>-0.108848</td>
+      <td>0.080234</td>
+      <td>1.000000</td>
+      <td>0.643093</td>
+      <td>0.210546</td>
+      <td>0.436796</td>
+    </tr>
+    <tr>
+      <th>EXP-EA</th>
+      <td>0.643093</td>
+      <td>1.000000</td>
+      <td>0.263324</td>
+      <td>0.602124</td>
+      <td>0.888575</td>
+      <td>0.262357</td>
+      <td>0.573546</td>
+      <td>-0.050512</td>
+      <td>0.083468</td>
+      <td>0.643093</td>
+      <td>1.000000</td>
+      <td>0.263324</td>
+      <td>0.403284</td>
+    </tr>
+    <tr>
+      <th>EXP-EO</th>
+      <td>0.210546</td>
+      <td>0.263324</td>
+      <td>1.000000</td>
+      <td>0.297150</td>
+      <td>0.488060</td>
+      <td>0.981551</td>
+      <td>0.542989</td>
+      <td>-0.078459</td>
+      <td>0.530920</td>
+      <td>0.210546</td>
+      <td>0.263324</td>
+      <td>1.000000</td>
+      <td>0.749639</td>
+    </tr>
+    <tr>
+      <th>FOOOF</th>
+      <td>0.436796</td>
+      <td>0.403284</td>
+      <td>0.749639</td>
+      <td>0.527146</td>
+      <td>0.573173</td>
+      <td>0.710450</td>
+      <td>0.731605</td>
+      <td>0.030796</td>
+      <td>0.307172</td>
+      <td>0.436796</td>
+      <td>0.403284</td>
+      <td>0.749639</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot data distributions and inter-relations</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-FittingSimSpectra_28_0.png" src="../_images/02-FittingSimSpectra_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply a normal test across fit-error distributions</span>
+<span class="n">normalities</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">normaltest</span><span class="p">)</span>
+
+<span class="c1"># Check which results of normal test</span>
+<span class="n">nt_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">normalities</span><span class="o">.</span><span class="n">values</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">normalities</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">nt_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">color_red_or_green</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row0_col0 {
+            color:  red;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row1_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row2_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row3_col0 {
+            color:  red;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row4_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row5_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row6_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row7_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row8_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row9_col0 {
+            color:  red;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row10_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row11_col0 {
+            color:  green;
+        }    #T_19839f12_d482_11ea_8fd2_dca90476eaa9row12_col0 {
+            color:  red;
+        }</style><table id="T_19839f12_d482_11ea_8fd2_dca90476eaa9" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >0</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row0" class="row_heading level0 row0" >OLS</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row0_col0" class="data row0 col0" >0.016168</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row1" class="row_heading level0 row1" >OLS-EA</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row1_col0" class="data row1 col0" >0.000001</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row2" class="row_heading level0 row2" >OLS-EO</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row2_col0" class="data row2 col0" >0.000001</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row3" class="row_heading level0 row3" >RLM</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row3_col0" class="data row3 col0" >0.001976</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row4" class="row_heading level0 row4" >RLM-EA</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row4_col0" class="data row4 col0" >0.000000</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row5" class="row_heading level0 row5" >RLM-EO</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row5_col0" class="data row5 col0" >0.000001</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row6" class="row_heading level0 row6" >RAN</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row6_col0" class="data row6 col0" >0.000000</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row7" class="row_heading level0 row7" >RAN-EA</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row7_col0" class="data row7 col0" >0.000000</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row8" class="row_heading level0 row8" >RAN-EO</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row8_col0" class="data row8 col0" >0.000000</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row9" class="row_heading level0 row9" >EXP</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row9_col0" class="data row9 col0" >0.016168</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row10" class="row_heading level0 row10" >EXP-EA</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row10_col0" class="data row10 col0" >0.000001</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row11" class="row_heading level0 row11" >EXP-EO</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row11_col0" class="data row11 col0" >0.000001</td>
+            </tr>
+            <tr>
+                        <th id="T_19839f12_d482_11ea_8fd2_dca90476eaa9level0_row12" class="row_heading level0 row12" >FOOOF</th>
+                        <td id="T_19839f12_d482_11ea_8fd2_dca90476eaa9row12_col0" class="data row12 col0" >0.002250</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save out simulated fit data to pickle</span>
+<span class="n">save_pickle</span><span class="p">(</span><span class="n">sims</span><span class="o">.</span><span class="n">errs</span><span class="p">,</span> <span class="s1">&#39;SimFits_test.p&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">sims_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check available simulated fit results files</span>
+<span class="n">sim_files</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">check_files</span><span class="p">(</span><span class="s1">&#39;sims&#39;</span><span class="p">)</span>
+<span class="n">f_ind</span> <span class="o">=</span> <span class="n">sim_files</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;SimFits_test.p&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load simulated fit results data from pickle file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="n">sim_files</span><span class="p">[</span><span class="n">f_ind</span><span class="p">],</span> <span class="n">db</span><span class="o">.</span><span class="n">sims_path</span><span class="p">)</span>
+<span class="n">sim_dat</span> <span class="o">=</span> <span class="n">SimFits</span><span class="p">()</span>
+<span class="n">sim_dat</span><span class="o">.</span><span class="n">errs</span> <span class="o">=</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01-SpectralFitting.html" title="previous page">Spectral Fitting Methods</a>
+    <a class='right-next' id="next-link" href="03-CompareSpectralFits.html" title="next page">Compare Spectral Fitting</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

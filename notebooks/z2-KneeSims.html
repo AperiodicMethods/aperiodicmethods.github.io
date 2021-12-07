@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulating Knee Time Series &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-SpectralFitting.html">
+   Spectral Fitting Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-FittingSimSpectra.html">
+   Running Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-CompareSpectralFits.html">
+   Compare Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DFA.html">
+   Detrended Fluctuation Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Hurst.html">
+   Hurst Exponent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Information.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/z2-KneeSims.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/z2-KneeSims.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simulating-knee-time-series">
+<h1>Simulating Knee Time Series<a class="headerlink" href="#simulating-knee-time-series" title="Permalink to this headline">¶</a></h1>
+<p>Expected exponent of the simulation:</p>
+<ul class="simple">
+<li><p>Should always be 2 for single exponential (at the limit)</p>
+<ul>
+<li><p>Depends  on the tau’s for how quick it reaches this limit (quicker for faster Tau’s)</p></li>
+</ul>
+</li>
+<li><p>Should always be 4 for double exponential (at the limit)</p>
+<ul>
+<li><p>Is some room for moving between 2 and 4, but not clear how (not an analytic solution)</p></li>
+</ul>
+</li>
+</ul>
+<p>Expected knee of the simulation:</p>
+<ul class="simple">
+<li><p>The frequency of the knee is <code class="docutils literal notranslate"><span class="pre">f_k</span> <span class="pre">=</span> <span class="pre">(2</span> <span class="pre">*</span> <span class="pre">pi</span> <span class="pre">*</span> <span class="pre">T_d)^2</span></code> (for single exponential)</p>
+<ul>
+<li><p>Note: what FOOOF returns is <code class="docutils literal notranslate"><span class="pre">k</span></code>, where <code class="docutils literal notranslate"><span class="pre">f_k</span> <span class="pre">=</span> <span class="pre">k^2</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Solution for knee (single exponential):</p>
+<ul class="simple">
+<li><p>Tau_d = 1/2*pi * sqrt(1/k)</p></li>
+<li><p>(2<em>pi</em>Tau)^2 = 1/k</p></li>
+<li><p>k = 4 * pi^2 * Tau^2</p></li>
+<li><p>k = 2 * pi * tau</p></li>
+</ul>
+<p>Where:</p>
+<ul class="simple">
+<li><p>f_k = k^2</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">neurodsp</span> <span class="kn">import</span> <span class="n">sim</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
+<span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOF</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_seconds</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tau_r</span><span class="p">,</span> <span class="n">tau_d</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.01</span>  <span class="c1"># Default values</span>
+
+<span class="c1">#tau_r, tau_d = 0., 0.01</span>
+<span class="c1">#tau_r, tau_d = 0., 0.05</span>
+<span class="c1">#tau_r, tau_d = 0.1, 0.1</span>
+<span class="c1">#tau_r, tau_d = 0.01, 0.02</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solve for k</span>
+<span class="n">k_val</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">tau_d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;K   : </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k_val</span><span class="p">))</span>
+
+<span class="c1"># Solve for f_k</span>
+<span class="n">f_k</span> <span class="o">=</span> <span class="n">k_val</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;f_k : </span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f_k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K   : 	 15.9155
+f_k : 	 253.3030
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">sim_synaptic_current</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">tau_r</span><span class="o">=</span><span class="n">tau_r</span><span class="p">,</span> <span class="n">tau_d</span><span class="o">=</span><span class="n">tau_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fm</span> <span class="o">=</span> <span class="n">FOOOF</span><span class="p">(</span><span class="n">max_n_peaks</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aperiodic_mode</span><span class="o">=</span><span class="s1">&#39;knee&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fm</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="o">*</span><span class="n">compute_spectrum</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">250</span><span class="p">],</span> <span class="n">plt_log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================================================================
+                                                                                                  
+                                   FOOOF - POWER SPECTRUM MODEL                                   
+                                                                                                  
+                       The model was run on the frequency range 2 - 250 Hz                        
+                                 Frequency Resolution is 1.00 Hz                                  
+                                                                                                  
+                         Aperiodic Parameters (offset, knee, exponent):                           
+                                     0.6761, 105.7441, 1.8392                                     
+                                                                                                  
+                                       0 peaks were found:                                        
+                                                                                                  
+                                     Goodness of fit metrics:                                     
+                                    R^2 of model fit is 0.9567                                    
+                                    Error of the fit is 0.1015                                    
+                                                                                                  
+==================================================================================================
+</pre></div>
+</div>
+<img alt="../_images/z2-KneeSims_7_1.png" src="../_images/z2-KneeSims_7_1.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

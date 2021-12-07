@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulations &#8212; Aperiodic  Methods</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/notebooks/00-Simulations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/notebooks/00-Simulations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Simulations
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#settings">
+     Settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-simulations">
+   Time Series Simulations
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powerlaw-signal">
+     Powerlaw Signal
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powerlaw-signal-with-a-knee">
+     Powerlaw Signal with a Knee
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuous-oscillation">
+     Continuous Oscillation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bursty-oscillation">
+     Bursty Oscillation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-spectrum-of-simulated-time-series">
+     Power Spectrum of Simulated Time Series
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power-spectrum-simulations">
+   Power Spectrum Simulations
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-peak-fixed-mode">
+     Single Peak &amp; Fixed Mode
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-peak-knee-mode">
+     Multi-Peak &amp; Knee Mode
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fooof-demo">
+     FOOOF Demo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulating-power-law-signals-through-spectral-rotation">
+     Simulating Power Law Signals through Spectral Rotation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simulations">
+<h1>Simulations<a class="headerlink" href="#simulations" title="Permalink to this headline">¶</a></h1>
+<p>This notebook introduces the simulations used in this project.</p>
+<p>It also creates some example simulation figures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOF</span>
+<span class="kn">from</span> <span class="nn">fooof.sim</span> <span class="kn">import</span> <span class="n">gen_power_spectrum</span>
+
+<span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_combined</span>
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">create_times</span><span class="p">,</span> <span class="n">set_random_seed</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span><span class="p">,</span> <span class="n">rotate_powerlaw</span>
+<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+<span class="kn">from</span> <span class="nn">apm.core.db</span> <span class="kn">import</span> <span class="n">APMDB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set random seed</span>
+<span class="n">set_random_seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulation Settings</span>
+<span class="n">n_seconds</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="n">default_exp</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.5</span>
+<span class="n">default_freq</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">comps_osc</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sim_powerlaw&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;exponent&#39;</span> <span class="p">:</span> <span class="n">default_exp</span><span class="p">},</span>
+             <span class="s1">&#39;sim_oscillation&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;freq&#39;</span> <span class="p">:</span> <span class="n">default_freq</span><span class="p">}}</span>
+
+<span class="n">comps_burst</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sim_powerlaw&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;exponent&#39;</span> <span class="p">:</span> <span class="n">default_exp</span><span class="p">},</span>
+               <span class="s1">&#39;sim_bursty_oscillation&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;freq&#39;</span> <span class="p">:</span> <span class="n">default_freq</span><span class="p">}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a times vector for time series</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">create_times</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot settings</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xlabel&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;ylabel&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
+<span class="n">tskwargs</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">labels</span><span class="p">,</span> <span class="s1">&#39;xlim&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">EXT</span> <span class="o">=</span> <span class="s1">&#39;.pdf&#39;</span>
+<span class="n">FP</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">+</span> <span class="s1">&#39;/sims/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-series-simulations">
+<h1>Time Series Simulations<a class="headerlink" href="#time-series-simulations" title="Permalink to this headline">¶</a></h1>
+<p>Time series are simulated using <a class="reference external" href="https://neurodsp-tools.github.io/">NeuroDSP</a>.</p>
+<div class="section" id="powerlaw-signal">
+<h2>Powerlaw Signal<a class="headerlink" href="#powerlaw-signal" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_pow</span> <span class="o">=</span> <span class="n">sim_powerlaw</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">default_exp</span><span class="p">,</span> <span class="n">f_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">sig_pow</span><span class="p">,</span> <span class="o">**</span><span class="n">tskwargs</span><span class="p">,</span> 
+                 <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ts_powerlaw&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_13_0.png" src="../../_images/00-Simulations_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="powerlaw-signal-with-a-knee">
+<h2>Powerlaw Signal with a Knee<a class="headerlink" href="#powerlaw-signal-with-a-knee" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_kn</span> <span class="o">=</span> <span class="n">sim_synaptic_current</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">sig_kn</span><span class="p">,</span> <span class="o">**</span><span class="n">tskwargs</span><span class="p">,</span> 
+                 <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ts_knee&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_16_0.png" src="../../_images/00-Simulations_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="continuous-oscillation">
+<h2>Continuous Oscillation<a class="headerlink" href="#continuous-oscillation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_osc</span> <span class="o">=</span> <span class="n">sim_combined</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">comps_osc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">sig_osc</span><span class="p">,</span> <span class="o">**</span><span class="n">tskwargs</span><span class="p">,</span> 
+                 <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ts_comb&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_19_0.png" src="../../_images/00-Simulations_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bursty-oscillation">
+<h2>Bursty Oscillation<a class="headerlink" href="#bursty-oscillation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig_bu</span> <span class="o">=</span> <span class="n">sim_combined</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">comps_burst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">sig_bu</span><span class="p">,</span> <span class="o">**</span><span class="n">tskwargs</span><span class="p">,</span> 
+                 <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ts_burst&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_22_0.png" src="../../_images/00-Simulations_22_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="power-spectrum-of-simulated-time-series">
+<h2>Power Spectrum of Simulated Time Series<a class="headerlink" href="#power-spectrum-of-simulated-time-series" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the power spectrum of a simulated time series</span>
+<span class="n">sig_freqs</span><span class="p">,</span> <span class="n">sig_powers</span> <span class="o">=</span> <span class="n">compute_spectrum</span><span class="p">(</span><span class="n">sig_osc</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the power spectrum of the simulated time series</span>
+<span class="n">plot_power_spectra</span><span class="p">(</span><span class="n">sig_freqs</span><span class="p">,</span> <span class="n">sig_powers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_25_0.png" src="../../_images/00-Simulations_25_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="power-spectrum-simulations">
+<h1>Power Spectrum Simulations<a class="headerlink" href="#power-spectrum-simulations" title="Permalink to this headline">¶</a></h1>
+<p>Power spectra are simulated using <a class="reference external" href="https://fooof-tools.github.io/">FOOOF</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">custom_psd_style</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Define custom styling for the PSD plots.&quot;&quot;&quot;</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([],</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([],</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="single-peak-fixed-mode">
+<h2>Single Peak &amp; Fixed Mode<a class="headerlink" href="#single-peak-fixed-mode" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">gen_power_spectrum</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">nlv</span><span class="o">=</span><span class="mf">0.025</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_power_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Power&#39;</span><span class="p">,</span> <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style</span><span class="p">,</span>
+                   <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;psd_fixed&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_30_0.png" src="../../_images/00-Simulations_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="multi-peak-knee-mode">
+<h2>Multi-Peak &amp; Knee Mode<a class="headerlink" href="#multi-peak-knee-mode" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">gen_power_spectrum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">nlv</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_power_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style</span><span class="p">,</span>
+                   <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;psd_knee&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_33_0.png" src="../../_images/00-Simulations_33_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="fooof-demo">
+<h2>FOOOF Demo<a class="headerlink" href="#fooof-demo" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://fooof-tools.github.io/">FOOOF</a> is a tool for parameterizing neural power spectra.</p>
+<p>Here we will briefly demonstrate applying FOOOF to an example spectrum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize a FOOOF model</span>
+<span class="n">fm</span> <span class="o">=</span> <span class="n">FOOOF</span><span class="p">(</span><span class="n">peak_width_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="n">min_peak_height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit and plot the FOOOF model</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">sig_freqs</span><span class="p">,</span> <span class="n">sig_powers</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plt_log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Aesthetic Tweaks</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_lines</span><span class="p">():</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FP</span> <span class="o">+</span> <span class="s1">&#39;FOOOF_example&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_36_0.png" src="../../_images/00-Simulations_36_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the model fit values</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">print_results</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================================================================
+                                                                                                  
+                                   FOOOF - POWER SPECTRUM MODEL                                   
+                                                                                                  
+                       The model was run on the frequency range 2 - 100 Hz                        
+                                 Frequency Resolution is 2.00 Hz                                  
+                                                                                                  
+                            Aperiodic Parameters (offset, exponent):                              
+                                         -0.8379, 1.6930                                          
+                                                                                                  
+                                       3 peaks were found:                                        
+                                CF:  10.52, PW:  1.792, BW:  3.87                                 
+                                CF:  70.43, PW:  0.587, BW:  8.00                                 
+                                CF:  93.05, PW:  0.615, BW:  4.67                                 
+                                                                                                  
+                                     Goodness of fit metrics:                                     
+                                    R^2 of model fit is 0.9559                                    
+                                    Error of the fit is 0.1406                                    
+                                                                                                  
+==================================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulating-power-law-signals-through-spectral-rotation">
+<h2>Simulating Power Law Signals through Spectral Rotation<a class="headerlink" href="#simulating-power-law-signals-through-spectral-rotation" title="Permalink to this headline">¶</a></h2>
+<p>The aperiodic components of the above time series simulations are created by spectrally rotating white noise.</p>
+<p>This section demonstrates how those simulations work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate a white noise signal</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">sim_powerlaw</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">exponent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="o">**</span><span class="n">tskwargs</span><span class="p">,</span> 
+                 <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;rot_ts_pre&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_40_0.png" src="../../_images/00-Simulations_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the power spectrum of the signal</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">pows</span> <span class="o">=</span> <span class="n">compute_spectrum</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the power spectrum of the white noise signal</span>
+<span class="n">plot_power_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">pows</span><span class="p">,</span> <span class="o">**</span><span class="n">labels</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> 
+                   <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;rot_psd_pre&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_42_0.png" src="../../_images/00-Simulations_42_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rotate the spectrum to desired aperiodic exponent</span>
+<span class="n">pows_rot</span> <span class="o">=</span> <span class="n">rotate_powerlaw</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">pows</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f_rotation</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the power spectrum of the rotated signal</span>
+<span class="n">plot_power_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">pows_rot</span><span class="p">,</span> <span class="o">**</span><span class="n">labels</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> 
+                   <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;rot_psd_post&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_44_0.png" src="../../_images/00-Simulations_44_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the rotated signal, back in the time domain</span>
+<span class="c1">#   Note: this step directly uses the NDSP function, which rotates a new signal behind the scenes</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">sim_powerlaw</span><span class="p">(</span><span class="n">n_seconds</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">exponent</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the time series of the rotated signal, with the desired aperiodic exponent</span>
+<span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="o">**</span><span class="n">tskwargs</span><span class="p">,</span> 
+                 <span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;rot_ts_post&#39;</span> <span class="o">+</span> <span class="n">EXT</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="n">FP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00-Simulations_46_0.png" src="../../_images/00-Simulations_46_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

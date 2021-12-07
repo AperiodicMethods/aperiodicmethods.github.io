@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spectral Fitting Methods &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Spectral Fitting" href="02-FittingSimSpectra.html" />
+    <link rel="prev" title="Simulations" href="00-Simulations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Spectral Fitting Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-FittingSimSpectra.html">
+   Running Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-CompareSpectralFits.html">
+   Compare Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-DFA.html">
+   Detrended Fluctuation Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Hurst.html">
+   Hurst Exponent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Information.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="A1-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/01-SpectralFitting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/01-SpectralFitting.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Spectral Fitting Methods
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-psd">
+     Example PSD
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-fooof-fit-of-data">
+     Check FOOOF Fit of Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-for-fitting-power-spectra">
+   Methods for Fitting Power Spectra
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-fits-in-log-log">
+     Linear Fits (in log-log)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ols-linear-fit">
+       OLS Linear Fit
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#robust-fit-with-rlm">
+       Robust Fit with RLM
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#robust-fit-with-ransac">
+       Robust Fit with RANSAC
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spectral-fitting-excluding-alpha">
+     Spectral Fitting Excluding Alpha
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-ols-linear-fit-exlucing-generic-alpha-band">
+       Simple OLS Linear Fit Exlucing Generic Alpha Band
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#robust-fit-with-rlm-excluding-generic-alpha-band">
+       Robust Fit with RLM Excluding Generic Alpha Band
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#robust-fit-with-ransac-excluding-generic-alpha-band">
+       Robust Fit with RANSAC Excluding Generic Alpha Band
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spectral-fit-excluding-oscillations">
+     Spectral Fit Excluding Oscillations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simple-linear-fit-excluding-oscillatory-bands">
+       Simple Linear Fit Excluding Oscillatory Bands
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#robust-fit-with-rlm-excluding-oscillatory-bands">
+       Robust Fit with RLM Excluding Oscillatory Bands
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#robust-fit-with-ransac-excluding-oscillatory-bands">
+       Robust Fit with RANSAC Excluding Oscillatory Bands
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponential-fits">
+     Exponential Fits
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exponential-fit">
+       Exponential Fit
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exponential-fit-excluding-alpha-region">
+       Exponential Fit Excluding Alpha Region
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exponential-fit-excluding-oscillation-regions">
+       Exponential Fit Excluding Oscillation Regions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-fits">
+   Compare Fits
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="spectral-fitting-methods">
+<h1>Spectral Fitting Methods<a class="headerlink" href="#spectral-fitting-methods" title="Permalink to this headline">¶</a></h1>
+<p>This notebook demonstrates spectral fitting methods for measuring the aperiodic exponent by directly fitting power spectra.</p>
+<p>The implementations of these methods are available in <code class="docutils literal notranslate"><span class="pre">apm/fit.py</span></code>.</p>
+<p>This notebook demonstrates each method. Subsequent notebooks do more formal comparison.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">RANSACRegressor</span>
+
+<span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOF</span>
+<span class="kn">from</span> <span class="nn">fooof.core.funcs</span> <span class="kn">import</span> <span class="n">expo_nk_function</span> <span class="k">as</span> <span class="n">expf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.plts.psd</span> <span class="kn">import</span> <span class="n">plot_psds</span><span class="p">,</span> <span class="n">plot_psds_shades</span>
+<span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">exclude_spectrum</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-psd">
+<h2>Example PSD<a class="headerlink" href="#example-psd" title="Permalink to this headline">¶</a></h2>
+<p>Load an example PSD, from eyes closed, resting state EEG data, extracted to the range of 3-40 Hz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load an example power spectrum to check fitting with</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;data/freqs.npy&#39;</span><span class="p">)</span>
+<span class="n">psd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;data/psd.npy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check a plot of the loaded power spectrum</span>
+<span class="n">plot_psds</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">psd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_5_0.png" src="../_images/01-SpectralFitting_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="check-fooof-fit-of-data">
+<h2>Check FOOOF Fit of Data<a class="headerlink" href="#check-fooof-fit-of-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize FOOOF model</span>
+<span class="n">fm</span> <span class="o">=</span> <span class="n">FOOOF</span><span class="p">(</span><span class="n">peak_width_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+<span class="c1"># Fit FOOOF model</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">psd</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+<span class="n">res_fooof</span> <span class="o">=</span> <span class="o">-</span><span class="n">fm</span><span class="o">.</span><span class="n">aperiodic_params_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================================================================
+                                                                                                  
+                                   FOOOF - POWER SPECTRUM MODEL                                   
+                                                                                                  
+                        The model was run on the frequency range 3 - 40 Hz                        
+                                 Frequency Resolution is 0.50 Hz                                  
+                                                                                                  
+                            Aperiodic Parameters (offset, exponent):                              
+                                          0.5498, 0.6997                                          
+                                                                                                  
+                                       2 peaks were found:                                        
+                                CF:  10.07, PW:  0.837, BW:  2.67                                 
+                                CF:  18.31, PW:  0.259, BW:  3.10                                 
+                                                                                                  
+                                     Goodness of fit metrics:                                     
+                                    R^2 of model fit is 0.9655                                    
+                                    Error of the fit is 0.0510                                    
+                                                                                                  
+==================================================================================================
+</pre></div>
+</div>
+<img alt="../_images/01-SpectralFitting_7_1.png" src="../_images/01-SpectralFitting_7_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="methods-for-fitting-power-spectra">
+<h1>Methods for Fitting Power Spectra<a class="headerlink" href="#methods-for-fitting-power-spectra" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we demonstrate a series of methods for fitting models to power spectra, including:</p>
+<ul class="simple">
+<li><p>Linear fits to power spectra in log-log spacing</p></li>
+<li><p>Robust linear fitting to power spectra in log-log spacing</p></li>
+<li><p>RANSAC linear fitting to power spectra in log-log spacing</p></li>
+<li><p>Exponential fits to power spectra in semi-log spacing</p></li>
+</ul>
+<p>All of the above are done in the following versions:</p>
+<ul class="simple">
+<li><p>Across the entire spectrum</p></li>
+<li><p>Using a predefined exclusion zone of the alpha oscillation (7-14 Hz)</p></li>
+<li><p>Using exclusing zones for all oscillatory peaks</p></li>
+</ul>
+<p>We also compare these approaches to a parameterizing neural power spectra (FOOOF).</p>
+<div class="section" id="linear-fits-in-log-log">
+<h2>Linear Fits (in log-log)<a class="headerlink" href="#linear-fits-in-log-log" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add constant for fitting with statsmodels</span>
+<span class="n">fx</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ols-linear-fit">
+<h3>OLS Linear Fit<a class="headerlink" href="#ols-linear-fit" title="Permalink to this headline">¶</a></h3>
+<p>Fit a line in log-log with Ordinary Least Squares (OLS).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Spectral fit: linear fit</span>
+<span class="n">fit_ols</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd</span><span class="p">),</span> <span class="n">fx</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res_ols</span> <span class="o">=</span> <span class="n">fit_ols</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">fit_ols</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the OLS linear fit</span>
+<span class="n">plot_psds</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_13_0.png" src="../_images/01-SpectralFitting_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robust-fit-with-rlm">
+<h3>Robust Fit with RLM<a class="headerlink" href="#robust-fit-with-rlm" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Spectral fit: robust linear fit to log-log PSD</span>
+<span class="n">fit_rlm</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RLM</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd</span><span class="p">),</span> <span class="n">fx</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res_rlm</span> <span class="o">=</span> <span class="n">fit_rlm</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">fit_rlm</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the robust linear fit</span>
+<span class="n">plot_psds</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_16_0.png" src="../_images/01-SpectralFitting_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robust-fit-with-ransac">
+<h3>Robust Fit with RANSAC<a class="headerlink" href="#robust-fit-with-ransac" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape freqs for RANSAC fit</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">freqs</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize and fit with RANSAC</span>
+<span class="n">ransac_model</span> <span class="o">=</span> <span class="n">RANSACRegressor</span><span class="p">()</span>
+<span class="n">ransac_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd</span><span class="p">))</span>
+<span class="n">res_ran</span> <span class="o">=</span> <span class="n">ransac_model</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">ransac_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from RANSAC</span>
+<span class="n">plot_psds</span><span class="p">(</span><span class="n">freqs</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_20_0.png" src="../_images/01-SpectralFitting_20_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spectral-fitting-excluding-alpha">
+<h2>Spectral Fitting Excluding Alpha<a class="headerlink" href="#spectral-fitting-excluding-alpha" title="Permalink to this headline">¶</a></h2>
+<p>Use a specific exclusion zone for the alpha oscillation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exclude predefined alpha range</span>
+<span class="n">freqs_alph</span><span class="p">,</span> <span class="n">psd_alph</span> <span class="o">=</span> <span class="n">exclude_spectrum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">freqs</span><span class="p">),</span> <span class="n">psd</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">])</span><span class="c1">#, False)</span>
+
+<span class="c1"># Reset freqs, with constant</span>
+<span class="n">fx_alph</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs_alph</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-ols-linear-fit-exlucing-generic-alpha-band">
+<h3>Simple OLS Linear Fit Exlucing Generic Alpha Band<a class="headerlink" href="#simple-ols-linear-fit-exlucing-generic-alpha-band" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linear fit without alpha range</span>
+<span class="n">fit_ols_alph</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_alph</span><span class="p">),</span> <span class="n">fx_alph</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res_ols_alph</span> <span class="o">=</span> <span class="n">fit_ols_alph</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">fit_ols_alph</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from an OLS linear fit with an alpha exclusion zone</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_alph</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_25_0.png" src="../_images/01-SpectralFitting_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robust-fit-with-rlm-excluding-generic-alpha-band">
+<h3>Robust Fit with RLM Excluding Generic Alpha Band<a class="headerlink" href="#robust-fit-with-rlm-excluding-generic-alpha-band" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Robust fit without alpha range</span>
+<span class="n">fit_rlm_alph</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RLM</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_alph</span><span class="p">),</span> <span class="n">fx_alph</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res_rlm_alph</span> <span class="o">=</span> <span class="n">fit_rlm_alph</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">fit_rlm_alph</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the robust linear fit with an alpha exclusion zone</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_alph</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_28_0.png" src="../_images/01-SpectralFitting_28_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robust-fit-with-ransac-excluding-generic-alpha-band">
+<h3>Robust Fit with RANSAC Excluding Generic Alpha Band<a class="headerlink" href="#robust-fit-with-ransac-excluding-generic-alpha-band" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit alpha-exclusion with RANSAC</span>
+<span class="n">ransac_model_alph</span> <span class="o">=</span> <span class="n">RANSACRegressor</span><span class="p">()</span>
+<span class="n">ransac_model_alph</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs_alph</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_alph</span><span class="p">))</span>
+<span class="n">res_ran_alph</span> <span class="o">=</span> <span class="n">ransac_model_alph</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">ransac_model_alph</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs_alph</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the RANSAC fit with alpha exclusion zone</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_alph</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_31_0.png" src="../_images/01-SpectralFitting_31_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spectral-fit-excluding-oscillations">
+<h2>Spectral Fit Excluding Oscillations<a class="headerlink" href="#spectral-fit-excluding-oscillations" title="Permalink to this headline">¶</a></h2>
+<p>Use a exclusion zones for oscillations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get oscillation definitions from FOOOF</span>
+<span class="n">cens</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">gaussian_params_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">bws</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">gaussian_params_</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Define oscillation ranges, as a range around each center frequency</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">osc_ranges</span> <span class="o">=</span> <span class="p">[[</span><span class="n">cen</span><span class="o">-</span><span class="n">m</span><span class="o">*</span><span class="n">bw</span><span class="p">,</span> <span class="n">cen</span><span class="o">+</span><span class="n">m</span><span class="o">*</span><span class="n">bw</span><span class="p">]</span> <span class="k">for</span> <span class="n">cen</span><span class="p">,</span> <span class="n">bw</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cens</span><span class="p">,</span> <span class="n">bws</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot PSD with oscillatory regions shaded</span>
+<span class="n">plot_psds_shades</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">psd</span><span class="p">,</span> <span class="n">osc_ranges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_34_0.png" src="../_images/01-SpectralFitting_34_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exclude oscillation bands, as measured from FOOOF</span>
+<span class="n">psd_excl</span> <span class="o">=</span> <span class="n">psd</span>
+<span class="n">freqs_excl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">cen</span><span class="p">,</span> <span class="n">bw</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cens</span><span class="p">,</span> <span class="n">bws</span><span class="p">):</span>
+    <span class="n">freqs_excl</span><span class="p">,</span> <span class="n">psd_excl</span> <span class="o">=</span> <span class="n">exclude_spectrum</span><span class="p">(</span><span class="n">freqs_excl</span><span class="p">,</span> <span class="n">psd_excl</span><span class="p">,</span> <span class="p">[</span><span class="n">cen</span><span class="o">-</span><span class="n">m</span><span class="o">*</span><span class="n">bw</span><span class="p">,</span> <span class="n">cen</span><span class="o">+</span><span class="n">m</span><span class="o">*</span><span class="n">bw</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a frequency vector with exlcusion zones for model fitting</span>
+<span class="n">fx_excl</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs_excl</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-linear-fit-excluding-oscillatory-bands">
+<h3>Simple Linear Fit Excluding Oscillatory Bands<a class="headerlink" href="#simple-linear-fit-excluding-oscillatory-bands" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linear fit without alpha range</span>
+<span class="n">fit_ols_excl</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_excl</span><span class="p">),</span> <span class="n">fx_excl</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res_ols_excl</span> <span class="o">=</span> <span class="n">fit_ols_excl</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">fit_ols_excl</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the OLS linear fit with oscillation exclusion zones</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_excl</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_39_0.png" src="../_images/01-SpectralFitting_39_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robust-fit-with-rlm-excluding-oscillatory-bands">
+<h3>Robust Fit with RLM Excluding Oscillatory Bands<a class="headerlink" href="#robust-fit-with-rlm-excluding-oscillatory-bands" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Robust fit without oscillation bands</span>
+<span class="n">fit_rlm_excl</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RLM</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_excl</span><span class="p">),</span> <span class="n">fx_excl</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res_rlm_excl</span> <span class="o">=</span> <span class="n">fit_rlm_excl</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">fit_rlm_excl</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the robust linear fit with oscillation exclusion zones</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_excl</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_42_0.png" src="../_images/01-SpectralFitting_42_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robust-fit-with-ransac-excluding-oscillatory-bands">
+<h3>Robust Fit with RANSAC Excluding Oscillatory Bands<a class="headerlink" href="#robust-fit-with-ransac-excluding-oscillatory-bands" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit alpha-exclusion with RANSAC</span>
+<span class="n">ransac_model_excl</span> <span class="o">=</span> <span class="n">RANSACRegressor</span><span class="p">()</span>
+<span class="n">ransac_model_excl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs_excl</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_excl</span><span class="p">))</span>
+<span class="n">res_ran_excl</span> <span class="o">=</span> <span class="n">ransac_model_excl</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">ransac_model_excl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freqs_excl</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the RANSAC fit with oscillation exclusion zones</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_excl</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_45_0.png" src="../_images/01-SpectralFitting_45_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exponential-fits">
+<h2>Exponential Fits<a class="headerlink" href="#exponential-fits" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exponential-fit">
+<h3>Exponential Fit<a class="headerlink" href="#exponential-fit" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit exponential 1/f, with scipy curve_fit</span>
+<span class="n">fit_exp</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">expf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">freqs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd</span><span class="p">)),</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">res_exp</span> <span class="o">=</span> <span class="o">-</span><span class="n">fit_exp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">expf</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_exp</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the exponential fit</span>
+<span class="n">plot_psds</span><span class="p">(</span><span class="n">freqs</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_49_0.png" src="../_images/01-SpectralFitting_49_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exponential-fit-excluding-alpha-region">
+<h3>Exponential Fit Excluding Alpha Region<a class="headerlink" href="#exponential-fit-excluding-alpha-region" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit exponential 1/f, with scipy curve_fit, excluding alpha range</span>
+<span class="n">fit_exp_alph</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">expf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">freqs_alph</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_alph</span><span class="p">)),</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">res_exp_alph</span> <span class="o">=</span> <span class="o">-</span><span class="n">fit_exp_alph</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">expf</span><span class="p">(</span><span class="n">freqs_alph</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_exp_alph</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the exponential fit, with an alpha exclusion zone</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_alph</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_52_0.png" src="../_images/01-SpectralFitting_52_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exponential-fit-excluding-oscillation-regions">
+<h3>Exponential Fit Excluding Oscillation Regions<a class="headerlink" href="#exponential-fit-excluding-oscillation-regions" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit exponential 1/f, with scipy curve_fit, excluding oscillatory regions</span>
+<span class="n">fit_exp_excl</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">expf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">freqs_excl</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">psd_excl</span><span class="p">)),</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">res_exp_excl</span> <span class="o">=</span> <span class="o">-</span><span class="n">fit_exp_excl</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Get the predicted values of the aperiodic fit</span>
+<span class="n">pred_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">expf</span><span class="p">(</span><span class="n">freqs_excl</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_exp_excl</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the aperiodic fit, from the exponential fit with oscillation exclusion zones</span>
+<span class="n">plot_psds</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_excl</span><span class="p">],</span> <span class="p">[</span><span class="n">psd</span><span class="p">,</span> <span class="n">pred_vals</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01-SpectralFitting_55_0.png" src="../_images/01-SpectralFitting_55_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-fits">
+<h1>Compare Fits<a class="headerlink" href="#compare-fits" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out results across all the different approaches</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FIT RESULTS </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;OLS: </span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_ols</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;OLS-Exclude Alpha: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_ols_alph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;OLS-Exclude Oscs: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_ols_alph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLM: </span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_rlm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLM-Exclude Alpha:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_rlm_alph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RLM-Exclude Oscs:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_rlm_excl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RANSAC:</span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_ran</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RANSAC-Exclude Alpha:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_ran_alph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RANSAC-Exclude Oscs:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_ran_excl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EXP: </span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_exp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EXP-Exclude Alpha:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_exp_alph</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;EXP-Exclude Oscs:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_exp_excl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FOOOF:</span><span class="se">\t\t\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">res_fooof</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIT RESULTS 
+
+OLS: 			 -0.9330609141859383
+OLS-Exclude Alpha: 	 -0.7264636275508256
+OLS-Exclude Oscs: 	 -0.7264636275508256
+RLM: 			 -0.8133822433582691
+RLM-Exclude Alpha:	 -0.7228972545346242
+RLM-Exclude Oscs:	 -0.7087758083697184
+RANSAC:			 -1.0049165457841793
+RANSAC-Exclude Alpha:	 -0.7318665585523426
+RANSAC-Exclude Oscs:	 -0.6351471546341374
+EXP: 			 -0.9330609131352398
+EXP-Exclude Alpha:	 -0.7264636284120363
+EXP-Exclude Oscs:	 -0.7099949804395156
+FOOOF:			 -0.6997273714523616
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Order fits by magnitude</span>
+<span class="n">all_res_fits</span> <span class="o">=</span> <span class="p">[(</span><span class="n">res_ols</span><span class="p">,</span> <span class="s1">&#39;OLS&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_ols_alph</span><span class="p">,</span> <span class="s1">&#39;OLS-EA&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_ols_excl</span><span class="p">,</span> <span class="s1">&#39;OLS-EO&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">res_rlm</span><span class="p">,</span> <span class="s1">&#39;RLM&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_rlm_alph</span><span class="p">,</span> <span class="s1">&#39;RLM-EA&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_rlm_excl</span><span class="p">,</span> <span class="s1">&#39;RLM-EO&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">res_ran</span><span class="p">,</span> <span class="s1">&#39;RAN&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_ran_alph</span><span class="p">,</span> <span class="s1">&#39;RAN-EA&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_ran_excl</span><span class="p">,</span> <span class="s1">&#39;RAN-EO&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">res_exp</span><span class="p">,</span> <span class="s1">&#39;EXP&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_exp_alph</span><span class="p">,</span> <span class="s1">&#39;EXP-EA&#39;</span><span class="p">),</span> <span class="p">(</span><span class="n">res_exp_excl</span><span class="p">,</span> <span class="s1">&#39;EXP-EO&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">res_fooof</span><span class="p">,</span> <span class="s1">&#39;FOOOF&#39;</span><span class="p">)]</span>
+
+<span class="n">all_res_fits</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">all_res_fits</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+<span class="c1"># Print out in order of fit magnitude</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FIT RESULTS (SORTED):&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">fit</span> <span class="ow">in</span> <span class="n">all_res_fits</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> </span><span class="si">{:1.5f}</span><span class="s1"> </span><span class="se">\t</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">fit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FIT RESULTS (SORTED):
+	 -0.63515 	 RAN-EO
+	 -0.69973 	 FOOOF
+	 -0.70878 	 RLM-EO
+	 -0.70999 	 OLS-EO
+	 -0.70999 	 EXP-EO
+	 -0.72290 	 RLM-EA
+	 -0.72646 	 OLS-EA
+	 -0.72646 	 EXP-EA
+	 -0.73187 	 RAN-EA
+	 -0.81338 	 RLM
+	 -0.93306 	 EXP
+	 -0.93306 	 OLS
+	 -1.00492 	 RAN
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="00-Simulations.html" title="previous page">Simulations</a>
+    <a class='right-next' id="next-link" href="02-FittingSimSpectra.html" title="next page">Running Spectral Fitting</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
