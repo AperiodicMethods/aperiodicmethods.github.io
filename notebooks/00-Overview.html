@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Literature Search" href="01-LiteratureSearch.html" />
+    <link rel="prev" title="Aperiodic Methods Project" href="../docs/index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-LiteratureSearch.html">
+   Literature Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-Simulations.html">
+   Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-Information.html">
+   Information Metrics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/00-Overview.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/00-Overview.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-guide">
+   Project Guide
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tooling">
+     Tooling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparisons">
+   Comparisons
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datasets">
+   Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aperiodic-activity">
+   Aperiodic Activity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specparam-demo">
+     SpecParam Demo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>This section provides an overview of the aperiodic methods project.</p>
+<p>The following notebooks introduce the project:</p>
+<ul class="simple">
+<li><p>00-Overview: this notebook, which has a general overview of the project</p></li>
+<li><p>01-LiteratureSearch: which surveys the literature for the prevalence of these methods</p></li>
+<li><p>02-Simulations: which introduces and describes the simulations used in this study</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOF</span>
+<span class="kn">from</span> <span class="nn">fooof.plts.annotate</span> <span class="kn">import</span> <span class="n">plot_annotated_model</span>
+
+<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+<span class="kn">from</span> <span class="nn">apm.sim.examples</span> <span class="kn">import</span> <span class="n">TIMES</span><span class="p">,</span> <span class="n">SIG_COMB</span>
+<span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="project-guide">
+<h2>Project Guide<a class="headerlink" href="#project-guide" title="Permalink to this headline">¶</a></h2>
+<p>This project is an investigation of available methods for investigating aperiodic neural activity.</p>
+<div class="section" id="tooling">
+<h3>Tooling<a class="headerlink" href="#tooling" title="Permalink to this headline">¶</a></h3>
+<p>The following tools are used in this project:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/neurodsp-tools/neurodsp">neurodsp</a> is used for simulating data and applying DSP measures</p></li>
+<li><p><a class="reference external" href="https://github.com/fooof-tools/fooof">specparam</a> is used for simulating and parameterizing power spectra</p></li>
+<li><p><a class="reference external" href="https://github.com/raphaelvallat/antropy">antropy</a> is used for complexity and entropy measures</p></li>
+<li><p><a class="reference external" href="https://github.com/lisc-tools/lisc">lisc</a> is used for the literature analyses</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>Methods that are included in this project:</p>
+<ul class="simple">
+<li><p>10-SpectralFitting: measuring aperiodic parameters by fitting the power spectrum</p>
+<ul>
+<li><p>methods: line fitting, robust line fitting, spectral parameterization</p></li>
+</ul>
+</li>
+<li><p>11-IRASA: the irregular resampling and auto-spectral analysis algorithm</p>
+<ul>
+<li><p>methods: IRASA</p></li>
+</ul>
+</li>
+<li><p>12-AutoCorrelation: auto-correlation measures</p>
+<ul>
+<li><p>methods: auto correlation</p></li>
+</ul>
+</li>
+<li><p>13-Fluctuations: includes the Hurst exponent and</p>
+<ul>
+<li><p>methods: Hurst exponent, detrended fluctuation analysis (DFA)</p></li>
+</ul>
+</li>
+<li><p>14-Complexity: time series complexity measures, including</p>
+<ul>
+<li><p>methods: Hjorth parameters, fractal measures: Higuchi, Katz, Petrosian</p></li>
+</ul>
+</li>
+<li><p>15-Information: information</p>
+<ul>
+<li><p>sample entropy, permutation entropy, approximate entropy, spectral entropy</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="comparisons">
+<h2>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h2>
+<p>The following direct comparisons are made between methods:</p>
+<p>UPCOMING.</p>
+</div>
+<div class="section" id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<p>The following analyses and comparisons are applied to empirical datasets:</p>
+<p>UPCOMING.</p>
+</div>
+<div class="section" id="aperiodic-activity">
+<h2>Aperiodic Activity<a class="headerlink" href="#aperiodic-activity" title="Permalink to this headline">¶</a></h2>
+<p>This section introduces basic concepts of aperiodic activity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize a simulated neural time series</span>
+<span class="n">plot_time_series</span><span class="p">(</span><span class="n">TIMES</span><span class="p">,</span> <span class="n">SIG_COMB</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00-Overview_8_0.png" src="../_images/00-Overview_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute and visualize a power spectrum from the above signal</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">compute_spectrum</span><span class="p">(</span><span class="n">SIG_COMB</span><span class="p">,</span> <span class="n">FS</span><span class="p">)</span>
+<span class="n">plot_power_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00-Overview_9_0.png" src="../_images/00-Overview_9_0.png" />
+</div>
+</div>
+<div class="section" id="specparam-demo">
+<h3>SpecParam Demo<a class="headerlink" href="#specparam-demo" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://fooof-tools.github.io/">SpecParam</a> is a tool for parameterizing neural power spectra.</p>
+<p>Here we will briefly demonstrate applying spectral parameterization to an example spectrum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize and fit a spectral parameterization model</span>
+<span class="n">fm</span> <span class="o">=</span> <span class="n">FOOOF</span><span class="p">(</span><span class="n">peak_width_limits</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="n">min_peak_height</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">75</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize an annoted model</span>
+<span class="n">plot_annotated_model</span><span class="p">(</span><span class="n">fm</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00-Overview_12_0.png" src="../_images/00-Overview_12_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../docs/index.html" title="previous page">Aperiodic Methods Project</a>
+    <a class='right-next' id="next-link" href="01-LiteratureSearch.html" title="next page">Literature Search</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
