@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compare Other Methods &#8212; Aperiodic  Methods</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-LiteratureSearch.html">
+   Literature Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Simulations.html">
+   Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-Methods.html">
+   Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../15-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../16-Information.html">
+   Information Metrics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Comparisons
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../20-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../21-CompareExponents.html">
+   Compare SpecParam &amp; IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../22-CompareExponentToOther.html">
+   Compare Exponent to Other
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-CompareOther.html">
+   Compare Other Methods
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Real Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../30-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../31-EEGData.html">
+   EEG Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../32-DevelopmentalEEGData.html">
+   Analyze Development EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../33-iEEGData.html">
+   iEEG Data Analysis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/notebooks/23-CompareOther.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/notebooks/23-CompareOther.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collect-methods">
+   Collect Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-simulations">
+   Run Simulations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluctuations-to-complexity">
+     Fluctuations to Complexity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complexity-to-entropy">
+     Complexity to Entropy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entropy-to-fluctuations">
+     Entropy to Fluctuations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="compare-other-methods">
+<h1>Compare Other Methods<a class="headerlink" href="#compare-other-methods" title="Permalink to this headline">¶</a></h1>
+<p>Here we compare non-exponent estimations to each other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_combined</span>
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
+
+<span class="kn">from</span> <span class="nn">antropy</span> <span class="kn">import</span> <span class="n">higuchi_fd</span>
+<span class="kn">from</span> <span class="nn">antropy</span> <span class="kn">import</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">app_entropy</span>
+
+<span class="kn">from</span> <span class="nn">bootstrap</span> <span class="kn">import</span> <span class="n">bootstrap_corr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_comparisons</span>
+<span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_dots</span>
+<span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">format_corr</span><span class="p">,</span> <span class="n">sampler</span>
+
+<span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">perm_entropy</span>
+<span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">hurst</span><span class="p">,</span> <span class="n">dfa</span><span class="p">,</span> <span class="n">hjorth_complexity</span><span class="p">,</span> <span class="n">lempelziv</span>
+<span class="kn">from</span> <span class="nn">apm.methods.settings</span> <span class="kn">import</span> <span class="n">HURST_PARAMS</span><span class="p">,</span> <span class="n">DFA_PARAMS</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span>
+
+<span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the random seed</span>
+<span class="n">set_random_seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notebook settings</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="collect-methods">
+<h2>Collect Methods<a class="headerlink" href="#collect-methods" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define ranges to sample parameters from</span>
+<span class="n">samplers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;update_comb_exp&#39;</span> <span class="p">:</span> <span class="n">sampler</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)),</span>
+            <span class="s1">&#39;update_pow&#39;</span> <span class="p">:</span> <span class="n">sampler</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)),</span>
+            <span class="s1">&#39;update_freq&#39;</span> <span class="p">:</span> <span class="n">sampler</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define measures to apply</span>
+<span class="n">measures</span> <span class="o">=</span> <span class="p">{</span><span class="n">hurst</span> <span class="p">:</span> <span class="n">HURST_PARAMS</span><span class="p">,</span> 
+            <span class="n">dfa</span> <span class="p">:</span> <span class="n">DFA_PARAMS</span><span class="p">,</span>
+            <span class="n">hjorth_complexity</span> <span class="p">:</span> <span class="p">{},</span> 
+            <span class="n">lempelziv</span> <span class="p">:</span> <span class="p">{},</span>
+            <span class="n">higuchi_fd</span> <span class="p">:</span> <span class="p">{},</span>
+            <span class="n">app_entropy</span> <span class="p">:</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span>
+            <span class="n">perm_entropy</span> <span class="p">:</span> <span class="n">PE_ENT_PARAMS</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="run-simulations">
+<h2>Run Simulations<a class="headerlink" href="#run-simulations" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_SIMS</span> <span class="o">=</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing specparam exponent to entropy</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">measures</span><span class="p">,</span> <span class="n">samplers</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fluctuations-to-complexity">
+<h3>Fluctuations to Complexity<a class="headerlink" href="#fluctuations-to-complexity" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hurst Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Hjorth Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hurst Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;LZ Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">],</span>
+          <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hurst Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Higuchi FD&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;DFA Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Hjorth Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;DFA Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;LZ Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;DFA Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Higuchi FD&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/23-CompareOther_13_01.png" src="../../_images/23-CompareOther_13_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute bootstrapped correlations</span>
+<span class="n">corrs_hst_hjo</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">])</span>
+<span class="n">corrs_hst_lzc</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">])</span>
+<span class="n">corrs_hst_hfd</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">])</span>
+<span class="n">corrs_dfa_hjo</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">])</span>
+<span class="n">corrs_dfa_lzc</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">])</span>
+<span class="n">corrs_dfa_hfd</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  HST &amp; HJO:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_hst_hjo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  HST &amp; LZC:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_hst_lzc</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  HST &amp; HFD:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_hst_hfd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  DFA &amp; HJO:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_dfa_hjo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  DFA &amp; LZC:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_dfa_lzc</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  DFA &amp; HFD:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_dfa_hfd</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations:
+  HST &amp; HJO:   r=+0.173  CI[+0.101, +0.242],  p=0.000
+  HST &amp; LZC:   r=-0.222  CI[-0.288, -0.154],  p=0.000
+  HST &amp; HFD:   r=-0.441  CI[-0.494, -0.382],  p=0.000
+  DFA &amp; HJO:   r=+0.820  CI[+0.795, +0.843],  p=0.000
+  DFA &amp; LZC:   r=-0.890  CI[-0.899, -0.879],  p=0.000
+  DFA &amp; HFD:   r=-0.907  CI[-0.914, -0.897],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="complexity-to-entropy">
+<h3>Complexity to Entropy<a class="headerlink" href="#complexity-to-entropy" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Hjorth Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;LZ Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Higuchi FD&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Hjorth Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;LZ Complexity&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Higuchi FD&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/23-CompareOther_17_01.png" src="../../_images/23-CompareOther_17_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute bootstrapped correlations</span>
+<span class="n">corrs_aen_hjo</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">])</span>
+<span class="n">corrs_aen_lzc</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">])</span>
+<span class="n">corrs_aen_hfd</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">])</span>
+<span class="n">corrs_pen_hjo</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hjorth_complexity&#39;</span><span class="p">])</span>
+<span class="n">corrs_pen_lzc</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;lempelziv&#39;</span><span class="p">])</span>
+<span class="n">corrs_pen_hfd</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;higuchi_fd&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  AEN &amp; HJO:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_aen_hjo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  AEN &amp; LZC:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_aen_lzc</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  AEN &amp; HFD:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_aen_hfd</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  PEN &amp; HJO:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_pen_hjo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  PEN &amp; LZC:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_pen_lzc</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  PEN &amp; HFD:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_pen_hfd</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations:
+  AEN &amp; HJO:   r=-0.944  CI[-0.958, -0.928],  p=0.000
+  AEN &amp; LZC:   r=+0.998  CI[+0.997, +0.998],  p=0.000
+  AEN &amp; HFD:   r=+0.945  CI[+0.936, +0.952],  p=0.000
+  PEN &amp; HJO:   r=-0.852  CI[-0.880, -0.821],  p=0.000
+  PEN &amp; LZC:   r=+0.947  CI[+0.938, +0.954],  p=0.000
+  PEN &amp; HFD:   r=+0.983  CI[+0.979, +0.985],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="entropy-to-fluctuations">
+<h3>Entropy to Fluctuations<a class="headerlink" href="#entropy-to-fluctuations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hurst Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hurst Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;DFA Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;DFA Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/23-CompareOther_21_01.png" src="../../_images/23-CompareOther_21_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute bootstrapped correlations</span>
+<span class="n">corrs_hst_aen</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">])</span>
+<span class="n">corrs_hst_pen</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">])</span>
+<span class="n">corrs_dfa_aen</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;app_entropy&#39;</span><span class="p">])</span>
+<span class="n">corrs_dfa_pen</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;perm_entropy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  HST &amp; AEN:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_hst_aen</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  HST &amp; PEN:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_hst_pen</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  DFA &amp; AEN:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_dfa_aen</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  DFA &amp; PEN:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_dfa_pen</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations:
+  HST &amp; AEN:   r=-0.255  CI[-0.319, -0.188],  p=0.000
+  HST &amp; PEN:   r=-0.431  CI[-0.486, -0.371],  p=0.000
+  DFA &amp; AEN:   r=-0.905  CI[-0.913, -0.893],  p=0.000
+  DFA &amp; PEN:   r=-0.941  CI[-0.947, -0.932],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Words, words, words.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

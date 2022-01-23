@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aperiodic Methods Notebooks &#8212; Aperiodic  Methods</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-LiteratureSearch.html">
+   Literature Search
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-Simulations.html">
+   Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Methods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-Methods.html">
+   Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../15-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../16-Information.html">
+   Information Metrics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Comparisons
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../20-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../21-CompareExponents.html">
+   Compare SpecParam &amp; IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../22-CompareExponentToOther.html">
+   Compare Exponent to Other
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-CompareOther.html">
+   Compare Other Methods
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Real Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../30-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../31-EEGData.html">
+   EEG Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../32-DevelopmentalEEGData.html">
+   Analyze Development EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../33-iEEGData.html">
+   iEEG Data Analysis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/notebooks/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview-background">
+   0) Overview &amp; Background
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     00-Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#literaturesearch">
+     01-LiteratureSearch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulations">
+     02-Simulations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-evaluations">
+   1) Methods Evaluations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     10-Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spectralfitting">
+     11-SpectralFitting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#irasa">
+     12-IRASA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autocorrelation">
+     13-AutoCorrelation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluctuations">
+     14-Fluctuations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complexity">
+     15-Complexity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information">
+     16-Information
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-comparisons">
+   2)Methods Comparisons
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methodcomparisons">
+     20-MethodComparisons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compareexponents">
+     21-CompareExponents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compareexponentstoother">
+     22-CompareExponentsToOther
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compareother">
+     23-CompareOther
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#empirical-comparisons">
+   3) Empirical Comparisons
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datacomparisons">
+     30-DataComparisons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eegdata">
+     31-EEGData
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#developmentaleegdata">
+     32-DevelopmentalEEGData
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ieegdata">
+     33-iEEGData
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="aperiodic-methods-notebooks">
+<h1>Aperiodic Methods Notebooks<a class="headerlink" href="#aperiodic-methods-notebooks" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the Aperiodic Methods notebooks!</p>
+<p>The notebooks in this project are organized as follows:</p>
+<div class="section" id="overview-background">
+<h2>0) Overview &amp; Background<a class="headerlink" href="#overview-background" title="Permalink to this headline">¶</a></h2>
+<p>This section covers an overview and the background for the project.</p>
+<div class="section" id="overview">
+<h3>00-Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>A general overview of the project, and a list of methods.</p>
+</div>
+<div class="section" id="literaturesearch">
+<h3>01-LiteratureSearch<a class="headerlink" href="#literaturesearch" title="Permalink to this headline">¶</a></h3>
+<p>An examination of the prevalence of these methods in the literature.</p>
+</div>
+<div class="section" id="simulations">
+<h3>02-Simulations<a class="headerlink" href="#simulations" title="Permalink to this headline">¶</a></h3>
+<p>Introduces the simulations used throughout the project.</p>
+</div>
+</div>
+<div class="section" id="methods-evaluations">
+<h2>1) Methods Evaluations<a class="headerlink" href="#methods-evaluations" title="Permalink to this headline">¶</a></h2>
+<p>This section evaluates individual methods, on simulated data.</p>
+<div class="section" id="methods">
+<h3>10-Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p>This notebook introduces how the method evaluation simulations are done.</p>
+</div>
+<div class="section" id="spectralfitting">
+<h3>11-SpectralFitting<a class="headerlink" href="#spectralfitting" title="Permalink to this headline">¶</a></h3>
+<p>This notebook examines methods that fit aperiodic components to power spectra.</p>
+</div>
+<div class="section" id="irasa">
+<h3>12-IRASA<a class="headerlink" href="#irasa" title="Permalink to this headline">¶</a></h3>
+<p>This notebook examines the ‘irregular resampling auto-spectral analysis’ (IRASA) method for decomposing time series.</p>
+</div>
+<div class="section" id="autocorrelation">
+<h3>13-AutoCorrelation<a class="headerlink" href="#autocorrelation" title="Permalink to this headline">¶</a></h3>
+<p>This notebook examines auto-correlation measures.</p>
+</div>
+<div class="section" id="fluctuations">
+<h3>14-Fluctuations<a class="headerlink" href="#fluctuations" title="Permalink to this headline">¶</a></h3>
+<p>This notebook examines ‘fluctuation’ analyses, including the Hurst exponent, and detrended fluctuation analysis (DFA).</p>
+</div>
+<div class="section" id="complexity">
+<h3>15-Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">¶</a></h3>
+<p>This notebook examines complexity and fractal dimension measures that can be applied to time series.</p>
+</div>
+<div class="section" id="information">
+<h3>16-Information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h3>
+<p>This notebook examines information theory measures, including entropy measures.</p>
+</div>
+</div>
+<div class="section" id="methods-comparisons">
+<h2>2)Methods Comparisons<a class="headerlink" href="#methods-comparisons" title="Permalink to this headline">¶</a></h2>
+<p>This section compares between the different methods, on simulated data.</p>
+<div class="section" id="methodcomparisons">
+<h3>20-MethodComparisons<a class="headerlink" href="#methodcomparisons" title="Permalink to this headline">¶</a></h3>
+<p>This notebook introduces how the method comparison simulations are done.</p>
+</div>
+<div class="section" id="compareexponents">
+<h3>21-CompareExponents<a class="headerlink" href="#compareexponents" title="Permalink to this headline">¶</a></h3>
+<p>This notebook compares methods that can be used to measure the aperiodic exponent, including specparam and IRASA.</p>
+</div>
+<div class="section" id="compareexponentstoother">
+<h3>22-CompareExponentsToOther<a class="headerlink" href="#compareexponentstoother" title="Permalink to this headline">¶</a></h3>
+<p>This notebook compares exponent estimation to methods that operate in the time domain, including the fluctuation, complexity, and information measures.</p>
+</div>
+<div class="section" id="compareother">
+<h3>23-CompareOther<a class="headerlink" href="#compareother" title="Permalink to this headline">¶</a></h3>
+<p>This notebook compares between methods that operate in the time domain, including the fluctuation, complexity, and information measures.</p>
+</div>
+</div>
+<div class="section" id="empirical-comparisons">
+<h2>3) Empirical Comparisons<a class="headerlink" href="#empirical-comparisons" title="Permalink to this headline">¶</a></h2>
+<p>Comparisons of methods on empirical data.  [UPCOMING]</p>
+<div class="section" id="datacomparisons">
+<h3>30-DataComparisons<a class="headerlink" href="#datacomparisons" title="Permalink to this headline">¶</a></h3>
+<p>This notebook introduces how the real data are analyzed.</p>
+</div>
+<div class="section" id="eegdata">
+<h3>31-EEGData<a class="headerlink" href="#eegdata" title="Permalink to this headline">¶</a></h3>
+<p>This notebook introduces real data analysis by analyzing a sample of resting state EEG data.</p>
+</div>
+<div class="section" id="developmentaleegdata">
+<h3>32-DevelopmentalEEGData<a class="headerlink" href="#developmentaleegdata" title="Permalink to this headline">¶</a></h3>
+<p>This notebook analyses a larger dataset of developmental EEG data.</p>
+</div>
+<div class="section" id="ieegdata">
+<h3>33-iEEGData<a class="headerlink" href="#ieegdata" title="Permalink to this headline">¶</a></h3>
+<p>This notebook examines a larger dataset of iEEG data.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thomas Donoghue<br/>
+        
+            &copy; Copyright 2021-.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
