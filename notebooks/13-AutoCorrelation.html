@@ -104,7 +104,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -146,7 +146,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -156,24 +156,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -183,18 +183,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="32-DevelopmentalEEGData.html">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="33-iEEGData.html">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -355,6 +355,11 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
  </li>
 </ul>
 
@@ -552,7 +557,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating autocorrelation across exponents</span>
 <span class="n">acs_pow</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">autocorr</span><span class="p">,</span> <span class="n">AC_PARAMS</span><span class="p">,</span>
-                   <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+                   <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
 <span class="n">acs_pow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">acs_pow</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -579,7 +584,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating autocorrelation across exponents, with an oscillation</span>
 <span class="n">acs_osc</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">autocorr</span><span class="p">,</span> <span class="n">AC_PARAMS</span><span class="p">,</span>
-                   <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+                   <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
 <span class="n">acs_osc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">acs_osc</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -609,7 +614,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating autocorrelations across oscillation frequency</span>
 <span class="n">sims_freq</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">autocorr</span><span class="p">,</span> <span class="n">AC_PARAMS</span><span class="p">,</span>
-                     <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_freq&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">FREQS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+                     <span class="s1">&#39;update_freq&#39;</span><span class="p">,</span> <span class="n">FREQS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -635,7 +640,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating autocorrelations across oscillation power</span>
 <span class="n">sims_pow</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">autocorr</span><span class="p">,</span> <span class="n">AC_PARAMS</span><span class="p">,</span>
-                    <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_pow&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">POWERS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+                    <span class="s1">&#39;update_pow&#39;</span><span class="p">,</span> <span class="n">POWERS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -675,6 +680,10 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Words, words, words.</p>
 </div>
 </div>
 

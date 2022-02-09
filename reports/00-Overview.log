@@ -17,22 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from fooof import FOOOF
-from fooof.plts.annotate import plot_annotated_model
-
-from neurodsp.plts import plot_time_series, plot_power_spectra
-from neurodsp.spectral import compute_spectrum
+# Import custom code
+import sys; from pathlib import Path
+sys.path.append(str(Path('..').resolve()))
+from apm.sim.examples import TIMES, SIG_COMB
+from apm.sim.settings import FS
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-8d7aaaeca899>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0mfooof[0m [0;32mimport[0m [0mFOOOF[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;32mfrom[0m [0mfooof[0m[0;34m.[0m[0mplts[0m[0;34m.[0m[0mannotate[0m [0;32mimport[0m [0mplot_annotated_model[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[1;32m      4[0m [0;32mfrom[0m [0mneurodsp[0m[0;34m.[0m[0mplts[0m [0;32mimport[0m [0mplot_time_series[0m[0;34m,[0m [0mplot_power_spectra[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0;32mfrom[0m [0mneurodsp[0m[0;34m.[0m[0mspectral[0m [0;32mimport[0m [0mcompute_spectrum[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-2-fe872fd227fe>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mimport[0m [0msys[0m[0;34m;[0m [0;32mfrom[0m [0mpathlib[0m [0;32mimport[0m [0mPath[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mstr[0m[0;34m([0m[0mPath[0m[0;34m([0m[0;34m'..'[0m[0;34m)[0m[0;34m.[0m[0mresolve[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfrom[0m [0mapm[0m[0;34m.[0m[0msim[0m[0;34m.[0m[0mexamples[0m [0;32mimport[0m [0mTIMES[0m[0;34m,[0m [0mSIG_COMB[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mapm[0m[0;34m.[0m[0msim[0m[0;34m.[0m[0msettings[0m [0;32mimport[0m [0mFS[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'fooof'
-ModuleNotFoundError: No module named 'fooof'
+[0;31mModuleNotFoundError[0m: No module named 'apm'
+ModuleNotFoundError: No module named 'apm'
 

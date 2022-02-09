@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Compare SpecParam &amp; IRASA" href="21-CompareExponents.html" />
+    <link rel="next" title="Compare SpecParam &amp; IRASA" href="21-ExponentComparisons.html" />
     <link rel="prev" title="Information Metrics" href="16-Information.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -104,7 +104,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -146,7 +146,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -156,24 +156,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -183,18 +183,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="32-DevelopmentalEEGData.html">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="33-iEEGData.html">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -291,6 +291,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#code-approach">
    Code Approach
   </a>
@@ -323,24 +328,27 @@
 <p>This section directly compares between the different methods, using simulated data.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>A key question for interpreting prior work is to consider how the different employed methods relate to each other. To investigate this, this section simulates datasets, and applies different methods to compare their results.</p>
+<p>In this section, the main question is the evaluate the relationship between different methods across parameters variations, to evaluate which methods are highly correlated (seeming to refelct the same thing), and which appear to provide independent estimations of the data.</p>
+<p>Note that due to large number of possible comparisons across different methods and different simulated parameters, in this section we necessarily restrict the comparison to a selected subset of methods, that are compared pairwise.</p>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <p>Comparisons between methods are organized into the following groups:</p>
 <ul class="simple">
-<li><p>Exponent Comparisons</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">21-ExponentComparisons</span></code> : comparing methods that directly estimate the aperiodic exponent</p>
 <ul>
-<li><p>Compare measures that directly estimate the aperiodic exponent</p></li>
-<li><p>Methods: specparam &amp; IRASA</p></li>
+<li><p>Comparisons between: specparam &amp; IRASA</p></li>
 </ul>
 </li>
-<li><p>Compare between exponent and time domain methods</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">22-TimeDomainComparisons</span></code> : comparing time domain methods to each other</p>
 <ul>
-<li><p>Compare measures that estimate aperiodic exponent to other measures</p></li>
-<li><p>Methods: compare specparam to fluctuation, complexity, and information measures</p></li>
+<li><p>Comparisons between: fluctuation, complexity, and information measures</p></li>
 </ul>
 </li>
-<li><p>Compare within time domain methods</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">23-ExponentvsTimeDomain</span></code> : comparing exponent and time domain methods</p>
 <ul>
-<li><p>Compare non-exponent measures to each other</p></li>
-<li><p>Methods: compare fluctuation, complexity, and information measures to each other</p></li>
+<li><p>Comparisons between: specparam and fluctuation, complexity, and information measures</p></li>
 </ul>
 </li>
 </ul>
@@ -350,7 +358,7 @@
 <p>Here, we will briefly introduce the general strategy and code used to run the simulations.</p>
 <div class="section" id="run-comparisons">
 <h3>run_comparisons<a class="headerlink" href="#run-comparisons" title="Permalink to this headline">¶</a></h3>
-<p>The overarching function used to run simulation comparisons in this section is <code class="docutils literal notranslate"><span class="pre">run_comparisons</span></code>.</p>
+<p>The overarching function used to run simulation comparisons is the <code class="docutils literal notranslate"><span class="pre">run_comparisons</span></code> function.</p>
 <p>This approach allows for:</p>
 <ul class="simple">
 <li><p>defining a procedure to simulate time series</p></li>
@@ -433,17 +441,17 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run comparisons across samples of aperiodic noise</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">measures</span><span class="p">,</span>
-                      <span class="n">samplers</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">measures</span><span class="p">,</span>
+                       <span class="n">samplers</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -0.29999999999999805}
-{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -2.1999999999999997}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -0.19999999999999796}
+{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -0.6999999999999984}
+{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -0.8999999999999986}
+{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -1.5999999999999992}
 {&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -1.299999999999999}
-{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -1.4999999999999991}
-{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None), &#39;exponent&#39;: -0.9999999999999987}
 </pre></div>
 </div>
 </div>
@@ -451,14 +459,14 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check output values of computed measures</span>
-<span class="n">out</span>
+<span class="n">outs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;var&#39;: array([1., 1., 1., 1., 1.]),
- &#39;mean&#39;: array([ 9.05941988e-18,  2.84217094e-17,  1.89478063e-17, -1.13686838e-17,
-         3.07901852e-17])}
+ &#39;mean&#39;: array([ 2.46321482e-17,  1.89478063e-17, -9.47390314e-18, -3.03164901e-17,
+        -2.98427949e-17])}
 </pre></div>
 </div>
 </div>
@@ -478,12 +486,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the computed measures against each other</span>
-<span class="n">plot_dots</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">],</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">outs</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">],</span> <span class="n">outs</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/20-MethodComparisons_13_0.png" src="../_images/20-MethodComparisons_13_0.png" />
+<img alt="../_images/20-MethodComparisons_14_0.png" src="../_images/20-MethodComparisons_14_0.png" />
 </div>
 </div>
 </div>
@@ -516,7 +524,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="16-Information.html" title="previous page">Information Metrics</a>
-    <a class='right-next' id="next-link" href="21-CompareExponents.html" title="next page">Compare SpecParam &amp; IRASA</a>
+    <a class='right-next' id="next-link" href="21-ExponentComparisons.html" title="next page">Compare SpecParam &amp; IRASA</a>
 
         </div>
         

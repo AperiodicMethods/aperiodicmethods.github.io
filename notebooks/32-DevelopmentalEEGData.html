@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Analyze Development EEG Data &#8212; Aperiodic  Methods</title>
+    <title>Developmental EEG Data &#8212; Aperiodic  Methods</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="iEEG Data Analysis" href="33-iEEGData.html" />
-    <link rel="prev" title="EEG Data Analysis" href="31-EEGData.html" />
+    <link rel="next" title="iEEG Data" href="33-iEEGData.html" />
+    <link rel="prev" title="Resting EEG Data" href="31-RestingEEGData.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -104,7 +104,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -146,7 +146,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -156,24 +156,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -183,18 +183,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="33-iEEGData.html">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -286,6 +286,11 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-details">
+   Dataset Details
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#settings">
    Settings
   </a>
@@ -370,9 +375,12 @@
         
               <div>
                 
-  <div class="section" id="analyze-development-eeg-data">
-<h1>Analyze Development EEG Data<a class="headerlink" href="#analyze-development-eeg-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="developmental-eeg-data">
+<h1>Developmental EEG Data<a class="headerlink" href="#developmental-eeg-data" title="Permalink to this headline">¶</a></h1>
 <p>Analyze EEG data.</p>
+<div class="section" id="dataset-details">
+<h2>Dataset Details<a class="headerlink" href="#dataset-details" title="Permalink to this headline">¶</a></h2>
+<p>Words, words, words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -398,10 +406,12 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
 
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_measures</span>
 <span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_dots</span>
 <span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">format_corr</span>
 <span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">specparam</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">dfa</span><span class="p">,</span> <span class="n">hurst</span><span class="p">,</span> <span class="n">hjorth_complexity</span><span class="p">,</span> <span class="n">lempelziv</span><span class="p">,</span> <span class="n">app_entropy</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -477,7 +487,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/32-DevelopmentalEEGData_12_0.png" src="../_images/32-DevelopmentalEEGData_12_0.png" />
+<img alt="../_images/32-DevelopmentalEEGData_13_0.png" src="../_images/32-DevelopmentalEEGData_13_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -495,7 +505,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/32-DevelopmentalEEGData_14_0.png" src="../_images/32-DevelopmentalEEGData_14_0.png" />
+<img alt="../_images/32-DevelopmentalEEGData_15_0.png" src="../_images/32-DevelopmentalEEGData_15_0.png" />
 </div>
 </div>
 </div>
@@ -536,18 +546,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize outputs</span>
-<span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_subjs</span><span class="p">)</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">measures</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate measures on data</span>
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">sig</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">measure</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">measures</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">outputs</span><span class="p">[</span><span class="n">measure</span><span class="o">.</span><span class="vm">__name__</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">measure</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>     
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute measures of interest on the data</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">run_measures</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">measures</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -603,7 +603,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  EXP &amp; LZC:   r=-0.422  CI[-0.566, -0.260],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  EXP &amp; LZC:   r=-0.422  CI[-0.567, -0.252],  p=0.000
 </pre></div>
 </div>
 </div>
@@ -630,7 +630,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=-0.463  CI[-0.596, -0.304],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=-0.463  CI[-0.598, -0.307],  p=0.000
 </pre></div>
 </div>
 </div>
@@ -664,7 +664,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SPEXP &amp; age:   r=-0.502  CI[-0.624, -0.357],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SPEXP &amp; age:   r=-0.502  CI[-0.624, -0.355],  p=0.000
 </pre></div>
 </div>
 </div>
@@ -677,7 +677,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  IREXP &amp; age:   r=+0.469  CI[+0.318, +0.600],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  IREXP &amp; age:   r=+0.469  CI[+0.314, +0.596],  p=0.000
 </pre></div>
 </div>
 </div>
@@ -690,7 +690,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR age diff:   r=-0.034  CI[-0.115, +0.045],  p=0.424
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR age diff:   r=-0.034  CI[-0.121, +0.044],  p=0.403
 </pre></div>
 </div>
 </div>
@@ -717,7 +717,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; age:   r=+0.213  CI[+0.039, +0.385],  p=0.025
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; age:   r=+0.213  CI[+0.032, +0.382],  p=0.025
 </pre></div>
 </div>
 </div>
@@ -744,7 +744,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; age:   r=-0.218  CI[-0.397, -0.033],  p=0.021
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; age:   r=-0.218  CI[-0.399, -0.035],  p=0.021
 </pre></div>
 </div>
 </div>
@@ -771,7 +771,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; age:   r=+0.260  CI[+0.074, +0.428],  p=0.006
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; age:   r=+0.260  CI[+0.084, +0.429],  p=0.006
 </pre></div>
 </div>
 </div>
@@ -809,8 +809,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="31-EEGData.html" title="previous page">EEG Data Analysis</a>
-    <a class='right-next' id="next-link" href="33-iEEGData.html" title="next page">iEEG Data Analysis</a>
+    <a class='left-prev' id="prev-link" href="31-RestingEEGData.html" title="previous page">Resting EEG Data</a>
+    <a class='right-next' id="next-link" href="33-iEEGData.html" title="next page">iEEG Data</a>
 
         </div>
         

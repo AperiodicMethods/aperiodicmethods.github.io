@@ -104,7 +104,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -146,7 +146,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -156,24 +156,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -183,18 +183,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="32-DevelopmentalEEGData.html">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="33-iEEGData.html">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -291,6 +291,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#code-approach">
    Code Approach
   </a>
@@ -320,37 +325,42 @@
                 
   <div class="section" id="methods">
 <h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
-<p>This section introduces the methods that will be examined, and characterizes them with a series of simulations.</p>
+<p>This section introduces and characterizes the methods included in this project.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In this section, each method is examined independently, and applied to simulated data, to evaluate it’s performance across plausible parameter variations.</p>
+<p>Where possible, simulation testing includes estimating the accuracy of each method. For example, the accuracy of methods that estimate 1/f exponents can be evaluated on data simulated to have particular characteristics, and the same can be done for measures that have analytical solutions for expected values on certain kinds of data. In other cases, the analytically expected results are unknown, in which case the simulations are used to characterize how the measures relate to variations across parameters of the simulated data.</p>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <p>Methods that are included in this project:</p>
 <ul class="simple">
-<li><p>11-SpectralFitting: measuring aperiodic parameters by fitting the power spectrum</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">11-SpectralFitting</span></code>: measuring aperiodic parameters by fitting the power spectrum</p>
 <ul>
 <li><p>methods: line fitting, robust line fitting, spectral parameterization</p></li>
 </ul>
 </li>
-<li><p>12-IRASA: the irregular resampling and auto-spectral analysis algorithm</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">12-IRASA</span></code>: the irregular resampling and auto-spectral analysis algorithm</p>
 <ul>
 <li><p>methods: IRASA</p></li>
 </ul>
 </li>
-<li><p>13-AutoCorrelation: auto-correlation measures</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">13-AutoCorrelation</span></code>: auto-correlation measures</p>
 <ul>
 <li><p>methods: auto correlation</p></li>
 </ul>
 </li>
-<li><p>14-Fluctuations: includes the Hurst exponent and</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">14-Fluctuations</span></code>: includes the Hurst exponent and</p>
 <ul>
 <li><p>methods: Hurst exponent, detrended fluctuation analysis (DFA)</p></li>
 </ul>
 </li>
-<li><p>15-Complexity: time series complexity measures, including</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">15-Complexity</span></code>: time series complexity measures, including</p>
 <ul>
 <li><p>methods: Hjorth parameters, fractal measures: Higuchi, Katz, Petrosian</p></li>
 </ul>
 </li>
-<li><p>16-Information: information</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">16-Information</span></code>: information</p>
 <ul>
 <li><p>sample entropy, permutation entropy, approximate entropy, spectral entropy</p></li>
 </ul>
@@ -399,12 +409,17 @@
         A measure function to apply to the simulated data.
     measure_params : dict
         Input arguments for `measure_func`.
-    values : list or 1d array
-        A parameter to step across and re-run measure calculations for.
     update : {&#39;update_exp&#39;, &#39;update_freq&#39;, &#39;update_pow&#39;, &#39;update_comb_exp&#39;} or callable
         Specifies which parameter to update in simulation parameters.
+    values : list or 1d array
+        A parameter to step across and re-run measure calculations for.
     n_sims : int, optional, default: 10
         The number of iterations to simulate and calculate measures, per value.
+    avg_func : callable, optional, default: np.mean
+        The function to calculate the average for a particular parameter value.
+    var_func : callable, optional
+        The function to calculate the variability for a particular parameter value.
+        If None, variability is not computed.
 
     Returns
     -------
@@ -413,7 +428,8 @@
 
     Notes
     -----
-    The mean measure across `n_sims` of simulations if computed and returned.
+    - For each parameter value, the average measure across `n_sims`
+      of simulations is computed and returned.
     
 </pre></div>
 </div>
@@ -423,10 +439,13 @@
 <p>To do so, we will define an example analysis to apply a measure of interest (here, variance) across some simulations of 1/f (powerlaw) data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import numpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="c1"># Import simulation function</span>
 <span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span>
 
+<span class="c1"># Import default simulation settings</span>
 <span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">SIM_PARAMS_AP</span>
 </pre></div>
 </div>
@@ -443,9 +462,22 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations across </span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">,</span> <span class="p">{},</span> 
-               <span class="n">exponents</span><span class="p">,</span> <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">n_sims</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the predefined default settings for the simulation</span>
+<span class="n">SIM_PARAMS_AP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;n_seconds&#39;: 30, &#39;fs&#39;: 1000, &#39;f_range&#39;: (0.5, None)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations across different aperiodic exponents</span>
+<span class="n">out</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="p">{},</span> 
+                    <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">exponents</span><span class="p">,</span> <span class="n">n_sims</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -455,20 +487,6 @@
 <h3>Evaluating Results<a class="headerlink" href="#evaluating-results" title="Permalink to this headline">¶</a></h3>
 <p>After computing the measures, we can examine the results, across different simulation parameters.</p>
 <p>Where possible, we also evaluate the accuracy of the computed measures given the expected answer based on the simulated parameters.</p>
-<p>Note that in our example case, computing the variance, the simulated signals are normalized such that they all have a variance of 1.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check output values of the simulations</span>
-<span class="n">out</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 1.0, 1.0]
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import a plot function to visualize the computed measures</span>
@@ -480,14 +498,16 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the computed measures across the different simulation parameters</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">exponents</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Variance&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">exponents</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
+           <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10-Methods_13_0.png" src="../_images/10-Methods_13_0.png" />
+<img alt="../_images/10-Methods_14_0.png" src="../_images/10-Methods_14_0.png" />
 </div>
 </div>
+<p>Note that in our example case, computing the signal mean, the simulated signals are normalized such that they all have a mean of 0.</p>
 </div>
 </div>
 </div>

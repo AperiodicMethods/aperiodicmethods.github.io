@@ -104,7 +104,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -146,7 +146,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -156,24 +156,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -183,18 +183,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="32-DevelopmentalEEGData.html">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="33-iEEGData.html">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -286,6 +286,11 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#project-guide">
    Project Guide
   </a>
@@ -301,13 +306,11 @@
   <a class="reference internal nav-link" href="#aperiodic-activity">
    Aperiodic Activity
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specparam-demo">
-     SpecParam Demo
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specparam-demo">
+   SpecParam Demo
+  </a>
  </li>
 </ul>
 
@@ -322,34 +325,17 @@
                 
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>This section provides an overview of the aperiodic methods project.</p>
-<p>The following notebooks introduce the project:</p>
+<p>This section provides an overview of the <code class="docutils literal notranslate"><span class="pre">aperiodic</span> <span class="pre">methods</span></code> project as a whole.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">aperiodic</span> <span class="pre">methods</span></code> project is an investigation and comparison of methods that can be used to measure aperiodic activity.</p>
+<p>Various conceptual and methodological approaches have been taken to investigate the “structure” of electrophysiological data. This includes various methods and approaches for investigating “aperiodic” activity, by which we mean activity that has no characteristic frequency. This contrasts with periodic activity, or neural oscillations, which have characteristic, repetitive structure.</p>
+<p>In this project, we take a general approach to considering methods that “measure aperiodic activity”, and include methods that explicitly measure specifically defined aperiodic components of the data (such as 1/f components), as well as potentially related methods that measure aspects of the “structure” of the data, (for example, complexity and entropy measures). While these methods have clearly distinct contexts and technical details, the extent to which they empirically relate to each other is under-investigated. Therefore, in this project, we attempt to systematically compare these methods, in practice, using simulated and empirical data.</p>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<p>This section includes the following notebooks:</p>
 <ul class="simple">
-<li><p>00-Overview: this notebook, which has a general overview of the project</p></li>
-<li><p>01-LiteratureSearch: which surveys the literature for the prevalence of these methods</p></li>
-<li><p>02-Simulations: which introduces and describes the simulations used in this study</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">01-LiteratureSearch</span></code>: surveys the literature for the prevalence of methods related to measuring aperiodic activity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">02-Simulations</span></code>: introduces and describes the simulations used in this study to evaluate and compare the methods</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOF</span>
-<span class="kn">from</span> <span class="nn">fooof.plts.annotate</span> <span class="kn">import</span> <span class="n">plot_annotated_model</span>
-
-<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
-<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-<span class="kn">from</span> <span class="nn">apm.sim.examples</span> <span class="kn">import</span> <span class="n">TIMES</span><span class="p">,</span> <span class="n">SIG_COMB</span>
-<span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="project-guide">
 <h2>Project Guide<a class="headerlink" href="#project-guide" title="Permalink to this headline">¶</a></h2>
@@ -370,13 +356,33 @@
 <p>This section introduces basic concepts of aperiodic activity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import neurodsp functions for computing measures and plotting results</span>
+<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+<span class="kn">from</span> <span class="nn">apm.sim.examples</span> <span class="kn">import</span> <span class="n">TIMES</span><span class="p">,</span> <span class="n">SIG_COMB</span>
+<span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize a simulated neural time series</span>
 <span class="n">plot_time_series</span><span class="p">(</span><span class="n">TIMES</span><span class="p">,</span> <span class="n">SIG_COMB</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/00-Overview_5_0.png" src="../_images/00-Overview_5_0.png" />
+<img alt="../_images/00-Overview_6_0.png" src="../_images/00-Overview_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -388,13 +394,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/00-Overview_6_0.png" src="../_images/00-Overview_6_0.png" />
+<img alt="../_images/00-Overview_7_0.png" src="../_images/00-Overview_7_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="specparam-demo">
-<h3>SpecParam Demo<a class="headerlink" href="#specparam-demo" title="Permalink to this headline">¶</a></h3>
+<h2>SpecParam Demo<a class="headerlink" href="#specparam-demo" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://fooof-tools.github.io/">SpecParam</a> is one of the methods that will be investigated in this project. SpecParam is a tool for parameterizing neural power spectra.</p>
 <p>Here we will briefly demonstrate applying spectral parameterization to an example spectrum, to demonstrate the different features of the data that we are interested in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import spectral parameterization code</span>
+<span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOF</span>
+<span class="kn">from</span> <span class="nn">fooof.plts.annotate</span> <span class="kn">import</span> <span class="n">plot_annotated_model</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize and fit a spectral parameterization model</span>
@@ -412,8 +428,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/00-Overview_9_0.png" src="../_images/00-Overview_9_0.png" />
-</div>
+<img alt="../_images/00-Overview_11_0.png" src="../_images/00-Overview_11_0.png" />
 </div>
 </div>
 </div>

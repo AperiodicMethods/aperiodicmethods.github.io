@@ -104,7 +104,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -146,7 +146,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -156,24 +156,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -183,18 +183,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="32-DevelopmentalEEGData.html">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="33-iEEGData.html">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -339,6 +339,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -452,7 +457,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measured Exponent:	 -1.5273
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measured Exponent:	 -1.5137
 Expected Exponent:	 -1.5000
 </pre></div>
 </div>
@@ -500,7 +505,7 @@ Expected Exponent:	 -1.5000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measured Exponent:	 -1.5105
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measured Exponent:	 -1.4933
 Expected Exponent:	 -1.5000
 </pre></div>
 </div>
@@ -548,7 +553,7 @@ Expected Exponent:	 -1.5000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measured Exponent:	 -0.7786
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measured Exponent:	 -0.8305
 Expected Exponent:	 -2.0000
 </pre></div>
 </div>
@@ -563,8 +568,9 @@ Expected Exponent:	 -2.0000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating IRASA estimation across exponents</span>
-<span class="n">irasa_sims_exp</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
-                          <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">irasa_sims_exp</span><span class="p">,</span> <span class="n">irasa_sims_exp_var</span> <span class="o">=</span> <span class="n">outs</span>
 </pre></div>
 </div>
 </div>
@@ -573,7 +579,7 @@ Expected Exponent:	 -2.0000
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot IRASA estimation across exponents</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_exp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_exp</span><span class="p">,</span> <span class="n">irasa_sims_exp_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Simulated Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Measured Exponent&#39;</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;irasa_exp&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;irasa&#39;</span><span class="p">)</span>
 </pre></div>
@@ -589,8 +595,9 @@ Expected Exponent:	 -2.0000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating IRASA estimation across exponents</span>
-<span class="n">irasa_sims_comb_exp</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
-                               <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">irasa_sims_comb</span><span class="p">,</span> <span class="n">irasa_sims_comb_var</span> <span class="o">=</span> <span class="n">outs</span>
 </pre></div>
 </div>
 </div>
@@ -599,7 +606,7 @@ Expected Exponent:	 -2.0000
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot IRASA estimation across exponents, with an oscillation</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_comb_exp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_comb</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Simulated Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Measured Exponent&#39;</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;irasa_comb&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;irasa&#39;</span><span class="p">)</span>
 </pre></div>
@@ -616,8 +623,8 @@ Expected Exponent:	 -2.0000
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot IRASA estimation across exponents, both with and without oscillation</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Expected&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_exp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_comb_exp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_exp</span><span class="p">,</span> <span class="n">irasa_sims_exp_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">irasa_sims_comb</span><span class="p">,</span> <span class="n">irasa_sims_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Simulated Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Measured Exponent&#39;</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;irasa_both&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;irasa&#39;</span><span class="p">)</span>
 </pre></div>
@@ -633,8 +640,9 @@ Expected Exponent:	 -2.0000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating IRASA across oscillation frequencies</span>
-<span class="n">irasa_sims_freq</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
-                           <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_freq&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">FREQS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_freq&#39;</span><span class="p">,</span> <span class="n">FREQS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">irasa_sims_freq</span><span class="p">,</span> <span class="n">irasa_sims_freq_var</span> <span class="o">=</span> <span class="n">outs</span>
 </pre></div>
 </div>
 </div>
@@ -643,7 +651,7 @@ Expected Exponent:	 -2.0000
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot IRASA estimation across oscillation frequency values</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">FREQS</span><span class="p">,</span> <span class="p">[</span><span class="n">EXP</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">FREQS</span><span class="p">),</span>  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">FREQS</span><span class="p">,</span> <span class="n">irasa_sims_freq</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">FREQS</span><span class="p">,</span> <span class="n">irasa_sims_freq</span><span class="p">,</span> <span class="n">irasa_sims_freq_var</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Oscillation Frequency&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Measured Exponent&#39;</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;irasa_osc_freq&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;irasa&#39;</span><span class="p">)</span>
 </pre></div>
@@ -659,8 +667,9 @@ Expected Exponent:	 -2.0000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating IRASA across oscillation power</span>
-<span class="n">irasa_sims_pow</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
-                          <span class="n">update</span><span class="o">=</span><span class="s1">&#39;update_pow&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">POWERS</span><span class="p">,</span> <span class="n">n_sims</span><span class="o">=</span><span class="n">N_SIMS</span><span class="p">)</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_pow&#39;</span><span class="p">,</span> <span class="n">POWERS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">irasa_sims_pow</span><span class="p">,</span> <span class="n">irasa_sims_pow_var</span> <span class="o">=</span> <span class="n">outs</span>
 </pre></div>
 </div>
 </div>
@@ -669,7 +678,7 @@ Expected Exponent:	 -2.0000
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot IRASA estimation across oscillation power values</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">POWERS</span><span class="p">,</span> <span class="p">[</span><span class="n">EXP</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">POWERS</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">POWERS</span><span class="p">,</span> <span class="n">irasa_sims_pow</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">POWERS</span><span class="p">,</span> <span class="n">irasa_sims_pow</span><span class="p">,</span> <span class="n">irasa_sims_pow_var</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Oscillation Power&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Measured Exponent&#39;</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;irasa_osc_power&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;irasa&#39;</span><span class="p">)</span>
 </pre></div>
@@ -680,6 +689,10 @@ Expected Exponent:	 -2.0000
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Words, words, words.</p>
 </div>
 </div>
 

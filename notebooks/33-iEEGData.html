@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iEEG Data Analysis &#8212; Aperiodic  Methods</title>
+    <title>iEEG Data &#8212; Aperiodic  Methods</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Analyze Development EEG Data" href="32-DevelopmentalEEGData.html" />
+    <link rel="prev" title="Developmental EEG Data" href="32-DevelopmentalEEGData.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -103,7 +103,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -145,7 +145,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -155,24 +155,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -182,18 +182,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="32-DevelopmentalEEGData.html">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -285,6 +285,11 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-details">
+   Dataset Details
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#settings">
    Settings
   </a>
@@ -347,9 +352,12 @@
         
               <div>
                 
-  <div class="section" id="ieeg-data-analysis">
-<h1>iEEG Data Analysis<a class="headerlink" href="#ieeg-data-analysis" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ieeg-data">
+<h1>iEEG Data<a class="headerlink" href="#ieeg-data" title="Permalink to this headline">¶</a></h1>
 <p>Analyze iEEG data.</p>
+<div class="section" id="dataset-details">
+<h2>Dataset Details<a class="headerlink" href="#dataset-details" title="Permalink to this headline">¶</a></h2>
+<p>Words, words, words.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -385,12 +393,13 @@
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="settings">
 <h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the data folder</span>
-<span class="n">folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/Users/tom/Documents/Data/MNI-iEEG/Wakefulness_AllRegions/&#39;</span><span class="p">)</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/Users/tom/Documents/Data/External/iEEG/MNI/Wakefulness_AllRegions/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -545,7 +554,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-iEEGData_19_0.png" src="../_images/33-iEEGData_19_0.png" />
+<img alt="../_images/33-iEEGData_20_0.png" src="../_images/33-iEEGData_20_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -556,7 +565,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-iEEGData_20_0.png" src="../_images/33-iEEGData_20_0.png" />
+<img alt="../_images/33-iEEGData_21_0.png" src="../_images/33-iEEGData_21_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -574,7 +583,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-iEEGData_22_0.png" src="../_images/33-iEEGData_22_0.png" />
+<img alt="../_images/33-iEEGData_23_0.png" src="../_images/33-iEEGData_23_0.png" />
 </div>
 </div>
 </div>
@@ -614,18 +623,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize outputs</span>
-<span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_chans</span><span class="p">)</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">measures</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate measures on data</span>
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">sig</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_data</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">measure</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">measures</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">outputs</span><span class="p">[</span><span class="n">measure</span><span class="o">.</span><span class="vm">__name__</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">measure</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>     
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute measures of interest on the data</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">run_measures</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">measures</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -850,7 +849,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="32-DevelopmentalEEGData.html" title="previous page">Analyze Development EEG Data</a>
+    <a class='left-prev' id="prev-link" href="32-DevelopmentalEEGData.html" title="previous page">Developmental EEG Data</a>
 
         </div>
         

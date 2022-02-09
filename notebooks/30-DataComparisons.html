@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="EEG Data Analysis" href="31-EEGData.html" />
-    <link rel="prev" title="Compare Other Methods" href="23-CompareOther.html" />
+    <link rel="next" title="Resting EEG Data" href="31-RestingEEGData.html" />
+    <link rel="prev" title="Compare Exponent to Other" href="23-ExponentvsTimeDomain.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -104,7 +104,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Methods
+  Method Evaluations
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -146,7 +146,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Comparisons
+  Method Comparisons
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -156,24 +156,24 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="21-CompareExponents.html">
+  <a class="reference internal" href="21-ExponentComparisons.html">
    Compare SpecParam &amp; IRASA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="22-CompareExponentToOther.html">
-   Compare Exponent to Other
+  <a class="reference internal" href="22-TimeDomainComparisons.html">
+   Compare Other Methods
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="23-CompareOther.html">
-   Compare Other Methods
+  <a class="reference internal" href="23-ExponentvsTimeDomain.html">
+   Compare Exponent to Other
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Real Data
+  Data Applications
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -183,18 +183,18 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="31-EEGData.html">
-   EEG Data Analysis
+  <a class="reference internal" href="31-RestingEEGData.html">
+   Resting EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="32-DevelopmentalEEGData.html">
-   Analyze Development EEG Data
+   Developmental EEG Data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="33-iEEGData.html">
-   iEEG Data Analysis
+   iEEG Data
   </a>
  </li>
 </ul>
@@ -286,18 +286,23 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#datasets">
-   Datasets
+  <a class="reference internal nav-link" href="#overview">
+   Overview
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#analysis-approach">
-   Analysis Approach
+  <a class="reference internal nav-link" href="#contents">
+   Contents
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applied-methods">
    Applied Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-approach">
+   Code Approach
   </a>
  </li>
 </ul>
@@ -313,38 +318,34 @@
                 
   <div class="section" id="data-comparisons">
 <h1>Data Comparisons<a class="headerlink" href="#data-comparisons" title="Permalink to this headline">¶</a></h1>
-<p>This section applies a selection of methods to empirical data, and examines and compares the results.</p>
-<div class="section" id="datasets">
-<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<p>This section applies and compares methods on empirical datasets.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In the previous sections, we have used simulated data to investigate the method properties. While simulated data offers the benefit of knowing ground truth parameters, and systematically exploring variations in isolated parameters, simulation tests are limited to the extent that they do not fully reflect empirical data.</p>
+<p>In this section, we compare the methods on empirical data, to examine how they relate to each other in real data cases.</p>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <p>The following analyses and comparisons are applied to empirical datasets:</p>
 <ul class="simple">
-<li><p>31-Resting state EEG data</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">31-RestingEEGData</span></code>: analyzing a small sample of resting state EEG data</p>
 <ul>
-<li><p>Analyze a small resting state EEG dataset</p></li>
-<li><p>This dataset is a sample of resting state data collected in the VoytekLab</p></li>
+<li><p>This dataset is resting state EEG data collected in the VoytekLab</p></li>
+<li><p>Young adult subjects (n=29, ages 18-28), with eyes-closed resting data</p></li>
 </ul>
 </li>
-<li><p>32-Developmental EEG data</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">32-DevelopmentalEEGData</span></code>:  analyzing a large EEG dataset of developmental data</p>
 <ul>
-<li><p>Analyze a large EEG dataset with developmental data (ages 6-44)</p></li>
 <li><p>This dataset is the MIPDB dataset, from the ChildMind Institute</p></li>
+<li><p>Cross-sectional developmental data (n=126, ages 6-44), with eyes-open &amp; eyes-closed resting data</p></li>
 </ul>
 </li>
-<li><p>33-iEEG data</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">33-iEEGData</span></code>: analyzing a large dataset of intracranial EEG data</p>
 <ul>
-<li><p>Analyze a large iEEG dataset, with electrodes across the cortex</p></li>
 <li><p>This dataset is the open iEEG Atlas, from the MNI</p></li>
+<li><p>Clinical iEEG data, cortical electrodes (n=106, average age: 33)</p></li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="section" id="analysis-approach">
-<h2>Analysis Approach<a class="headerlink" href="#analysis-approach" title="Permalink to this headline">¶</a></h2>
-<p>The general following strategy is taken:</p>
-<ul class="simple">
-<li><p>data files are loaded and organized</p></li>
-<li><p>measures of interest are computed on the empirical data</p></li>
-<li><p>results of the measures are compared to each other</p></li>
 </ul>
 </div>
 <div class="section" id="applied-methods">
@@ -358,6 +359,114 @@
 <li><p>Hjorth Complexity</p></li>
 <li><p>Approximate Entropy</p></li>
 </ul>
+</div>
+<div class="section" id="code-approach">
+<h2>Code Approach<a class="headerlink" href="#code-approach" title="Permalink to this headline">¶</a></h2>
+<p>The general following strategy is taken:</p>
+<ul class="simple">
+<li><p>data files are loaded and organized</p></li>
+<li><p>measures of interest are computed on the empirical data</p></li>
+<li><p>results of the measures are compared to each other</p></li>
+</ul>
+<p>The overarching function used to compute measures on data is the <code class="docutils literal notranslate"><span class="pre">run_measures</span></code> function.</p>
+<p>This function allows for:</p>
+<ul class="simple">
+<li><p>taking a collection of data and a list of methods</p></li>
+<li><p>applying each measure across the data</p></li>
+<li><p>returning the collection of results</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the `run_measures` function from the custom code folder</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_measures</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the documentation for `run_measures`</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">run_measures</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compute multiple measures of interest across empirical recordings.
+
+    Parameters
+    ----------
+    data : 2d array
+        Data to run measures on, organized as [channels, timepoints].
+    measures : dict
+        Functions to apply to the data.
+        The keys should be functions to apply to the data.
+        The values should be a dictionary of parameters to use for the method.
+
+    Returns
+    -------
+    outputs : dict
+        Output measures.
+        The keys are labels for each applied method.
+        The values are the computed measures for each method.
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we can run an example of using <code class="docutils literal notranslate"><span class="pre">run_measures</span></code>.</p>
+<p>To do so, we will define an example analysis to apply some measures of interest (here, computing the mean and the variance). To mimic a real dataset, we will use some of the example simulated time series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS</span>
+<span class="kn">from</span> <span class="nn">apm.sim.examples</span> <span class="kn">import</span> <span class="n">SIG_AP</span><span class="p">,</span> <span class="n">SIG_KN</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect together an array of mock data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">SIG_AP</span><span class="p">,</span> <span class="n">SIG_KN</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define measures to apply</span>
+<span class="n">measures</span> <span class="o">=</span> <span class="p">{</span>
+     <span class="n">np</span><span class="o">.</span><span class="n">mean</span> <span class="p">:</span> <span class="p">{},</span>
+     <span class="n">np</span><span class="o">.</span><span class="n">var</span> <span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run measures across the data</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">run_measures</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">measures</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check output values of computed measures</span>
+<span class="n">outputs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;mean&#39;: array([-3.03164901e-17,  1.53723552e-14]), &#39;var&#39;: array([1., 1.])}
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -386,8 +495,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="23-CompareOther.html" title="previous page">Compare Other Methods</a>
-    <a class='right-next' id="next-link" href="31-EEGData.html" title="next page">EEG Data Analysis</a>
+    <a class='left-prev' id="prev-link" href="23-ExponentvsTimeDomain.html" title="previous page">Compare Exponent to Other</a>
+    <a class='right-next' id="next-link" href="31-RestingEEGData.html" title="next page">Resting EEG Data</a>
 
         </div>
         
