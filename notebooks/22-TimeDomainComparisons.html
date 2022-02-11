@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compare Other Methods &#8212; Aperiodic  Methods</title>
+    <title>Time Domain Comparisons &#8212; Aperiodic  Methods</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Compare Exponent to Other" href="23-ExponentvsTimeDomain.html" />
-    <link rel="prev" title="Compare SpecParam &amp; IRASA" href="21-ExponentComparisons.html" />
+    <link rel="next" title="Exponent to Time Domain Comparisons" href="23-ExponentvsTimeDomain.html" />
+    <link rel="prev" title="Exponent Comparisons" href="21-ExponentComparisons.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -157,17 +157,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="21-ExponentComparisons.html">
-   Compare SpecParam &amp; IRASA
+   Exponent Comparisons
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Compare Other Methods
+   Time Domain Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="23-ExponentvsTimeDomain.html">
-   Compare Exponent to Other
+   Exponent to Time Domain Comparisons
   </a>
  </li>
 </ul>
@@ -333,9 +333,19 @@
         
               <div>
                 
-  <div class="section" id="compare-other-methods">
-<h1>Compare Other Methods<a class="headerlink" href="#compare-other-methods" title="Permalink to this headline">¶</a></h1>
-<p>Here we compare non-exponent estimations to each other.</p>
+  <div class="section" id="time-domain-comparisons">
+<h1>Time Domain Comparisons<a class="headerlink" href="#time-domain-comparisons" title="Permalink to this headline">¶</a></h1>
+<p>This notebook compares methods that operate in the time domain.</p>
+<p>Compared methods:</p>
+<ul class="simple">
+<li><p>Hurst exponent</p></li>
+<li><p>detrended fluctuation analysis</p></li>
+<li><p>Hjorth Complexity</p></li>
+<li><p>Lempel Ziv Complexity</p></li>
+<li><p>Higuchi Fractal Dimension</p></li>
+<li><p>Permutation Entropy</p></li>
+<li><p>Approximate Entropy</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -620,7 +630,12 @@
 </div>
 <div class="section" id="conclusions">
 <h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
-<p>Words, words, words.</p>
+<p>Comparing between these methods, overall we can see that:</p>
+<ul class="simple">
+<li><p>Fluctuation and complexity measures have varying, and generally non-linear, relationships to each other</p></li>
+<li><p>There is generally (though not exclusively) a positive correlation between entropy measures and complexity measures</p></li>
+<li><p>Entropy is generally negatively correlated to fluctuation measures, though the pattern is non-linear</p></li>
+</ul>
 </div>
 </div>
 
@@ -649,8 +664,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="21-ExponentComparisons.html" title="previous page">Compare SpecParam &amp; IRASA</a>
-    <a class='right-next' id="next-link" href="23-ExponentvsTimeDomain.html" title="next page">Compare Exponent to Other</a>
+    <a class='left-prev' id="prev-link" href="21-ExponentComparisons.html" title="previous page">Exponent Comparisons</a>
+    <a class='right-next' id="next-link" href="23-ExponentvsTimeDomain.html" title="next page">Exponent to Time Domain Comparisons</a>
 
         </div>
         

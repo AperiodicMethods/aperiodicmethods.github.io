@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compare SpecParam &amp; IRASA &#8212; Aperiodic  Methods</title>
+    <title>Exponent Comparisons &#8212; Aperiodic  Methods</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Compare Other Methods" href="22-TimeDomainComparisons.html" />
+    <link rel="next" title="Time Domain Comparisons" href="22-TimeDomainComparisons.html" />
     <link rel="prev" title="Method Comparisons" href="20-MethodComparisons.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -157,17 +157,17 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Compare SpecParam &amp; IRASA
+   Exponent Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="22-TimeDomainComparisons.html">
-   Compare Other Methods
+   Time Domain Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="23-ExponentvsTimeDomain.html">
-   Compare Exponent to Other
+   Exponent to Time Domain Comparisons
   </a>
  </li>
 </ul>
@@ -321,9 +321,18 @@
         
               <div>
                 
-  <div class="section" id="compare-specparam-irasa">
-<h1>Compare SpecParam &amp; IRASA<a class="headerlink" href="#compare-specparam-irasa" title="Permalink to this headline">¶</a></h1>
-<p>Spectral Parameterization and IRASA can both be used to compute estimates of the spectral exponent.</p>
+  <div class="section" id="exponent-comparisons">
+<h1>Exponent Comparisons<a class="headerlink" href="#exponent-comparisons" title="Permalink to this headline">¶</a></h1>
+<p>This notebook compares methods that directly estimate aperiodic exponents.</p>
+<p>Compared methods:</p>
+<ul class="simple">
+<li><p>spectral parameterization</p></li>
+<li><p>IRASA</p></li>
+</ul>
+<p>ToDo:</p>
+<ul class="simple">
+<li><p>This notebook is incomplete, and will be fleshed out when the full IRASA explorations are integrated, and can be compared directly to specparam here</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -443,7 +452,10 @@
 </div>
 <div class="section" id="conclusions">
 <h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
-<p>Words, words, words.</p>
+<p>Comparing between these methods, overall we can see that:</p>
+<ul class="simple">
+<li><p>In simple cases (powerlaw + oscillations), specparam and IRASA perform very similarly</p></li>
+</ul>
 </div>
 </div>
 
@@ -473,7 +485,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="20-MethodComparisons.html" title="previous page">Method Comparisons</a>
-    <a class='right-next' id="next-link" href="22-TimeDomainComparisons.html" title="next page">Compare Other Methods</a>
+    <a class='right-next' id="next-link" href="22-TimeDomainComparisons.html" title="next page">Time Domain Comparisons</a>
 
         </div>
         

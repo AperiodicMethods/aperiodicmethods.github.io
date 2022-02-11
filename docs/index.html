@@ -156,17 +156,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notebooks/21-ExponentComparisons.html">
-   Compare SpecParam &amp; IRASA
+   Exponent Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notebooks/22-TimeDomainComparisons.html">
-   Compare Other Methods
+   Time Domain Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notebooks/23-ExponentvsTimeDomain.html">
-   Compare Exponent to Other
+   Exponent to Time Domain Comparisons
   </a>
  </li>
 </ul>
@@ -273,6 +273,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reference">
    Reference
   </a>
@@ -308,15 +313,52 @@ surveys and compares available methods for measuring aperiodic activity in neura
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>To examine these methods, we use simulated data with known aperiodic and periodic properties in order to evaluate aperiodic
 methods and how they perform on neural data.</p>
-<p>Topics include:</p>
+<p>This broadly is organized into the following sections:</p>
+<ul>
+<li><ol class="simple">
+<li><p>Introduction: introducing the main ideas and approaches of this project</p></li>
+</ol>
 <ul class="simple">
-<li><p>Spectral Line Fitting</p></li>
-<li><p>IRASA</p></li>
-<li><p>DFA</p></li>
-<li><p>Entropy (information theory metrics)</p></li>
+<li><p>This section introduces the list of included methods, examines their prevalence in the literature, and introduces the data simulations</p></li>
+</ul>
+</li>
+<li><ol class="simple">
+<li><p>Method Evaluations: evaluating each method independently</p></li>
+</ol>
+<ul class="simple">
+<li><p>This section introduces each method and characterizes it’s performance on simulated data</p></li>
+</ul>
+</li>
+<li><ol class="simple">
+<li><p>Method Comparisons: comparing different methods head-to-head</p></li>
+</ol>
+<ul class="simple">
+<li><p>This section compares methods directly to each other, on simulated data</p></li>
+</ul>
+</li>
+<li><ol class="simple">
+<li><p>Data Applications: examining method performance and comparing between methods on real data</p></li>
+</ol>
+<ul class="simple">
+<li><p>This section applies the methods to EEG and iEEG datasets, to evaluate their performance on real data</p></li>
+</ul>
+</li>
 </ul>
 <p>Available materials are created as <a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a>, and are intended to be executed and explored in a hands-on manner.
 There is a download link at the top left of the page, that can be used to download each page as a notebook.</p>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>For this project, ‘aperiodic methods’ are broadly construed</p>
+<p>Methods included in this project:</p>
+<ul class="simple">
+<li><p>Spectral Line Fitting (e.g. spectral parameterization)</p></li>
+<li><p>Decomposition Methods (e.g. IRASA)</p></li>
+<li><p>AutoCorrelation Measures</p></li>
+<li><p>Fluctuation Measures (e.g. Hurst Exponent, DFA)</p></li>
+<li><p>Complexity Measures (e.g.: fractal dimension)</p></li>
+<li><p>Information Theory Metrics (e.g. entropy)</p></li>
+</ul>
 </div>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>

@@ -157,17 +157,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="21-ExponentComparisons.html">
-   Compare SpecParam &amp; IRASA
+   Exponent Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="22-TimeDomainComparisons.html">
-   Compare Other Methods
+   Time Domain Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="23-ExponentvsTimeDomain.html">
-   Compare Exponent to Other
+   Exponent to Time Domain Comparisons
   </a>
  </li>
 </ul>
@@ -296,76 +296,59 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#entropy-simulations-aperiodic-variations">
-   Entropy Simulations: Aperiodic Variations
+  <a class="reference internal nav-link" href="#approximate-entropy">
+   Approximate Entropy
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#approximate-entropy">
-     Approximate Entropy
+    <a class="reference internal nav-link" href="#aperiodic-variations">
+     Aperiodic Variations
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#plot-aperiodic-combined-together">
-       Plot Aperiodic &amp; Combined Together
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sample-entropy">
-     Sample Entropy
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       Plot Aperiodic &amp; Combined Together
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#permutation-entropy">
-     Permutation Entropy
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Plot Aperiodic &amp; Combined Together
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spectral-entropy">
-     Spectral Entropy
+    <a class="reference internal nav-link" href="#periodic-variations">
+     Periodic Variations
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#entropy-simulations-periodic-variations">
-   Entropy Simulations - Periodic Variations
+  <a class="reference internal nav-link" href="#sample-entropy">
+   Sample Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Periodic Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-entropy">
+   Permutation Entropy
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     Approximate Entropy
+     Aperiodic Variations
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spectral-entropy">
+   Spectral Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     Sample Entropy
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Permutation Entropy
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Spectral Entropy
+     Periodic Variations
     </a>
    </li>
   </ul>
@@ -389,32 +372,18 @@
   <div class="section" id="information-metrics">
 <h1>Information Metrics<a class="headerlink" href="#information-metrics" title="Permalink to this headline">¶</a></h1>
 <p>This notebooks runs information theory metrics on time series signals, including several entropy measures.</p>
-<p>Measures of entropy generally measure the level of ‘randomness’ or complexity in a signal.</p>
-<p>Entropy measures explored here:</p>
+<p>This notebook includes:</p>
 <ul class="simple">
-<li><p>approximate entropy: quantifies the unpredictability of a time series</p></li>
-<li><p>sample entropy: a modification of approxmiate entropy for physiological time series</p>
-<ul>
-<li><p>the modifications of sample entropy make it data length independent</p></li>
+<li><p>approximate entropy</p></li>
+<li><p>sample entropy</p></li>
+<li><p>permutation entropy</p></li>
+<li><p>spectral entropy</p></li>
 </ul>
-</li>
-<li><p>permutation entropy: a measure of entropy based on the probabilities of sequences within the time series</p>
-<ul>
-<li><p>Permutation entropy was introduced in 2002 by Bandt &amp; Pompe</p></li>
-</ul>
-</li>
-<li><p>spectral entropy: the entropy of the power spectrum</p></li>
-</ul>
-<p>In all cases, smaller values of measured entropy indicate more regular time series.</p>
 <p>Notes:</p>
 <ul class="simple">
 <li><p>sample &amp; approximate entroy are pretty similar, maybe don’t need both (?)</p></li>
 <li><p>other metrics we don’t currently consider: multiscale entropy, weighted permutation entropy</p></li>
 <li><p>there are important parameter inputs to these measures, that could be explored</p></li>
-</ul>
-<p>ToDos:</p>
-<ul class="simple">
-<li><p>could condense the plots here (like in the Complexity notebook)</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -434,6 +403,7 @@
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
 
 <span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims</span>
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims_parallel</span> <span class="k">as</span> <span class="n">run_sims</span>
 <span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">spectral_entropy</span>
 <span class="kn">from</span> <span class="nn">apm.methods.settings</span> <span class="kn">import</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">SP_ENT_PARAMS</span>
 
@@ -494,6 +464,8 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 <div class="section" id="calculating-entropy-measures-on-example-signals">
 <h2>Calculating Entropy Measures on Example Signals<a class="headerlink" href="#calculating-entropy-measures-on-example-signals" title="Permalink to this headline">¶</a></h2>
+<p>Entropy measures generally measure the level of ‘randomness’ or complexity in a signal.</p>
+<p>In all cases, smaller values of measured entropy indicate more regular time series.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed approximate entropy:&#39;</span><span class="p">)</span>
@@ -506,10 +478,10 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed approximate entropy:
-  powerlaw: 	 0.1980
+  powerlaw: 	 0.4097
   osc:      	 0.2010
-  combined: 	 1.0215
-  knee:     	 1.5054
+  combined: 	 1.0141
+  knee:     	 1.4911
 </pre></div>
 </div>
 </div>
@@ -526,10 +498,10 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed sample entropy:
-  powerlaw: 	 0.1893
+  powerlaw: 	 0.3796
   osc:      	 0.1629
-  combined: 	 0.9284
-  knee:     	 1.3878
+  combined: 	 0.9213
+  knee:     	 1.3736
 </pre></div>
 </div>
 </div>
@@ -546,10 +518,10 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed permutation entropy:
-  powerlaw: 	 2.5232
+  powerlaw: 	 2.5213
   osc:      	 1.1414
-  combined: 	 2.5267
-  knee:     	 2.5131
+  combined: 	 2.5198
+  knee:     	 2.5091
 </pre></div>
 </div>
 </div>
@@ -566,20 +538,20 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed spectral entropy:
-  powerlaw: 	 1.7495
+  powerlaw: 	 4.2230
   osc:      	 0.0000
-  combined: 	 7.4348
-  knee:     	 10.9148
+  combined: 	 7.4309
+  knee:     	 10.8893
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="entropy-simulations-aperiodic-variations">
-<h2>Entropy Simulations: Aperiodic Variations<a class="headerlink" href="#entropy-simulations-aperiodic-variations" title="Permalink to this headline">¶</a></h2>
-<p>Calculate entropy measures on simulated powerlaw signals, with and without oscillations.</p>
 <div class="section" id="approximate-entropy">
-<h3>Approximate Entropy<a class="headerlink" href="#approximate-entropy" title="Permalink to this headline">¶</a></h3>
+<h2>Approximate Entropy<a class="headerlink" href="#approximate-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Approximate entropy quantifies the unpredictability of a time series.</p>
+<div class="section" id="aperiodic-variations">
+<h3>Aperiodic Variations<a class="headerlink" href="#aperiodic-variations" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across exponents</span>
@@ -588,19 +560,6 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 <span class="n">ap_ents</span><span class="p">,</span> <span class="n">ap_ents_var</span> <span class="o">=</span> <span class="n">outs</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot approximate entropy measures across exponent values</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">ap_ents</span><span class="p">,</span> <span class="n">ap_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_16_0.png" src="../_images/16-Information_16_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -615,21 +574,6 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot approximate entropy measures across exponent values, with an oscillation</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">ap_ents_comb</span><span class="p">,</span> <span class="n">ap_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ap_comb&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_18_0.png" src="../_images/16-Information_18_0.png" />
-</div>
-</div>
-<div class="section" id="plot-aperiodic-combined-together">
-<h4>Plot Aperiodic &amp; Combined Together<a class="headerlink" href="#plot-aperiodic-combined-together" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot entropy measures for with &amp; without oscillation together</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">ap_ents</span><span class="p">,</span> <span class="n">ap_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">ap_ents_comb</span><span class="p">,</span> <span class="n">ap_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
@@ -639,220 +583,12 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/16-Information_20_0.png" src="../_images/16-Information_20_0.png" />
+<img alt="../_images/16-Information_17_0.png" src="../_images/16-Information_17_0.png" />
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="sample-entropy">
-<h3>Sample Entropy<a class="headerlink" href="#sample-entropy" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across exponents</span>
-<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span>
-                <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
-<span class="n">sa_ents</span><span class="p">,</span> <span class="n">sa_ents_var</span> <span class="o">=</span> <span class="n">outs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot sample entropy measures across exponent values</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sa_ents</span><span class="p">,</span> <span class="n">sa_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;se_exp&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_23_0.png" src="../_images/16-Information_23_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across exponents, with an oscillation</span>
-<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span>
-                <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
-<span class="n">sa_ents_comb</span><span class="p">,</span> <span class="n">sa_ents_comb_var</span> <span class="o">=</span> <span class="n">outs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot sample entropy measures across exponent values</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sa_ents_comb</span><span class="p">,</span> <span class="n">sa_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;se_comb&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_25_0.png" src="../_images/16-Information_25_0.png" />
-</div>
-</div>
-<div class="section" id="id1">
-<h4>Plot Aperiodic &amp; Combined Together<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot entropy measures for with &amp; without oscillation together</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sa_ents</span><span class="p">,</span> <span class="n">sa_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sa_ents_comb</span><span class="p">,</span> <span class="n">sa_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;se_both&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_27_0.png" src="../_images/16-Information_27_0.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="permutation-entropy">
-<h3>Permutation Entropy<a class="headerlink" href="#permutation-entropy" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across exponents</span>
-<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span>
-                <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
-<span class="n">pe_ents</span><span class="p">,</span> <span class="n">pe_ents_var</span> <span class="o">=</span> <span class="n">outs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot permutation entropy measures across exponent values</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">pe_ents</span><span class="p">,</span> <span class="n">pe_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;pe_exp&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_30_0.png" src="../_images/16-Information_30_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across exponents, with an oscillation</span>
-<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span>
-                <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
-<span class="n">pe_ents_comb</span><span class="p">,</span> <span class="n">pe_ents_comb_var</span> <span class="o">=</span> <span class="n">outs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot permutation entropy measures across exponent values, with an oscillation</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">pe_ents_comb</span><span class="p">,</span> <span class="n">pe_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;pe_comb&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_32_0.png" src="../_images/16-Information_32_0.png" />
-</div>
-</div>
-<div class="section" id="id2">
-<h4>Plot Aperiodic &amp; Combined Together<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot entropy measures for with &amp; without oscillation together</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">pe_ents</span><span class="p">,</span> <span class="n">pe_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">pe_ents_comb</span><span class="p">,</span> <span class="n">pe_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;pe_both&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_34_0.png" src="../_images/16-Information_34_0.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="spectral-entropy">
-<h3>Spectral Entropy<a class="headerlink" href="#spectral-entropy" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating spectral entropy across exponents</span>
-<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">spectral_entropy</span><span class="p">,</span> <span class="n">SP_ENT_PARAMS</span><span class="p">,</span> 
-                <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
-<span class="n">sp_ents</span><span class="p">,</span> <span class="n">sp_ents_var</span> <span class="o">=</span> <span class="n">outs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tom/opt/anaconda3/lib/python3.8/site-packages/antropy/entropy.py:249: RuntimeWarning: divide by zero encountered in log2
-  se = -(psd_norm * np.log2(psd_norm)).sum(axis=axis)
-/Users/tom/opt/anaconda3/lib/python3.8/site-packages/antropy/entropy.py:249: RuntimeWarning: invalid value encountered in multiply
-  se = -(psd_norm * np.log2(psd_norm)).sum(axis=axis)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot spectral entropy measures across exponent values</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sp_ents</span><span class="p">,</span> <span class="n">sp_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_37_0.png" src="../_images/16-Information_37_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating spectral entropy across exponents, with an oscillation</span>
-<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">spectral_entropy</span><span class="p">,</span> <span class="n">SP_ENT_PARAMS</span><span class="p">,</span> 
-                <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
-<span class="n">sp_ents_comb</span><span class="p">,</span> <span class="n">sp_ents_comb_var</span> <span class="o">=</span> <span class="n">outs</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot spectral entropy measures across exponent values, with an oscillation</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sp_ents_comb</span><span class="p">,</span> <span class="n">sp_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ap_comb&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_39_0.png" src="../_images/16-Information_39_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot spectral entropy measures for with &amp; without oscillation together</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sp_ents</span><span class="p">,</span> <span class="n">sp_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sp_ents_comb</span><span class="p">,</span> <span class="n">sp_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ap_both&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/16-Information_40_0.png" src="../_images/16-Information_40_0.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="entropy-simulations-periodic-variations">
-<h2>Entropy Simulations - Periodic Variations<a class="headerlink" href="#entropy-simulations-periodic-variations" title="Permalink to this headline">¶</a></h2>
-<p>Calculate entropy measures on simulated combined signals, with an oscillation and powerlaw components, across variations of oscillatory parameters.</p>
-<div class="section" id="id3">
-<h3>Approximate Entropy<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="periodic-variations">
+<h3>Periodic Variations<a class="headerlink" href="#periodic-variations" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across oscillation frequency</span>
@@ -887,12 +623,54 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/16-Information_45_0.png" src="../_images/16-Information_45_0.png" />
+<img alt="../_images/16-Information_21_0.png" src="../_images/16-Information_21_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3>Sample Entropy<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="sample-entropy">
+<h2>Sample Entropy<a class="headerlink" href="#sample-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Sample entropy is a modification of approxmiate entropy for physiological time series.</p>
+<p>The modifications of sample entropy make it data length independent.</p>
+<div class="section" id="id1">
+<h3>Aperiodic Variations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across exponents</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">sa_ents</span><span class="p">,</span> <span class="n">sa_ents_var</span> <span class="o">=</span> <span class="n">outs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across exponents, with an oscillation</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">sa_ents_comb</span><span class="p">,</span> <span class="n">sa_ents_comb_var</span> <span class="o">=</span> <span class="n">outs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot entropy measures for with &amp; without oscillation together</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sa_ents</span><span class="p">,</span> <span class="n">sa_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sa_ents_comb</span><span class="p">,</span> <span class="n">sa_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;se_both&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/16-Information_26_0.png" src="../_images/16-Information_26_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Periodic Variations<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across oscillation frequency</span>
@@ -927,12 +705,51 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/16-Information_49_0.png" src="../_images/16-Information_49_0.png" />
+<img alt="../_images/16-Information_30_0.png" src="../_images/16-Information_30_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>Permutation Entropy<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="permutation-entropy">
+<h2>Permutation Entropy<a class="headerlink" href="#permutation-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Permutation entropy is a measure of entropy based on the probabilities of sequences within the time series.</p>
+<p>Permutation entropy was introduced in 2002 by Bandt &amp; Pompe.</p>
+<div class="section" id="id3">
+<h3>Aperiodic Variations<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across exponents</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">pe_ents</span><span class="p">,</span> <span class="n">pe_ents_var</span> <span class="o">=</span> <span class="n">outs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across exponents, with an oscillation</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span>
+                <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">pe_ents_comb</span><span class="p">,</span> <span class="n">pe_ents_comb_var</span> <span class="o">=</span> <span class="n">outs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot entropy measures for with &amp; without oscillation together</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">pe_ents</span><span class="p">,</span> <span class="n">pe_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">pe_ents_comb</span><span class="p">,</span> <span class="n">pe_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;pe_both&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/16-Information_35_0.png" src="../_images/16-Information_35_0.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating permutation entropy across oscillation frequency</span>
@@ -967,26 +784,56 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/16-Information_53_0.png" src="../_images/16-Information_53_0.png" />
+<img alt="../_images/16-Information_38_0.png" src="../_images/16-Information_38_0.png" />
 </div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>Spectral Entropy<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="spectral-entropy">
+<h2>Spectral Entropy<a class="headerlink" href="#spectral-entropy" title="Permalink to this headline">¶</a></h2>
+<p>The spectral entropy measures the entropy of the power spectrum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating spectral entropy across exponents</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_PARAMS_AP</span><span class="p">,</span> <span class="n">spectral_entropy</span><span class="p">,</span> <span class="n">SP_ENT_PARAMS</span><span class="p">,</span> 
+                <span class="s1">&#39;update_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">sp_ents</span><span class="p">,</span> <span class="n">sp_ents_var</span> <span class="o">=</span> <span class="n">outs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating spectral entropy across exponents, with an oscillation</span>
+<span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">spectral_entropy</span><span class="p">,</span> <span class="n">SP_ENT_PARAMS</span><span class="p">,</span> 
+                <span class="s1">&#39;update_comb_exp&#39;</span><span class="p">,</span> <span class="n">EXPS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
+<span class="n">sp_ents_comb</span><span class="p">,</span> <span class="n">sp_ents_comb_var</span> <span class="o">=</span> <span class="n">outs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot spectral entropy measures for with &amp; without oscillation together</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sp_ents</span><span class="p">,</span> <span class="n">sp_ents_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">AP_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aperiodic&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">EXPS</span><span class="p">,</span> <span class="n">sp_ents_comb</span><span class="p">,</span> <span class="n">sp_ents_comb_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COMB_COL</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">save_fig</span><span class="o">=</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s1">&#39;ap_both&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="o">=</span><span class="s1">&#39;info&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/16-Information_42_0.png" src="../_images/16-Information_42_0.png" />
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Periodic Variations<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating spectral entropy across oscillation frequency</span>
 <span class="n">outs</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_PARAMS_COMB</span><span class="p">,</span> <span class="n">spectral_entropy</span><span class="p">,</span> <span class="n">SP_ENT_PARAMS</span><span class="p">,</span>
                 <span class="s1">&#39;update_freq&#39;</span><span class="p">,</span> <span class="n">FREQS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">,</span> <span class="n">var_func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">)</span>
 <span class="n">sp_sims_freq</span><span class="p">,</span> <span class="n">sp_sims_freq_var</span> <span class="o">=</span> <span class="n">outs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tom/opt/anaconda3/lib/python3.8/site-packages/antropy/entropy.py:249: RuntimeWarning: divide by zero encountered in log2
-  se = -(psd_norm * np.log2(psd_norm)).sum(axis=axis)
-/Users/tom/opt/anaconda3/lib/python3.8/site-packages/antropy/entropy.py:249: RuntimeWarning: invalid value encountered in multiply
-  se = -(psd_norm * np.log2(psd_norm)).sum(axis=axis)
 </pre></div>
 </div>
 </div>
@@ -1015,18 +862,18 @@ Spectral Entropy:	 {&#39;sf&#39;: 1000, &#39;method&#39;: &#39;fft&#39;}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/16-Information_57_0.png" src="../_images/16-Information_57_0.png" />
+<img alt="../_images/16-Information_46_0.png" src="../_images/16-Information_46_0.png" />
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="conclusions">
 <h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
-<p>From the simulations above, we can summarize some general patterns:</p>
+<p>Overall, we can see the following patterns in these simulations:</p>
+<p>Entropy (general patterns across all):</p>
 <ul class="simple">
-<li><p>As expected, oscillatory signals (which are regular / predictable) have low entropy levels</p></li>
-<li><p>Entropy is generally higher for lower aperiodic exponents, but the relationship is non-linear</p></li>
-<li><p>In general, in combined signals, the presence of an oscillation decreases entropy, but to what extent depends on the estimate</p></li>
+<li><p>Entropy increases for decreasing aperiodic exponents, non-linearly</p></li>
+<li><p>Entropy decreases for increasing oscillatory power, approximately linearly</p></li>
 </ul>
 </div>
 </div>

@@ -157,17 +157,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="21-ExponentComparisons.html">
-   Compare SpecParam &amp; IRASA
+   Exponent Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="22-TimeDomainComparisons.html">
-   Compare Other Methods
+   Time Domain Comparisons
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="23-ExponentvsTimeDomain.html">
-   Compare Exponent to Other
+   Exponent to Time Domain Comparisons
   </a>
  </li>
 </ul>
@@ -647,7 +647,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across exponent values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across oscillation power</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sims_pow</span><span class="p">,</span> <span class="n">power_colors</span><span class="p">):</span>
     <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">FS</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Autocorrelation&#39;</span><span class="p">)</span>
@@ -683,7 +683,21 @@
 </div>
 <div class="section" id="conclusions">
 <h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
-<p>Words, words, words.</p>
+<p>Overall, we can see the following patterns in these simulations:</p>
+<p>Autocorrelation:</p>
+<ul class="simple">
+<li><p>The autocorrelation of 1/f signals decreases across increasing time lags</p>
+<ul>
+<li><p>The quickness of this decay relates to the 1/f exponent</p></li>
+</ul>
+</li>
+<li><p>The autocorrelation of periodic signals is itself rhythmic</p>
+<ul>
+<li><p>The frequency and scale of the autocorrelation relates to oscillatory frequency and power respectively</p></li>
+</ul>
+</li>
+<li><p>The autocorrelation of combined signals exhibits with decreasing + rhythmic properties of each component</p></li>
+</ul>
 </div>
 </div>
 
