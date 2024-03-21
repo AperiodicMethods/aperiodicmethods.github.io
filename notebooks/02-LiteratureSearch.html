@@ -1,0 +1,1252 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Literature Search &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Outline.html">
+   Outline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TimeDomainSimulations.html">
+   Time Series Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-TimeSimsParameters.html">
+   Time Domain Simulation Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-SimulationTests.html">
+   Simulation Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-SimulationComparisons.html">
+   Simulation Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-PowerSpectrumSimulations.html">
+   Power Spectrum Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time Domain Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="20-TimeDomainMethods.html">
+   Time Domain Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="21-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22B-Fluctuations-Multiscale.html">
+   Fluctuations (Multiscale)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23-FractalDimension.html">
+   Fractal Dimension
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23B-Fractal-State.html">
+   Fractal Dimension (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24B-Complexity-State.html">
+   Complexity (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25-Entropy.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25B-Entropy-Multiscale.html">
+   Multiscale Entropy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Spectral Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="30-SpectralMethods.html">
+   Spectral Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="31-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="33-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="34-ExponentComparisons.html">
+   Exponent Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Method Comparisons
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="40-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="41-WithinComparisons.html">
+   Within Method Type Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="42-BetweenComparisons.html">
+   Between Method Type Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51-RestingEEGData.html">
+   Resting EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52-DevelopmentalEEGData.html">
+   Developmental EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53-iEEGData.html">
+   iEEG Data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/02-LiteratureSearch.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/02-LiteratureSearch.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-terms">
+   Define Terms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-terms">
+     Search Terms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inclusion-exclusion-terms">
+     Inclusion / Exclusion Terms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-terms">
+     Collect terms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-a-metadata-check">
+   Run a Metadata Check
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-check-terms">
+   Add &amp; Check Terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collect-literature-data">
+   Collect Literature Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-and-process-collected-data">
+   Check and Process Collected Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-visualizations-of-collected-data">
+   Create Visualizations of Collected Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concepts">
+     Concepts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measures">
+     Measures
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examine-literature-terms-over-time">
+   Examine Literature Terms over Time
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Literature Search</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-terms">
+   Define Terms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#search-terms">
+     Search Terms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inclusion-exclusion-terms">
+     Inclusion / Exclusion Terms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-terms">
+     Collect terms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-a-metadata-check">
+   Run a Metadata Check
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-check-terms">
+   Add &amp; Check Terms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#collect-literature-data">
+   Collect Literature Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-and-process-collected-data">
+   Check and Process Collected Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-visualizations-of-collected-data">
+   Create Visualizations of Collected Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concepts">
+     Concepts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measures">
+     Measures
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examine-literature-terms-over-time">
+   Examine Literature Terms over Time
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="literature-search">
+<h1>Literature Search<a class="headerlink" href="#literature-search" title="Permalink to this headline">¶</a></h1>
+<p>Here we will explore the prevalence of different measures of aperiodic activity in the literature.</p>
+<p>To do so, we will use <a class="reference external" href="https://github.com/lisc-tools/lisc">LISC</a>, a Python module for collecting and analyzing scientific literature. More information on LISC can be found in the <a class="reference external" href="https://lisc-tools.github.io/lisc/">documentation</a>.</p>
+<p>To explore the prevalence and use cases of aperiodic measures, we will collect information from the Pubmed database on the number of papers that include search terms mentioning aperiodic measures, as well as the number of papers that mention these terms of interest in co-occurrence with specified association terms.</p>
+<p>Note that collecting literature data in this way is likely an under-estimate of the use of these measures, as the approach employed here only searches for search terms occurring in titles and abstracts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import LISC code</span>
+<span class="kn">from</span> <span class="nn">lisc</span> <span class="kn">import</span> <span class="n">Counts</span><span class="p">,</span> <span class="n">Counts1D</span>
+<span class="kn">from</span> <span class="nn">lisc.collect</span> <span class="kn">import</span> <span class="n">collect_info</span><span class="p">,</span> <span class="n">collect_across_time</span>
+<span class="kn">from</span> <span class="nn">lisc.io</span> <span class="kn">import</span> <span class="p">(</span><span class="n">save_meta_data</span><span class="p">,</span> <span class="n">load_meta_data</span><span class="p">,</span> <span class="n">save_object</span><span class="p">,</span> <span class="n">load_object</span><span class="p">,</span>
+                     <span class="n">save_time_results</span><span class="p">,</span> <span class="n">load_time_results</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">lisc.plts.counts</span> <span class="kn">import</span> <span class="n">plot_matrix</span><span class="p">,</span> <span class="n">plot_vector</span>
+<span class="kn">from</span> <span class="nn">lisc.plts.time</span> <span class="kn">import</span> <span class="n">plot_results_across_years</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+<span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p>First, we will define some settings for the literature collection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for literature collection</span>
+<span class="n">db</span> <span class="o">=</span> <span class="s1">&#39;pubmed&#39;</span>
+<span class="c1">#db = &#39;pmc&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notebook settings</span>
+<span class="n">RUN_COLLECTION</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">SAVE_DATA</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># File path settings</span>
+<span class="n">APDB</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">APDB</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;02_literature&#39;</span>
+
+<span class="c1"># Create helper function to manage figsaver settings</span>
+<span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-terms">
+<h2>Define Terms<a class="headerlink" href="#define-terms" title="Permalink to this headline">¶</a></h2>
+<p>Here we will define search terms to use to collect information on the literature of interest.</p>
+<div class="section" id="search-terms">
+<h3>Search Terms<a class="headerlink" href="#search-terms" title="Permalink to this headline">¶</a></h3>
+<p>First, we will define the search terms that reflect our terms of interest.</p>
+<p>Note that each set of terms within a list is a defined as a set of synonyms</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set list of aperiodic terms &amp; labels</span>
+<span class="n">concept_terms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;aperiodic&#39;</span><span class="p">,</span> <span class="s1">&#39;arrythmic&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;1/f&#39;</span><span class="p">,</span> <span class="s1">&#39;1/f-like&#39;</span><span class="p">,</span> <span class="s1">&#39;one-over f&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;scale free&#39;</span><span class="p">,</span> <span class="s1">&#39;fractal&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;criticality&#39;</span><span class="p">,</span> <span class="s1">&#39;complex dynamics&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;chaos&#39;</span><span class="p">,</span> <span class="s1">&#39;dynamical system&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;neural noise&#39;</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">concept_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;aperiodic&#39;</span><span class="p">,</span> <span class="s1">&#39;1/f&#39;</span><span class="p">,</span> <span class="s1">&#39;scale free&#39;</span><span class="p">,</span> <span class="s1">&#39;criticality&#39;</span><span class="p">,</span> <span class="s1">&#39;chaos&#39;</span><span class="p">,</span> <span class="s1">&#39;neural noise&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">concept_terms</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">concept_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set list of aperiodic method categories &amp; labels</span>
+<span class="n">method_terms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;autocorrelation&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">,</span> <span class="s1">&#39;detrended fluctuation analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;hurst exponent&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;fractal&#39;</span><span class="p">,</span> <span class="s1">&#39;correlation dimension&#39;</span><span class="p">,</span> <span class="s1">&#39;higuchi&#39;</span><span class="p">,</span> <span class="s1">&#39;katz&#39;</span><span class="p">,</span> <span class="s1">&#39;petrosian&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;complexity&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="s1">&#39;information theory&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;spectral parameterization&#39;</span><span class="p">,</span> <span class="s1">&#39;fooof&#39;</span><span class="p">,</span> <span class="s1">&#39;irasa&#39;</span><span class="p">,</span> <span class="s1">&#39;cgsa&#39;</span><span class="p">,</span> <span class="s1">&#39;aperiodic exponent&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;spectral slope&#39;</span><span class="p">,</span> <span class="s1">&#39;spectral exponent&#39;</span><span class="p">,</span> <span class="s1">&#39;powerlaw decay&#39;</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">method_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;autocorrelation&#39;</span><span class="p">,</span> <span class="s1">&#39;fluctuation&#39;</span><span class="p">,</span> <span class="s1">&#39;fractal&#39;</span><span class="p">,</span> <span class="s1">&#39;complexity&#39;</span><span class="p">,</span> <span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="s1">&#39;exponent&#39;</span><span class="p">]</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">method_terms</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">method_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set list of specific measures</span>
+<span class="n">measure_terms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Autocorrelation measures</span>
+    <span class="p">[</span><span class="s1">&#39;autocorrelation&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;autocorrelation decay&#39;</span><span class="p">,</span> <span class="s1">&#39;decorrelation time&#39;</span><span class="p">,</span> <span class="s1">&#39;autocorrelation timescale&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;autocorrelation window&#39;</span><span class="p">,</span> <span class="s1">&#39;autocorrelation width&#39;</span><span class="p">],</span>
+    <span class="c1"># Fluctuation measures</span>
+    <span class="p">[</span><span class="s1">&#39;hurst exponent&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;detrended fluctuation analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;dfa&#39;</span><span class="p">,</span> <span class="s1">&#39;scaling exponent&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;multiscale dfa&#39;</span><span class="p">,</span> <span class="s1">&#39;multiscale detrended fluctuation analysis&#39;</span><span class="p">,</span> 
+     <span class="s1">&#39;multifractal dfa&#39;</span><span class="p">,</span> <span class="s1">&#39;multifractal detrended fluctuation analysis&#39;</span><span class="p">,</span> 
+     <span class="s1">&#39;mfdfa&#39;</span><span class="p">,</span> <span class="s1">&#39;multiscale multifractal analysis&#39;</span><span class="p">],</span>
+    <span class="c1"># Fractal dimension measures</span>
+    <span class="p">[</span><span class="s1">&#39;correlation dimension&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;higuchi fractal dimension&#39;</span><span class="p">,</span> <span class="s1">&#39;higuchi dimension&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;katz fractal dimension&#39;</span><span class="p">,</span> <span class="s1">&#39;katz dimension&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;petrosian fractal dimension&#39;</span><span class="p">,</span> <span class="s1">&#39;petrosian dimension&#39;</span><span class="p">],</span>
+    <span class="c1"># Complexity measures</span>
+    <span class="p">[</span><span class="s1">&#39;hjorth complexity&#39;</span><span class="p">,</span> <span class="s1">&#39;hjorth&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;lempel-ziv complexity&#39;</span><span class="p">,</span> <span class="s1">&#39;LZ complexity&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;lyapunov exponent&#39;</span><span class="p">,</span> <span class="s1">&#39;lyapunov exponents&#39;</span><span class="p">],</span>
+    <span class="c1"># Entropy measures</span>
+    <span class="p">[</span><span class="s1">&#39;approximate entropy&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;sample entropy&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;permutation entropy&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;weighted permutation entropy&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;spectral entropy&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;multiscale entropy&#39;</span><span class="p">],</span>
+    <span class="c1"># Aperiodic exponent measures</span>
+    <span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">,</span> <span class="s1">&#39;irregular resampling auto-spectral analysis&#39;</span><span class="p">,</span> <span class="s1">&#39;fractal component&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">,</span> <span class="s1">&#39;spectral parameterization&#39;</span><span class="p">,</span> <span class="s1">&#39;fooof&#39;</span><span class="p">,</span> <span class="s1">&#39;fitting oscillations and one-over f&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;spectral slope&#39;</span><span class="p">,</span> <span class="s1">&#39;spectral exponent&#39;</span><span class="p">,</span> <span class="s1">&#39;powerlaw decay&#39;</span><span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inclusion-exclusion-terms">
+<h3>Inclusion / Exclusion Terms<a class="headerlink" href="#inclusion-exclusion-terms" title="Permalink to this headline">¶</a></h3>
+<p>In some cases, we might want to use additional search terms to explicit include or exclude results that contain particular terms.</p>
+<p>These terms can be used to restrict searches to literature of interest, excluding irrelevant literature.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set inclusion / exclusion terms</span>
+<span class="n">inclusions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;EEG&#39;</span><span class="p">,</span> <span class="s1">&#39;electroencephalography&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MEG&#39;</span><span class="p">,</span> <span class="s1">&#39;magnetoencephalography&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ECoG&#39;</span><span class="p">,</span> <span class="s1">&#39;electrocorticography&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;iEEG&#39;</span><span class="p">,</span> <span class="s1">&#39;intracranial EEG&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LFP&#39;</span><span class="p">,</span> <span class="s1">&#39;local field potential&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">exclusions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lithium&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a list of association terms</span>
+<span class="n">assoc_terms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;aging&#39;</span><span class="p">,</span> <span class="s1">&#39;age-related&#39;</span><span class="p">,</span> <span class="s1">&#39;development&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;sleep&#39;</span><span class="p">,</span> <span class="s1">&#39;anesthesia&#39;</span><span class="p">,</span> <span class="s1">&#39;consciousness&#39;</span><span class="p">,</span> <span class="s1">&#39;brain states&#39;</span><span class="p">,</span> <span class="s1">&#39;coma&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;cognitive&#39;</span><span class="p">,</span> <span class="s1">&#39;cognition&#39;</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="s1">&#39;behavior&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment&#39;</span><span class="p">,</span> <span class="s1">&#39;perception&#39;</span><span class="p">,</span> <span class="s1">&#39;memory&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;seizure&#39;</span><span class="p">,</span> <span class="s1">&#39;epilepsy&#39;</span><span class="p">,</span> <span class="s1">&#39;ictal&#39;</span><span class="p">,</span> <span class="s1">&#39;interictal&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;clinical&#39;</span><span class="p">,</span> <span class="s1">&#39;disorder&#39;</span><span class="p">,</span> <span class="s1">&#39;psychopathology&#39;</span><span class="p">,</span> <span class="s1">&#39;psychiatry&#39;</span><span class="p">,</span> <span class="s1">&#39;diagnose&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;mental illness&#39;</span><span class="p">,</span> <span class="s1">&#39;biomarker&#39;</span><span class="p">,</span> <span class="s1">&#39;pathophysiology&#39;</span><span class="p">,</span> <span class="s1">&#39;disease&#39;</span><span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="collect-terms">
+<h3>Collect terms<a class="headerlink" href="#collect-terms" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect all terms together</span>
+<span class="n">concept_terms_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;terms&#39;</span> <span class="p">:</span> <span class="n">concept_terms</span><span class="p">,</span>
+    <span class="s1">&#39;labels&#39;</span> <span class="p">:</span> <span class="n">concept_labels</span><span class="p">,</span>
+    <span class="s1">&#39;inclusions&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">inclusions</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">concept_terms</span><span class="p">),</span>
+    <span class="s1">&#39;exclusions&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">exclusions</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">concept_terms</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">method_terms_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;terms&#39;</span> <span class="p">:</span> <span class="n">method_terms</span><span class="p">,</span>
+    <span class="s1">&#39;labels&#39;</span> <span class="p">:</span> <span class="n">method_labels</span><span class="p">,</span>
+    <span class="s1">&#39;inclusions&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">inclusions</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">method_terms</span><span class="p">),</span>
+    <span class="s1">&#39;exclusions&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">exclusions</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">method_terms</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">measure_terms_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;terms&#39;</span> <span class="p">:</span> <span class="n">measure_terms</span><span class="p">,</span>
+    <span class="s1">&#39;inclusions&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">inclusions</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_terms</span><span class="p">),</span>
+    <span class="s1">&#39;exclusions&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="n">exclusions</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_terms</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="run-a-metadata-check">
+<h2>Run a Metadata Check<a class="headerlink" href="#run-a-metadata-check" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">RUN_COLLECTION</span><span class="p">:</span>
+    <span class="n">meta_data</span> <span class="o">=</span> <span class="n">collect_info</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">SAVE_DATA</span><span class="p">:</span>
+        <span class="n">save_meta_data</span><span class="p">(</span><span class="n">meta_data</span><span class="p">,</span> <span class="s1">&#39;meta_data&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">meta_data</span> <span class="o">=</span> <span class="n">load_meta_data</span><span class="p">(</span><span class="s1">&#39;meta_data&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/bs4/builder/__init__.py:545: XMLParsedAsHTMLWarning: It looks like you&#39;re parsing an XML document using an HTML parser. If this really is an HTML document (maybe it&#39;s XHTML?), you can ignore or filter this warning. If it&#39;s XML, you should know that using an XML parser will be more reliable. To parse this document as XML, make sure you have the lxml package installed, and pass the keyword argument `features=&quot;xml&quot;` into the BeautifulSoup constructor.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the meta data for the collection</span>
+<span class="n">meta_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;date&#39;: &#39;2024-03-19_21:42:51&#39;, &#39;log&#39;: None, &#39;requester_n_requests&#39;: 1, &#39;requester_wait_time&#39;: 0.3333333333333333, &#39;requester_start_time&#39;: &#39;21:42:51 Tuesday 19 March 2024&#39;, &#39;requester_end_time&#39;: &#39;21:42:51 Tuesday 19 March 2024&#39;, &#39;requester_logging&#39;: None, &#39;db_info_dbname&#39;: &#39;pubmed&#39;, &#39;db_info_menuname&#39;: &#39;PubMed&#39;, &#39;db_info_description&#39;: &#39;PubMed bibliographic record&#39;, &#39;db_info_dbbuild&#39;: &#39;Build-2024.03.19.16.28&#39;, &#39;db_info_count&#39;: &#39;36986071&#39;, &#39;db_info_lastupdate&#39;: &#39;2024/03/19 16:28&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="add-check-terms">
+<h2>Add &amp; Check Terms<a class="headerlink" href="#add-check-terms" title="Permalink to this headline">¶</a></h2>
+<p>Now we can add these terms to LISC objects, ready for data collection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize &amp; add terms to the LISC object - concepts</span>
+<span class="n">counts_concepts</span> <span class="o">=</span> <span class="n">Counts</span><span class="p">()</span>
+<span class="n">counts_concepts</span><span class="o">.</span><span class="n">add_terms</span><span class="p">(</span><span class="n">concept_terms_dict</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">counts_concepts</span><span class="o">.</span><span class="n">add_terms</span><span class="p">(</span><span class="n">assoc_terms</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize &amp; add terms to the LISC object - methods</span>
+<span class="n">counts_methods</span> <span class="o">=</span> <span class="n">Counts</span><span class="p">()</span>
+<span class="n">counts_methods</span><span class="o">.</span><span class="n">add_terms</span><span class="p">(</span><span class="n">method_terms_dict</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">counts_methods</span><span class="o">.</span><span class="n">add_terms</span><span class="p">(</span><span class="n">assoc_terms</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize &amp; add terms to the LISC object - measures (no associations)</span>
+<span class="n">counts_measures</span> <span class="o">=</span> <span class="n">Counts1D</span><span class="p">()</span>
+<span class="n">counts_measures</span><span class="o">.</span><span class="n">add_terms</span><span class="p">(</span><span class="n">measure_terms_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check terms - concepts</span>
+<span class="n">counts_concepts</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">check_terms</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of terms used: 
+
+aperiodic     : aperiodic, arrythmic
+1/f           : 1/f, 1/f-like, one-over f
+scale free    : scale free, fractal
+criticality   : criticality, complex dynamics
+chaos         : chaos, dynamical system
+neural noise  : neural noise
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check terms - methods</span>
+<span class="n">counts_methods</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">check_terms</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of terms used: 
+
+autocorrelation  : autocorrelation
+fluctuation      : dfa, detrended fluctuation analysis, hurst exponent
+fractal          : fractal, correlation dimension, higuchi, katz, petrosian
+complexity       : complexity
+entropy          : entropy, information theory
+exponent         : spectral parameterization, fooof, irasa, cgsa, aperiodic exponent, spectral slope, spectral exponent, powerlaw decay
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check terms - measures</span>
+<span class="n">counts_measures</span><span class="o">.</span><span class="n">check_terms</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of terms used: 
+
+autocorrelation                 : autocorrelation
+autocorrelation decay           : autocorrelation decay, decorrelation time, autocorrelation timescale, autocorrelation window, autocorrelation width
+hurst exponent                  : hurst exponent
+detrended fluctuation analysis  : detrended fluctuation analysis, dfa, scaling exponent
+multiscale dfa                  : multiscale dfa, multiscale detrended fluctuation analysis, multifractal dfa, multifractal detrended fluctuation analysis, mfdfa, multiscale multifractal analysis
+correlation dimension           : correlation dimension
+higuchi fractal dimension       : higuchi fractal dimension, higuchi dimension
+katz fractal dimension          : katz fractal dimension, katz dimension
+petrosian fractal dimension     : petrosian fractal dimension, petrosian dimension
+hjorth complexity               : hjorth complexity, hjorth
+lempel-ziv complexity           : lempel-ziv complexity, LZ complexity
+lyapunov exponent               : lyapunov exponent, lyapunov exponents
+approximate entropy             : approximate entropy
+sample entropy                  : sample entropy
+permutation entropy             : permutation entropy
+weighted permutation entropy    : weighted permutation entropy
+spectral entropy                : spectral entropy
+multiscale entropy              : multiscale entropy
+irasa                           : irasa, irregular resampling auto-spectral analysis, fractal component
+specparam                       : specparam, spectral parameterization, fooof, fitting oscillations and one-over f, spectral slope, spectral exponent, powerlaw decay
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check terms - associations</span>
+<span class="n">counts_concepts</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">check_terms</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of terms used: 
+
+aging      : aging, age-related, development
+sleep      : sleep, anesthesia, consciousness, brain states, coma
+cognitive  : cognitive, cognition, task, behavior, experiment, perception, memory
+seizure    : seizure, epilepsy, ictal, interictal
+clinical   : clinical, disorder, psychopathology, psychiatry, diagnose, mental illness, biomarker, pathophysiology, disease
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="collect-literature-data">
+<h2>Collect Literature Data<a class="headerlink" href="#collect-literature-data" title="Permalink to this headline">¶</a></h2>
+<p>Run literature collection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the data collection</span>
+<span class="k">if</span> <span class="n">RUN_COLLECTION</span><span class="p">:</span>
+    <span class="n">counts_concepts</span><span class="o">.</span><span class="n">run_collection</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+    <span class="n">counts_methods</span><span class="o">.</span><span class="n">run_collection</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+    <span class="n">counts_measures</span><span class="o">.</span><span class="n">run_collection</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">counts_concepts</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_concepts.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">counts_methods</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_methods.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">counts_measures</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_measures.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="check-and-process-collected-data">
+<h2>Check and Process Collected Data<a class="headerlink" href="#check-and-process-collected-data" title="Permalink to this headline">¶</a></h2>
+<p>Now we can examine the collected literature data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check how many papers were found for each term (concepts)</span>
+<span class="n">counts_concepts</span><span class="o">.</span><span class="n">check_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of documents found for each search term is:
+  &#39;aperiodic&#39;      -   236
+  &#39;1/f&#39;            -   172
+  &#39;scale free&#39;     -   531
+  &#39;criticality&#39;    -   153
+  &#39;chaos&#39;          -   248
+  &#39;neural noise&#39;   -    47
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check how many papers were found for each term (methods)</span>
+<span class="n">counts_methods</span><span class="o">.</span><span class="n">check_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of documents found for each search term is:
+  &#39;autocorrelation&#39;   -    167
+  &#39;fluctuation&#39;       -    234
+  &#39;fractal&#39;           -    632
+  &#39;complexity&#39;        -   2614
+  &#39;entropy&#39;           -   2175
+  &#39;exponent&#39;          -    104
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check how many papers were found for each term (measures)</span>
+<span class="n">counts_measures</span><span class="o">.</span><span class="n">check_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of documents found for each search term is:
+  &#39;autocorrelation&#39;                  -   167
+  &#39;autocorrelation decay&#39;            -    15
+  &#39;hurst exponent&#39;                   -    69
+  &#39;detrended fluctuation analysis&#39;   -   188
+  &#39;multiscale dfa&#39;                   -    18
+  &#39;correlation dimension&#39;            -   221
+  &#39;higuchi fractal dimension&#39;        -    45
+  &#39;katz fractal dimension&#39;           -    27
+  &#39;petrosian fractal dimension&#39;      -     9
+  &#39;hjorth complexity&#39;                -   120
+  &#39;lempel-ziv complexity&#39;            -   166
+  &#39;lyapunov exponent&#39;                -   144
+  &#39;approximate entropy&#39;              -   259
+  &#39;sample entropy&#39;                   -   309
+  &#39;permutation entropy&#39;              -   159
+  &#39;weighted permutation entropy&#39;     -     8
+  &#39;spectral entropy&#39;                 -   221
+  &#39;multiscale entropy&#39;               -   163
+  &#39;irasa&#39;                            -    15
+  &#39;specparam&#39;                        -    80
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the total number of papers across all terms</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of aperiodic papers (concepts): </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+      <span class="nb">sum</span><span class="p">(</span><span class="n">counts_concepts</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">counts</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of aperiodic papers (methods): </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+      <span class="nb">sum</span><span class="p">(</span><span class="n">counts_methods</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">counts</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of aperiodic papers (measures): </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span>
+      <span class="nb">sum</span><span class="p">(</span><span class="n">counts_measures</span><span class="o">.</span><span class="n">counts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of aperiodic papers (concepts): 	 1387
+Total number of aperiodic papers (methods): 	 5926
+Total number of aperiodic papers (measures): 	 2403
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalize the association results</span>
+<span class="n">counts_concepts</span><span class="o">.</span><span class="n">compute_score</span><span class="p">(</span><span class="s1">&#39;normalize&#39;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">counts_methods</span><span class="o">.</span><span class="n">compute_score</span><span class="p">(</span><span class="s1">&#39;normalize&#39;</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-visualizations-of-collected-data">
+<h2>Create Visualizations of Collected Data<a class="headerlink" href="#create-visualizations-of-collected-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="concepts">
+<h3>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the associations of aperiodic measures in the literature</span>
+<span class="n">plot_matrix</span><span class="p">(</span><span class="n">counts_concepts</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">counts_concepts</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span>
+            <span class="n">counts_concepts</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">xtickrotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;lit_counts_concepts&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-LiteratureSearch_40_0.png" src="../_images/02-LiteratureSearch_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the number of papers found per concept term</span>
+<span class="n">plot_vector</span><span class="p">(</span><span class="n">counts_concepts</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;total_counts_concepts&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-LiteratureSearch_41_0.png" src="../_images/02-LiteratureSearch_41_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the associations of aperiodic measures in the literature</span>
+<span class="n">plot_matrix</span><span class="p">(</span><span class="n">counts_methods</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">counts_methods</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span>
+            <span class="n">counts_methods</span><span class="o">.</span><span class="n">terms</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">xtickrotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;lit_counts_methods&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-LiteratureSearch_43_0.png" src="../_images/02-LiteratureSearch_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the number of papers found per methods measure</span>
+<span class="n">plot_vector</span><span class="p">(</span><span class="n">counts_methods</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;total_counts_methods&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-LiteratureSearch_44_0.png" src="../_images/02-LiteratureSearch_44_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="measures">
+<h3>Measures<a class="headerlink" href="#measures" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the number of papers found per measure</span>
+<span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">plotting_context</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">):</span>
+    <span class="n">plot_vector</span><span class="p">(</span><span class="n">counts_measures</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">counts_measures</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+                <span class="n">transpose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xtickrotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+                <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;total_counts_measures&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-LiteratureSearch_46_0.png" src="../_images/02-LiteratureSearch_46_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save out the collected data</span>
+<span class="k">if</span> <span class="n">SAVE_DATA</span><span class="p">:</span>
+    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_concepts</span><span class="p">,</span> <span class="s1">&#39;counts_concepts&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_methods</span><span class="p">,</span> <span class="s1">&#39;counts_methods&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_measures</span><span class="p">,</span> <span class="s1">&#39;counts_measures&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examine-literature-terms-over-time">
+<h2>Examine Literature Terms over Time<a class="headerlink" href="#examine-literature-terms-over-time" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define range of years to collect data for</span>
+<span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span> <span class="o">=</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2024</span>
+<span class="n">years</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect count of the number of aperiodic related papers per year</span>
+<span class="k">if</span> <span class="n">RUN_COLLECTION</span><span class="p">:</span>
+    
+    <span class="c1"># Setup object and run time collecting - concepts</span>
+    <span class="n">years_concepts</span> <span class="o">=</span> <span class="n">Counts1D</span><span class="p">()</span>
+    <span class="n">years_concepts</span><span class="o">.</span><span class="n">add_terms</span><span class="p">(</span><span class="n">concept_terms_dict</span><span class="p">)</span>
+    <span class="n">years_concept_results</span> <span class="o">=</span> <span class="n">collect_across_time</span><span class="p">(</span><span class="n">years_concepts</span><span class="p">,</span> <span class="n">years</span><span class="p">)</span>
+
+    <span class="c1"># Setup object and run time collecting - methods</span>
+    <span class="n">years_methods</span> <span class="o">=</span> <span class="n">Counts1D</span><span class="p">()</span>
+    <span class="n">years_methods</span><span class="o">.</span><span class="n">add_terms</span><span class="p">(</span><span class="n">method_terms_dict</span><span class="p">)</span>
+    <span class="n">years_method_results</span> <span class="o">=</span> <span class="n">collect_across_time</span><span class="p">(</span><span class="n">years_methods</span><span class="p">,</span> <span class="n">years</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">SAVE_DATA</span><span class="p">:</span>
+        <span class="n">save_time_results</span><span class="p">(</span><span class="n">years_concept_results</span><span class="p">,</span> <span class="s1">&#39;time_concepts&#39;</span><span class="p">,</span> <span class="s1">&#39;concepts&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+        <span class="n">save_time_results</span><span class="p">(</span><span class="n">years_method_results</span><span class="p">,</span> <span class="s1">&#39;time_methods&#39;</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">years_concept_results</span> <span class="o">=</span> <span class="n">load_time_results</span><span class="p">(</span><span class="s1">&#39;time_concepts&#39;</span><span class="p">,</span> <span class="s1">&#39;concepts&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">years_method_results</span> <span class="o">=</span> <span class="n">load_time_results</span><span class="p">(</span><span class="s1">&#39;time_methods&#39;</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/bs4/builder/__init__.py:545: XMLParsedAsHTMLWarning: It looks like you&#39;re parsing an XML document using an HTML parser. If this really is an HTML document (maybe it&#39;s XHTML?), you can ignore or filter this warning. If it&#39;s XML, you should know that using an XML parser will be more reliable. To parse this document as XML, make sure you have the lxml package installed, and pass the keyword argument `features=&quot;xml&quot;` into the BeautifulSoup constructor.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the results over time of the concept results</span>
+<span class="n">plot_results_across_years</span><span class="p">(</span><span class="n">years_concept_results</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">1959.5</span><span class="p">,</span> <span class="mf">2023.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">55</span><span class="p">],</span>
+                          <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;years_concepts&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-LiteratureSearch_51_0.png" src="../_images/02-LiteratureSearch_51_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the results over time of the method results</span>
+<span class="n">plot_results_across_years</span><span class="p">(</span><span class="n">years_method_results</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">1959.5</span><span class="p">,</span> <span class="mf">2023.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span>
+                          <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;years_methods&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02-LiteratureSearch_52_0.png" src="../_images/02-LiteratureSearch_52_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Thomas Donoghue<br/>
+    
+        &copy; Copyright 2021-.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

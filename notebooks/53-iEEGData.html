@@ -1,0 +1,2110 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iEEG Data &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Developmental EEG Data" href="52-DevelopmentalEEGData.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Outline.html">
+   Outline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TimeDomainSimulations.html">
+   Time Series Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-TimeSimsParameters.html">
+   Time Domain Simulation Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-SimulationTests.html">
+   Simulation Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-SimulationComparisons.html">
+   Simulation Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-PowerSpectrumSimulations.html">
+   Power Spectrum Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time Domain Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="20-TimeDomainMethods.html">
+   Time Domain Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="21-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22B-Fluctuations-Multiscale.html">
+   Fluctuations (Multiscale)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23-FractalDimension.html">
+   Fractal Dimension
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23B-Fractal-State.html">
+   Fractal Dimension (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24B-Complexity-State.html">
+   Complexity (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25-Entropy.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25B-Entropy-Multiscale.html">
+   Multiscale Entropy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Spectral Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="30-SpectralMethods.html">
+   Spectral Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="31-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="33-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="34-ExponentComparisons.html">
+   Exponent Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Method Comparisons
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="40-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="41-WithinComparisons.html">
+   Within Method Type Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="42-BetweenComparisons.html">
+   Between Method Type Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Applications
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51-RestingEEGData.html">
+   Resting EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52-DevelopmentalEEGData.html">
+   Developmental EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   iEEG Data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/53-iEEGData.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/53-iEEGData.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-details">
+   Dataset Details
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-paths">
+   Set Up Paths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-checks">
+   Data Checks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-spectral-fits-short-fit-range">
+     Check Spectral Fits - Short Fit Range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-spectral-model-short-fit-range">
+   Example Spectral Model - Short Fit Range
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#irasa">
+     IRASA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-spectral-fits-long-fit-range">
+     Check Spectral Fits - Long Fit Range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-spectral-model-long-fit-range">
+   Example Spectral Model - Long Fit Range
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     IRASA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-results">
+   Load Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-measures-labels">
+     Check Measures &amp; Labels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-correlations">
+     Compute Correlations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-exponent-measures-short">
+       Compare exponent measures - short
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-exponent-measures-long">
+       Compare exponent measures - long
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-knee-measures">
+       Compare knee measures
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-parameters-within-method">
+       Compare Parameters Within Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-different-exponents">
+       Compare Different Exponents
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-exponent-to-other-measures-long">
+     Compare exponent to other measures - long
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Compare exponent to other measures - long
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-knee-to-other-measures">
+     Compare knee to other measures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-time-series-measures-to-each-other">
+     Compare Time Series Measures to Each Other
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlations">
+     Correlations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exponent-correlations">
+       Exponent Correlations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knee-correlations">
+       Knee Correlations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-to-peaks">
+   Compare to Peaks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#short-fit-range">
+     Short Fit Range
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#long-fit-range">
+     Long Fit Range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>iEEG Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-details">
+   Dataset Details
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-paths">
+   Set Up Paths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-checks">
+   Data Checks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-spectral-fits-short-fit-range">
+     Check Spectral Fits - Short Fit Range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-spectral-model-short-fit-range">
+   Example Spectral Model - Short Fit Range
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#irasa">
+     IRASA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-spectral-fits-long-fit-range">
+     Check Spectral Fits - Long Fit Range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-spectral-model-long-fit-range">
+   Example Spectral Model - Long Fit Range
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     IRASA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-results">
+   Load Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-measures-labels">
+     Check Measures &amp; Labels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-correlations">
+     Compute Correlations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-exponent-measures-short">
+       Compare exponent measures - short
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-exponent-measures-long">
+       Compare exponent measures - long
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-knee-measures">
+       Compare knee measures
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-parameters-within-method">
+       Compare Parameters Within Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compare-different-exponents">
+       Compare Different Exponents
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-exponent-to-other-measures-long">
+     Compare exponent to other measures - long
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Compare exponent to other measures - long
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-knee-to-other-measures">
+     Compare knee to other measures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-time-series-measures-to-each-other">
+     Compare Time Series Measures to Each Other
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlations">
+     Correlations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exponent-correlations">
+       Exponent Correlations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#knee-correlations">
+       Knee Correlations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-to-peaks">
+   Compare to Peaks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#short-fit-range">
+     Short Fit Range
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#long-fit-range">
+     Long Fit Range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="ieeg-data">
+<h1>iEEG Data<a class="headerlink" href="#ieeg-data" title="Permalink to this headline">¶</a></h1>
+<p>This notebook analyses a large dataset of iEEG data, from the MNI database.</p>
+<div class="section" id="dataset-details">
+<h2>Dataset Details<a class="headerlink" href="#dataset-details" title="Permalink to this headline">¶</a></h2>
+<p>This analysis uses the openly available MNI dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOF</span><span class="p">,</span> <span class="n">FOOOFGroup</span>
+<span class="kn">from</span> <span class="nn">fooof.plts</span> <span class="kn">import</span> <span class="n">plot_spectra</span>
+<span class="kn">from</span> <span class="nn">fooof.analysis</span> <span class="kn">import</span> <span class="n">get_band_peak_fg</span>
+
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">create_times</span>
+<span class="kn">from</span> <span class="nn">neurodsp.aperiodic</span> <span class="kn">import</span> <span class="n">compute_irasa</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span><span class="p">,</span> <span class="n">trim_spectrum</span>
+<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/59/8y2d5r257c77vzymnqs47x080000gn/T/ipykernel_21809/3327055839.py:6: DeprecationWarning: 
+The `fooof` package is being deprecated and replaced by the `specparam` (spectral parameterization) package.
+This version of `fooof` (1.1) is fully functional, but will not be further updated.
+New projects are recommended to update to using `specparam` (see Changelog for details).
+  from fooof import FOOOF, FOOOFGroup
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span><span class="p">,</span> <span class="n">get_files</span><span class="p">,</span> <span class="n">load_pickle</span>
+<span class="kn">from</span> <span class="nn">apm.io.data</span> <span class="kn">import</span> <span class="n">load_ieeg_all</span>
+<span class="kn">from</span> <span class="nn">apm.analysis</span> <span class="kn">import</span> <span class="p">(</span><span class="n">compute_all_corrs</span><span class="p">,</span> <span class="n">unpack_corrs</span><span class="p">,</span>
+                          <span class="n">compute_corrs_to_feature</span><span class="p">,</span> <span class="n">compute_diffs_to_feature</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_dots</span><span class="p">,</span> <span class="n">plot_corr_matrix</span>
+<span class="kn">from</span> <span class="nn">apm.plts.multi</span> <span class="kn">import</span> <span class="n">plot_results_all</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">make_axes</span><span class="p">,</span> <span class="n">figsaver</span>
+<span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">LABELS</span>
+<span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">format_corr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import dataset settings from script</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;scripts&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">scripts.analyze_ieeg</span> <span class="kn">import</span> <span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="n">NON_CORTICAL</span><span class="p">,</span> <span class="n">FS</span><span class="p">,</span> <span class="n">MAX_TIME</span><span class="p">,</span>
+                                  <span class="n">FIT_RANGE_SHORT</span><span class="p">,</span> <span class="n">FIT_RANGE_LONG</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">scripts.settings</span> <span class="kn">import</span> <span class="n">SPECPARAM_SETTINGS</span><span class="p">,</span> <span class="n">SPECPARAM_SETTINGS_KNEE</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-up-paths">
+<h2>Set Up Paths<a class="headerlink" href="#set-up-paths" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define load path</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span>
+<span class="n">LOADPATH</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">data_path</span> <span class="o">/</span> <span class="s1">&#39;ieeg&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the set of results files available for this dataset</span>
+<span class="n">get_files</span><span class="p">(</span><span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ieeg_all_corrs.p&#39;,
+ &#39;ieeg_results.p&#39;,
+ &#39;ieeg_specparam.json&#39;,
+ &#39;ieeg_specparam_long.json&#39;,
+ &#39;ieeg_specparam_short.json&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define band range for peaks</span>
+<span class="n">peak_range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add plot kwargs</span>
+<span class="n">dot_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;s&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;53_ieeg_data&#39;</span>
+
+<span class="c1"># Create helper function to manage figsaver settings</span>
+<span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-data">
+<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the list of available files</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">get_files</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the number of files</span>
+<span class="n">n_files</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of files: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_files</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of files: 38
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load all data files</span>
+<span class="n">all_data</span><span class="p">,</span> <span class="n">all_chs</span> <span class="o">=</span> <span class="n">load_ieeg_all</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="n">MAX_TIME</span><span class="p">,</span> <span class="n">NON_CORTICAL</span><span class="p">,</span> <span class="n">return_channels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create times definition</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">create_times</span><span class="p">(</span><span class="n">MAX_TIME</span><span class="p">,</span> <span class="n">FS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check data size</span>
+<span class="n">n_chs</span><span class="p">,</span> <span class="n">n_times</span> <span class="o">=</span> <span class="n">all_data</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of channels: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_chs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of channels: 1479
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-checks">
+<h2>Data Checks<a class="headerlink" href="#data-checks" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set example channel index</span>
+<span class="n">chi</span> <span class="o">=</span> <span class="mi">550</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot an example time series</span>
+<span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">all_data</span><span class="p">[</span><span class="n">chi</span><span class="p">,</span> <span class="p">:],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_21_0.png" src="../_images/53-iEEGData_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a zoomed in segment of a time series</span>
+<span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">all_data</span><span class="p">[</span><span class="n">chi</span><span class="p">,</span> <span class="p">:],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;ieeg_timeseries.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_22_0.png" src="../_images/53-iEEGData_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute a power spectrum of an example</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">compute_spectrum</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="n">chi</span><span class="p">,</span> <span class="p">:],</span> <span class="n">FS</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">FS</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">FS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trim spectrum to fit range</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">trim_spectrum</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">FIT_RANGE_LONG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the power spectrum</span>
+<span class="n">plot_power_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_psd&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_25_0.png" src="../_images/53-iEEGData_25_0.png" />
+</div>
+</div>
+<div class="section" id="check-spectral-fits-short-fit-range">
+<h3>Check Spectral Fits - Short Fit Range<a class="headerlink" href="#check-spectral-fits-short-fit-range" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load specparam measures</span>
+<span class="n">fg_short</span> <span class="o">=</span> <span class="n">FOOOFGroup</span><span class="p">()</span>
+<span class="n">fg_short</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;ieeg_specparam_short&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check overall group results</span>
+<span class="n">fg_short</span><span class="o">.</span><span class="n">print_results</span><span class="p">()</span>
+<span class="n">fg_short</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================================================================
+                                                                                                  
+                                       FOOOF - GROUP RESULTS                                      
+                                                                                                  
+                            Number of power spectra in the Group: 1479                            
+                                                                                                  
+                        The model was run on the frequency range 3 - 40 Hz                        
+                                 Frequency Resolution is 0.50 Hz                                  
+                                                                                                  
+                              Power spectra were fit without a knee.                              
+                                                                                                  
+                                      Aperiodic Fit Values:                                       
+                        Exponents - Min:  0.162, Max:  3.640, Mean: 1.599                         
+                                                                                                  
+                        In total 8033 peaks were extracted from the group                         
+                                                                                                  
+                                     Goodness of fit metrics:                                     
+                            R2s -  Min:  0.679, Max:  0.997, Mean: 0.973                          
+                         Errors -  Min:  0.032, Max:  0.202, Mean: 0.064                          
+                                                                                                  
+==================================================================================================
+</pre></div>
+</div>
+<img alt="../_images/53-iEEGData_28_1.png" src="../_images/53-iEEGData_28_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-spectral-model-short-fit-range">
+<h2>Example Spectral Model - Short Fit Range<a class="headerlink" href="#example-spectral-model-short-fit-range" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi</span> <span class="o">=</span> <span class="mi">550</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute a power spectrum of an example signal, and trim to fit range</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">compute_spectrum</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="n">chi</span><span class="p">,</span> <span class="p">:],</span> <span class="n">FS</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">FS</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">FS</span><span class="p">)</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">trim_spectrum</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">FIT_RANGE_SHORT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit a spectral model to example data</span>
+<span class="n">fm</span> <span class="o">=</span> <span class="n">FOOOF</span><span class="p">(</span><span class="o">**</span><span class="n">SPECPARAM_SETTINGS</span><span class="p">)</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">FIT_RANGE_SHORT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the specparam spectral model</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plt_log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[],</span>
+        <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_spectral_model_short&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_33_0.png" src="../_images/53-iEEGData_33_0.png" />
+</div>
+</div>
+<div class="section" id="irasa">
+<h3>IRASA<a class="headerlink" href="#irasa" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the IRASA decomposition</span>
+<span class="n">freqs_ir</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">,</span> <span class="n">psd_pe</span> <span class="o">=</span> <span class="n">compute_irasa</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="n">chi</span><span class="p">,</span> <span class="p">:],</span> <span class="n">FS</span><span class="p">,</span> <span class="n">FIT_RANGE_SHORT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the IRASA data &amp; aperiodic component</span>
+<span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_ir</span><span class="p">],</span> <span class="p">[</span><span class="n">powers</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+             <span class="n">log_powers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[],</span>
+             <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Original Spectrum&#39;</span><span class="p">,</span> <span class="s1">&#39;Aperiodic Component&#39;</span><span class="p">],</span>
+             <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_irasa_model_short&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_36_0.png" src="../_images/53-iEEGData_36_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="check-spectral-fits-long-fit-range">
+<h3>Check Spectral Fits - Long Fit Range<a class="headerlink" href="#check-spectral-fits-long-fit-range" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load specparam measures</span>
+<span class="n">fg_long</span> <span class="o">=</span> <span class="n">FOOOFGroup</span><span class="p">()</span>
+<span class="n">fg_long</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;ieeg_specparam_long&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check overall group results</span>
+<span class="n">fg_long</span><span class="o">.</span><span class="n">print_results</span><span class="p">()</span>
+<span class="n">fg_long</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================================================================
+                                                                                                  
+                                       FOOOF - GROUP RESULTS                                      
+                                                                                                  
+                            Number of power spectra in the Group: 1479                            
+                                                                                                  
+                        The model was run on the frequency range 1 - 60 Hz                        
+                                 Frequency Resolution is 0.50 Hz                                  
+                                                                                                  
+                               Power spectra were fit with a knee.                                
+                                                                                                  
+                                      Aperiodic Fit Values:                                       
+                 Knees - Min:  -0.93, Max: 1131368032417823.25, Mean: 791471350711.19             
+                        Exponents - Min:  0.511, Max:  9.205, Mean: 3.741                         
+                                                                                                  
+                        In total 13524 peaks were extracted from the group                        
+                                                                                                  
+                                     Goodness of fit metrics:                                     
+                            R2s -  Min:  0.803, Max:  0.998, Mean: 0.984                          
+                         Errors -  Min:  0.036, Max:  0.219, Mean: 0.066                          
+                                                                                                  
+==================================================================================================
+</pre></div>
+</div>
+<img alt="../_images/53-iEEGData_39_1.png" src="../_images/53-iEEGData_39_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-spectral-model-long-fit-range">
+<h2>Example Spectral Model - Long Fit Range<a class="headerlink" href="#example-spectral-model-long-fit-range" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi</span> <span class="o">=</span> <span class="mi">813</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute a power spectrum of an example signal, and trim to fit rante</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">compute_spectrum</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="n">chi</span><span class="p">,</span> <span class="p">:],</span> <span class="n">FS</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">FS</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">FS</span><span class="p">)</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">trim_spectrum</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">FIT_RANGE_LONG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit a spectral model to example data</span>
+<span class="n">fm</span> <span class="o">=</span> <span class="n">FOOOF</span><span class="p">(</span><span class="o">**</span><span class="n">SPECPARAM_SETTINGS_KNEE</span><span class="p">)</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="n">FIT_RANGE_LONG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/scipy/optimize/_lsq/trf.py:234: RuntimeWarning: divide by zero encountered in divide
+  Delta = norm(x0 * scale_inv / v**0.5)
+/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/scipy/optimize/_lsq/trf.py:363: RuntimeWarning: invalid value encountered in scalar divide
+  alpha *= Delta / Delta_new
+/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/scipy/optimize/_lsq/common.py:49: RuntimeWarning: invalid value encountered in scalar divide
+  t2 = c / q
+/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/scipy/optimize/_lsq/trf.py:363: RuntimeWarning: invalid value encountered in scalar multiply
+  alpha *= Delta / Delta_new
+/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/scipy/optimize/_lsq/common.py:398: RuntimeWarning: invalid value encountered in cast
+  return min_step, np.equal(steps, min_step) * np.sign(s).astype(int)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the specparam spectral model</span>
+<span class="n">fm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plt_log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[],</span>
+        <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_spectral_model_long&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_44_0.png" src="../_images/53-iEEGData_44_0.png" />
+</div>
+</div>
+<div class="section" id="id1">
+<h3>IRASA<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the IRASA decomposition</span>
+<span class="n">freqs_ir</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">,</span> <span class="n">psd_pe</span> <span class="o">=</span> <span class="n">compute_irasa</span><span class="p">(</span><span class="n">all_data</span><span class="p">[</span><span class="n">chi</span><span class="p">,</span> <span class="p">:],</span> <span class="n">FS</span><span class="p">,</span> <span class="n">FIT_RANGE_LONG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the IRASA data &amp; aperiodic component</span>
+<span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_ir</span><span class="p">],</span> <span class="p">[</span><span class="n">powers</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+             <span class="n">log_powers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[],</span>
+             <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Original Spectrum&#39;</span><span class="p">,</span> <span class="s1">&#39;Aperiodic Component&#39;</span><span class="p">],</span>
+             <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_irasa_model_long&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_47_0.png" src="../_images/53-iEEGData_47_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-results">
+<h2>Load Results<a class="headerlink" href="#load-results" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed aperiodic measure results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;ieeg_results&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check size of computed results [n_chs]</span>
+<span class="n">results</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1479,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="check-measures-labels">
+<h3>Check Measures &amp; Labels<a class="headerlink" href="#check-measures-labels" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check list of computed measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;autocorr_decay_time&#39;, &#39;dfa&#39;, &#39;higuchi_fd&#39;, &#39;hjorth_complexity&#39;, &#39;lempelziv&#39;, &#39;sample_entropy&#39;, &#39;perm_entropy&#39;, &#39;specparam_short&#39;, &#39;specparam_long&#39;, &#39;specparam_knee&#39;, &#39;specparam_knee_freq&#39;, &#39;irasa_short&#39;, &#39;irasa_long&#39;, &#39;irasa_knee&#39;, &#39;irasa_knee_freq&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect list of exponent &amp; timeseries measure labels</span>
+<span class="n">exp_measures</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">,</span> <span class="s1">&#39;specparam_long&#39;</span><span class="p">,</span> <span class="s1">&#39;irasa_short&#39;</span><span class="p">,</span> <span class="s1">&#39;irasa_long&#39;</span><span class="p">]</span>
+<span class="n">knee_measures</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;specparam_knee&#39;</span><span class="p">,</span> <span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">,</span> <span class="s1">&#39;irasa_knee&#39;</span><span class="p">,</span> <span class="s1">&#39;irasa_knee_freq&#39;</span><span class="p">]</span>
+<span class="n">ts_measures</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="p">[</span><span class="n">ts_measures</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">meas</span><span class="p">)</span> <span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">exp_measures</span> <span class="o">+</span> <span class="n">knee_measures</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect labels for time series measures</span>
+<span class="n">ts_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">]</span> <span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compute-correlations">
+<h3>Compute Correlations<a class="headerlink" href="#compute-correlations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed aperiodic measure results</span>
+<span class="n">all_corrs</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;ieeg_all_corrs&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Compute correlations across all pairs of methods</span>
+<span class="c1"># all_corrs = compute_all_corrs(results)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-exponent-measures-short">
+<h4>Compare exponent measures - short<a class="headerlink" href="#compare-exponent-measures-short" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check exponent data ranges</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SP: </span><span class="si">{:1.2f}</span><span class="s1">-</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">]),</span>
+                                   <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IR: </span><span class="si">{:1.2f}</span><span class="s1">-</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_short&#39;</span><span class="p">]),</span>
+                                   <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_short&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SP: 0.16-3.64
+IR: 0.13-4.03
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare aperiodic exponent from specparam &amp; IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_short&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">],</span> <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (SP)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (IR)&#39;</span><span class="p">,</span>
+          <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_exp_exp_short&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_60_0.png" src="../_images/53-iEEGData_60_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlation between exponent estimates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP-EXP &amp; IR-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">][</span><span class="s1">&#39;irasa_short&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP-EXP &amp; IR-EXP:   r=+0.956  CI[+0.949, +0.962],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute average difference between exponent estimates</span>
+<span class="n">exp_diffs_short</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_short&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distribution of differences between exponent measures</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">exp_diffs_short</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">exp_diffs_short</span><span class="p">,</span>
+          <span class="n">add_corr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+          <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">],</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Exponent Difference&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+          <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_exp_diffs&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_63_0.png" src="../_images/53-iEEGData_63_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check median and range of exponent differences</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Median exp diff: </span><span class="se">\t</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">exp_diffs_short</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Min/Max: </span><span class="se">\t\t</span><span class="si">{:1.2f}</span><span class="s1">, </span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">exp_diffs_short</span><span class="p">),</span>
+                                             <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">exp_diffs_short</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median exp diff: 	0.19
+Min/Max: 		0.00, 0.97
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-exponent-measures-long">
+<h4>Compare exponent measures - long<a class="headerlink" href="#compare-exponent-measures-long" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check exponent data ranges</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SP: </span><span class="si">{:1.2f}</span><span class="s1">-</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">]),</span>
+                                   <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IR: </span><span class="si">{:1.2f}</span><span class="s1">-</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">]),</span>
+                                   <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SP: 0.51-9.21
+IR: 0.49-9.98
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare aperiodic exponent from specparam &amp; IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">],</span> <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (SP)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (IR)&#39;</span><span class="p">,</span>
+          <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_exp_exp_long&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_67_0.png" src="../_images/53-iEEGData_67_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlation between exponent estimates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP-EXP &amp; IR-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">][</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP-EXP &amp; IR-EXP:   r=+0.862  CI[+0.836, +0.885],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute average difference between exponent estimates</span>
+<span class="n">exp_diffs_long</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distribution of differences between exponent measures</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">exp_diffs_long</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">exp_diffs_long</span><span class="p">,</span> <span class="n">add_corr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+          <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">],</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Exponent Difference&#39;</span><span class="p">,</span>
+          <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_exp_diffs&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_70_0.png" src="../_images/53-iEEGData_70_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check median and range of exponent differences</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Median exp diff: </span><span class="se">\t</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">exp_diffs_long</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Min/Max: </span><span class="se">\t\t</span><span class="si">{:1.2f}</span><span class="s1">, </span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">exp_diffs_long</span><span class="p">),</span>
+                                             <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">exp_diffs_long</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median exp diff: 	0.30
+Min/Max: 		0.00, 6.86
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-knee-measures">
+<h4>Compare knee measures<a class="headerlink" href="#compare-knee-measures" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check knee data ranges</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SP: </span><span class="si">{:1.2f}</span><span class="s1">-</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">]),</span>
+                                   <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;IR: </span><span class="si">{:1.2f}</span><span class="s1">-</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_knee_freq&#39;</span><span class="p">]),</span>
+                                   <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_knee_freq&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SP: 0.00-43.18
+IR: 0.00-34.10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare aperiodic exponent from specparam &amp; IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_knee_freq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Knee Frequency (SP)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Knee Frequency (IR)&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_knee_knee&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_74_0.png" src="../_images/53-iEEGData_74_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlation between knee estimates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP-KNEE &amp; IR-KNEE:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">][</span><span class="s1">&#39;irasa_knee_freq&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP-KNEE &amp; IR-KNEE:   r=+0.908  CI[+0.890, +0.923],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute average difference between knee estimates</span>
+<span class="n">knee_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_knee_freq&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distribution of differences between knee measures</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">knee_diffs</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">knee_diffs</span><span class="p">,</span> <span class="n">add_corr</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+          <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+          <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Knee Difference&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_knee_diffs&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_77_0.png" src="../_images/53-iEEGData_77_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check median and range of knee differences</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Median exp diff: </span><span class="se">\t</span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">knee_diffs</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Min/Max: </span><span class="se">\t\t</span><span class="si">{:1.2f}</span><span class="s1">, </span><span class="si">{:1.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">knee_diffs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">knee_diffs</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median exp diff: 	1.62
+Min/Max: 		0.00, 34.93
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-parameters-within-method">
+<h4>Compare Parameters Within Method<a class="headerlink" href="#compare-parameters-within-method" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare aperiodic parameters from within each method - specparam</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Exponent (SP)&#39;</span><span class="p">,</span> 
+          <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Knee Frequency (SP)&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_specparam_params&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_80_0.png" src="../_images/53-iEEGData_80_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare aperiodic parameters from within each method - irasa</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_knee_freq&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Exponent (IR)&#39;</span><span class="p">,</span> 
+          <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Knee Frequency (IR)&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_irasa_params&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_81_0.png" src="../_images/53-iEEGData_81_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="compare-different-exponents">
+<h4>Compare Different Exponents<a class="headerlink" href="#compare-different-exponents" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare exponent estimates from within method / across ranges - specparam</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+          <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;br&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Exponent(short; SP)&#39;</span><span class="p">,</span>
+          <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Exponent (long; SP)&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_specparam_exps&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_83_0.png" src="../_images/53-iEEGData_83_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare exponent estimates from within method / across ranges - irasa</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_short&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+          <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;br&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Exponent(short; IR)&#39;</span><span class="p">,</span>
+          <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Exponent (long; IR)&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_irasa_exps&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_84_0.png" src="../_images/53-iEEGData_84_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-exponent-to-other-measures-long">
+<h3>Compare exponent to other measures - long<a class="headerlink" href="#compare-exponent-to-other-measures-long" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons between exponent and time series measures</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">make_axes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">meas</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">):</span>
+    <span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span>
+              <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_86_0.png" src="../_images/53-iEEGData_86_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between time series and exponent measures</span>
+<span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">meas</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    SP-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    IR-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;irasa_short&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>autocorr_decay_time
+    SP-EXP:   r=+0.486  CI[+0.441, +0.529],  p=0.000
+    IR-EXP:   r=+0.430  CI[+0.385, +0.475],  p=0.000
+dfa
+    SP-EXP:   r=-0.318  CI[-0.364, -0.270],  p=0.000
+    IR-EXP:   r=-0.374  CI[-0.418, -0.328],  p=0.000
+higuchi_fd
+    SP-EXP:   r=-0.885  CI[-0.898, -0.870],  p=0.000
+    IR-EXP:   r=-0.963  CI[-0.968, -0.957],  p=0.000
+hjorth_complexity
+    SP-EXP:   r=+0.459  CI[+0.416, +0.500],  p=0.000
+    IR-EXP:   r=+0.394  CI[+0.349, +0.439],  p=0.000
+lempelziv
+    SP-EXP:   r=-0.848  CI[-0.866, -0.829],  p=0.000
+    IR-EXP:   r=-0.858  CI[-0.875, -0.840],  p=0.000
+sample_entropy
+    SP-EXP:   r=-0.796  CI[-0.819, -0.770],  p=0.000
+    IR-EXP:   r=-0.837  CI[-0.858, -0.815],  p=0.000
+perm_entropy
+    SP-EXP:   r=-0.595  CI[-0.629, -0.558],  p=0.000
+    IR-EXP:   r=-0.668  CI[-0.699, -0.634],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Compare exponent to other measures - long<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons between exponent and time series measures</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">make_axes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">meas</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">):</span>
+    <span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span>
+              <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;ieeg_exp_ts_scatters.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_89_0.png" src="../_images/53-iEEGData_89_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between time series and exponent measures</span>
+<span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">meas</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    SP-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    IR-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;irasa_long&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>autocorr_decay_time
+    SP-EXP:   r=-0.508  CI[-0.549, -0.467],  p=0.000
+    IR-EXP:   r=-0.383  CI[-0.429, -0.335],  p=0.000
+dfa
+    SP-EXP:   r=-0.365  CI[-0.410, -0.320],  p=0.000
+    IR-EXP:   r=-0.474  CI[-0.512, -0.432],  p=0.000
+higuchi_fd
+    SP-EXP:   r=-0.132  CI[-0.186, -0.077],  p=0.000
+    IR-EXP:   r=-0.426  CI[-0.473, -0.376],  p=0.000
+hjorth_complexity
+    SP-EXP:   r=-0.691  CI[-0.721, -0.658],  p=0.000
+    IR-EXP:   r=-0.568  CI[-0.607, -0.527],  p=0.000
+lempelziv
+    SP-EXP:   r=+0.071  CI[+0.019, +0.125],  p=0.006
+    IR-EXP:   r=-0.163  CI[-0.214, -0.111],  p=0.000
+sample_entropy
+    SP-EXP:   r=-0.250  CI[-0.300, -0.203],  p=0.000
+    IR-EXP:   r=-0.482  CI[-0.520, -0.442],  p=0.000
+perm_entropy
+    SP-EXP:   r=-0.684  CI[-0.714, -0.652],  p=0.000
+    IR-EXP:   r=-0.871  CI[-0.883, -0.857],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-knee-to-other-measures">
+<h3>Compare knee to other measures<a class="headerlink" href="#compare-knee-to-other-measures" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons between knee and time series measures</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">make_axes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">meas</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">):</span>
+    <span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span>
+              <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Knee Frequency&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;ieeg_knee_ts_scatters.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_92_0.png" src="../_images/53-iEEGData_92_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between time series and knee measures</span>
+<span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">meas</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    KNEE:  </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_knee&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    KNEE-FREQ: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>autocorr_decay_time
+    KNEE:  	 r=-0.641  CI[-0.678, -0.604],  p=0.000
+    KNEE-FREQ: 	 r=-0.730  CI[-0.763, -0.695],  p=0.000
+dfa
+    KNEE:  	 r=-0.284  CI[-0.333, -0.233],  p=0.000
+    KNEE-FREQ: 	 r=-0.149  CI[-0.201, -0.099],  p=0.000
+higuchi_fd
+    KNEE:  	 r=+0.081  CI[+0.023, +0.135],  p=0.002
+    KNEE-FREQ: 	 r=+0.344  CI[+0.288, +0.398],  p=0.000
+hjorth_complexity
+    KNEE:  	 r=-0.786  CI[-0.810, -0.759],  p=0.000
+    KNEE-FREQ: 	 r=-0.793  CI[-0.816, -0.768],  p=0.000
+lempelziv
+    KNEE:  	 r=+0.290  CI[+0.243, +0.339],  p=0.000
+    KNEE-FREQ: 	 r=+0.531  CI[+0.488, +0.573],  p=0.000
+sample_entropy
+    KNEE:  	 r=-0.036  CI[-0.086, +0.016],  p=0.170
+    KNEE-FREQ: 	 r=+0.237  CI[+0.183, +0.288],  p=0.000
+perm_entropy
+    KNEE:  	 r=-0.505  CI[-0.544, -0.464],  p=0.000
+    KNEE-FREQ: 	 r=-0.216  CI[-0.268, -0.164],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-time-series-measures-to-each-other">
+<h3>Compare Time Series Measures to Each Other<a class="headerlink" href="#compare-time-series-measures-to-each-other" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot multi-panel plot comparing all time series measures to each other</span>
+<span class="n">plot_results_all</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ts_measures</span><span class="p">,</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_95_0.png" src="../_images/53-iEEGData_95_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="correlations">
+<h3>Correlations<a class="headerlink" href="#correlations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subselect time domain measures</span>
+<span class="n">all_corrs_ts</span> <span class="o">=</span> <span class="p">{</span><span class="n">ke</span> <span class="p">:</span> <span class="n">va</span> <span class="k">for</span> <span class="n">ke</span><span class="p">,</span> <span class="n">va</span> <span class="ow">in</span> <span class="n">all_corrs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">ke</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exp_measures</span> <span class="o">+</span> <span class="n">knee_measures</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the correlations matrix across all time series measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">unpack_corrs</span><span class="p">(</span><span class="n">all_corrs_ts</span><span class="p">),</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+                 <span class="n">xticklabels</span><span class="o">=</span><span class="n">ts_labels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">ts_labels</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_ts_corr_mat&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_98_0.png" src="../_images/53-iEEGData_98_0.png" />
+</div>
+</div>
+<div class="section" id="exponent-correlations">
+<h4>Exponent Correlations<a class="headerlink" href="#exponent-correlations" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the correlations between specparam and time domain measures</span>
+<span class="n">exp_corrs_short</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_short&#39;</span><span class="p">][</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlations between exponent and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">exp_corrs_short</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_exp_corrs_short&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_101_0.png" src="../_images/53-iEEGData_101_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the correlations between specparam and time domain measures</span>
+<span class="n">exp_corrs_long</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_long&#39;</span><span class="p">][</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlations between exponent and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">exp_corrs_long</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_exp_corrs_long&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_103_0.png" src="../_images/53-iEEGData_103_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="knee-correlations">
+<h4>Knee Correlations<a class="headerlink" href="#knee-correlations" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the correlations between knee and time domain measures</span>
+<span class="n">knee_corrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam_knee_freq&#39;</span><span class="p">][</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlations between knee and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">knee_corrs</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_knee_corrs&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_106_0.png" src="../_images/53-iEEGData_106_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-to-peaks">
+<h2>Compare to Peaks<a class="headerlink" href="#compare-to-peaks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="short-fit-range">
+<h3>Short Fit Range<a class="headerlink" href="#short-fit-range" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get peak powers</span>
+<span class="n">peak_powers_short</span> <span class="o">=</span> <span class="n">get_band_peak_fg</span><span class="p">(</span><span class="n">fg_short</span><span class="p">,</span> <span class="n">peak_range</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check number of nan values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# of nan: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">peak_powers_short</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># of nan: 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace nan values with zeros</span>
+<span class="n">peak_powers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">peak_powers_short</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations between aperiodic measures and peak powers</span>
+<span class="n">peak_corrs_short</span> <span class="o">=</span> <span class="n">compute_corrs_to_feature</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">peak_powers_short</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Compute differences between correlations between aperiodic measures and peak powers</span>
+<span class="c1"># peak_corr_diffs = compute_diffs_to_feature(results, peak_powers)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between peak powers and aperiodic measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations with peak powers:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">peak_corrs_short</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     </span><span class="si">{:20s}</span><span class="s1">:  &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">peak_corrs_short</span><span class="p">[</span><span class="n">label</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations with peak powers:
+     autocorr_decay_time :   r=-0.345  CI[-0.390, -0.298],  p=0.000
+     dfa                 :   r=-0.433  CI[-0.475, -0.390],  p=0.000
+     higuchi_fd          :   r=-0.442  CI[-0.485, -0.397],  p=0.000
+     hjorth_complexity   :   r=-0.478  CI[-0.517, -0.436],  p=0.000
+     lempelziv           :   r=-0.190  CI[-0.238, -0.141],  p=0.000
+     sample_entropy      :   r=-0.441  CI[-0.481, -0.399],  p=0.000
+     perm_entropy        :   r=-0.729  CI[-0.755, -0.703],  p=0.000
+     specparam_short     :   r=+0.222  CI[+0.174, +0.271],  p=0.000
+     specparam_long      :   r=+0.648  CI[+0.617, +0.679],  p=0.000
+     specparam_knee      :   r=+0.567  CI[+0.529, +0.603],  p=0.000
+     specparam_knee_freq :   r=+0.394  CI[+0.348, +0.440],  p=0.000
+     irasa_short         :   r=+0.330  CI[+0.282, +0.376],  p=0.000
+     irasa_long          :   r=+0.769  CI[+0.746, +0.792],  p=0.000
+     irasa_knee          :   r=+0.709  CI[+0.680, +0.737],  p=0.000
+     irasa_knee_freq     :   r=+0.480  CI[+0.438, +0.520],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Organize correlations between peak powers and time domain measures</span>
+<span class="n">peak_corrs_ts_short</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">peak_corrs_short</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlations between peak powers and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">peak_corrs_ts_short</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_peak_corrs_short&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_116_0.png" src="../_images/53-iEEGData_116_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="long-fit-range">
+<h3>Long Fit Range<a class="headerlink" href="#long-fit-range" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get peak powers</span>
+<span class="n">peak_powers_long</span> <span class="o">=</span> <span class="n">get_band_peak_fg</span><span class="p">(</span><span class="n">fg_long</span><span class="p">,</span> <span class="n">peak_range</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check number of nan values</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# of nan: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">peak_powers_long</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># of nan: 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace nan values with zeros</span>
+<span class="n">peak_powers_long</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">peak_powers_long</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations between aperiodic measures and peak powers</span>
+<span class="n">peak_corrs_long</span> <span class="o">=</span> <span class="n">compute_corrs_to_feature</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">peak_powers_long</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between peak powers and aperiodic measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations with peak powers:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">peak_corrs_long</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     </span><span class="si">{:20s}</span><span class="s1">:  &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">peak_corrs_long</span><span class="p">[</span><span class="n">label</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations with peak powers:
+     autocorr_decay_time :   r=-0.251  CI[-0.298, -0.203],  p=0.000
+     dfa                 :   r=-0.347  CI[-0.392, -0.300],  p=0.000
+     higuchi_fd          :   r=-0.194  CI[-0.246, -0.141],  p=0.000
+     hjorth_complexity   :   r=-0.357  CI[-0.401, -0.312],  p=0.000
+     lempelziv           :   r=-0.053  CI[-0.102, -0.001],  p=0.042
+     sample_entropy      :   r=-0.211  CI[-0.258, -0.162],  p=0.000
+     perm_entropy        :   r=-0.407  CI[-0.449, -0.362],  p=0.000
+     specparam_short     :   r=+0.019  CI[-0.030, +0.069],  p=0.456
+     specparam_long      :   r=+0.349  CI[+0.305, +0.391],  p=0.000
+     specparam_knee      :   r=+0.321  CI[+0.276, +0.364],  p=0.000
+     specparam_knee_freq :   r=+0.256  CI[+0.208, +0.302],  p=0.000
+     irasa_short         :   r=+0.104  CI[+0.053, +0.156],  p=0.000
+     irasa_long          :   r=+0.386  CI[+0.342, +0.429],  p=0.000
+     irasa_knee          :   r=+0.364  CI[+0.319, +0.406],  p=0.000
+     irasa_knee_freq     :   r=+0.268  CI[+0.221, +0.313],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Organize correlations between peak powers and time domain measures</span>
+<span class="n">peak_corrs_ts_long</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">peak_corrs_long</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlations between peak powers and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">peak_corrs_ts_long</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ieeg_peak_corrs_long&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53-iEEGData_124_0.png" src="../_images/53-iEEGData_124_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>The iEEG data broadly replicates analyses on the EEG datasets.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="52-DevelopmentalEEGData.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Developmental EEG Data</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Thomas Donoghue<br/>
+    
+        &copy; Copyright 2021-.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

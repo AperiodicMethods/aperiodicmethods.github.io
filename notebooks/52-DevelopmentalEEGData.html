@@ -1,0 +1,1749 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developmental EEG Data &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="iEEG Data" href="53-iEEGData.html" />
+    <link rel="prev" title="Resting EEG Data" href="51-RestingEEGData.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Outline.html">
+   Outline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TimeDomainSimulations.html">
+   Time Series Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-TimeSimsParameters.html">
+   Time Domain Simulation Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-SimulationTests.html">
+   Simulation Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-SimulationComparisons.html">
+   Simulation Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-PowerSpectrumSimulations.html">
+   Power Spectrum Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time Domain Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="20-TimeDomainMethods.html">
+   Time Domain Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="21-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22B-Fluctuations-Multiscale.html">
+   Fluctuations (Multiscale)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23-FractalDimension.html">
+   Fractal Dimension
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23B-Fractal-State.html">
+   Fractal Dimension (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24B-Complexity-State.html">
+   Complexity (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25-Entropy.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25B-Entropy-Multiscale.html">
+   Multiscale Entropy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Spectral Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="30-SpectralMethods.html">
+   Spectral Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="31-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="33-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="34-ExponentComparisons.html">
+   Exponent Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Method Comparisons
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="40-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="41-WithinComparisons.html">
+   Within Method Type Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="42-BetweenComparisons.html">
+   Between Method Type Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Applications
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51-RestingEEGData.html">
+   Resting EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Developmental EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53-iEEGData.html">
+   iEEG Data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/52-DevelopmentalEEGData.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/52-DevelopmentalEEGData.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-details">
+   Dataset Details
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-paths">
+   Set Up Paths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-checks">
+   Data Checks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-spectral-fits">
+     Check Spectral Fits
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-results">
+   Load Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-measures-labels">
+     Check Measures &amp; Labels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extract-measures-for-example-channel">
+     Extract Measures for Example Channel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-exponent-measures">
+     Compare Exponent Measures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-exponent-to-time-series-measures">
+     Compare Exponent to Time Series Measures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-time-series-measures-to-each-other">
+     Compare Time Series Measures to Each Other
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#correlations">
+       Correlations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-to-alpha-power">
+     Compare to Alpha Power
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-age-relationship">
+   Check Age Relationship
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-correlations-with-age">
+     Check Correlations with Age
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponent-age-relationships">
+     Exponent - Age Relationships
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-domain-age-relationships">
+     Time Domain - Age Relationships
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-age-correlations">
+     Partial Age Correlations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spatial-analyses">
+   Spatial Analyses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-measures-across-channels">
+     Compute Measures Across Channels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponent-topographies">
+     Exponent Topographies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-series-measure-topographies">
+     Time Series Measure Topographies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spatial-correlations">
+     Spatial Correlations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alpha-power-topography">
+     Alpha Power Topography
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Developmental EEG Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-details">
+   Dataset Details
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-paths">
+   Set Up Paths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-checks">
+   Data Checks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-spectral-fits">
+     Check Spectral Fits
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-results">
+   Load Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-measures-labels">
+     Check Measures &amp; Labels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extract-measures-for-example-channel">
+     Extract Measures for Example Channel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-exponent-measures">
+     Compare Exponent Measures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-exponent-to-time-series-measures">
+     Compare Exponent to Time Series Measures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-time-series-measures-to-each-other">
+     Compare Time Series Measures to Each Other
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#correlations">
+       Correlations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-to-alpha-power">
+     Compare to Alpha Power
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-age-relationship">
+   Check Age Relationship
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-correlations-with-age">
+     Check Correlations with Age
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponent-age-relationships">
+     Exponent - Age Relationships
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-domain-age-relationships">
+     Time Domain - Age Relationships
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-age-correlations">
+     Partial Age Correlations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spatial-analyses">
+   Spatial Analyses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute-measures-across-channels">
+     Compute Measures Across Channels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponent-topographies">
+     Exponent Topographies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-series-measure-topographies">
+     Time Series Measure Topographies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spatial-correlations">
+     Spatial Correlations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alpha-power-topography">
+     Alpha Power Topography
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="developmental-eeg-data">
+<h1>Developmental EEG Data<a class="headerlink" href="#developmental-eeg-data" title="Permalink to this headline">¶</a></h1>
+<p>This notebook analyzes a large dataset of EEG, collected from a developmental sample.</p>
+<div class="section" id="dataset-details">
+<h2>Dataset Details<a class="headerlink" href="#dataset-details" title="Permalink to this headline">¶</a></h2>
+<p>This analysis uses the
+<a class="reference external" href="http://fcon_1000.projects.nitrc.org/indi/cmi_eeg/">MIPDB dataset</a> from the
+<a class="reference external" href="https://childmind.org/">ChildMind Institute</a>.</p>
+<p>Note that the pre-processing of the data as available in the dataset, doing data cleaning and calculating power spectra, is done external to this project.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOFGroup</span>
+<span class="kn">from</span> <span class="nn">fooof.utils</span> <span class="kn">import</span> <span class="n">trim_spectrum</span>
+<span class="kn">from</span> <span class="nn">fooof.objs</span> <span class="kn">import</span> <span class="n">combine_fooofs</span>
+
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">create_times</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
+<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
+
+<span class="kn">from</span> <span class="nn">bootstrap</span> <span class="kn">import</span> <span class="n">bootstrap_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/59/8y2d5r257c77vzymnqs47x080000gn/T/ipykernel_21814/2638420569.py:4: DeprecationWarning: 
+The `fooof` package is being deprecated and replaced by the `specparam` (spectral parameterization) package.
+This version of `fooof` (1.1) is fully functional, but will not be further updated.
+New projects are recommended to update to using `specparam` (see Changelog for details).
+  from fooof import FOOOFGroup
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span><span class="p">,</span> <span class="n">get_files</span><span class="p">,</span> <span class="n">load_pickle</span>
+<span class="kn">from</span> <span class="nn">apm.io.data</span> <span class="kn">import</span> <span class="n">load_eeg_dev_info</span>
+<span class="kn">from</span> <span class="nn">apm.analysis</span> <span class="kn">import</span> <span class="n">compute_avgs</span>
+<span class="kn">from</span> <span class="nn">apm.analysis.corrs</span> <span class="kn">import</span> <span class="p">(</span><span class="n">compute_all_corrs</span><span class="p">,</span> <span class="n">compute_corrs_to_feature</span><span class="p">,</span>
+                                <span class="n">unpack_corrs</span><span class="p">,</span> <span class="n">compute_reg_var</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_dots</span><span class="p">,</span> <span class="n">plot_corr_matrix</span>
+<span class="kn">from</span> <span class="nn">apm.plts.results</span> <span class="kn">import</span> <span class="n">plot_topo</span>
+<span class="kn">from</span> <span class="nn">apm.plts.multi</span> <span class="kn">import</span> <span class="n">plot_results_all</span><span class="p">,</span> <span class="n">plot_topo_row</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">make_axes</span><span class="p">,</span> <span class="n">figsaver</span>
+<span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">LABELS</span>
+<span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">format_corr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import dataset settings from script</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;scripts&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">scripts.analyze_eeg2</span> <span class="kn">import</span> <span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="n">FS</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="set-up-paths">
+<h2>Set Up Paths<a class="headerlink" href="#set-up-paths" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define load path</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span>
+<span class="n">LOADPATH</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">data_path</span> <span class="o">/</span> <span class="s1">&#39;eeg2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the set of results files available for this dataset</span>
+<span class="n">get_files</span><span class="p">(</span><span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;eeg2_results.p&#39;,
+ &#39;eeg2_results_peaks.p&#39;,
+ &#39;eeg2_spatial_alpha_corrs.p&#39;,
+ &#39;eeg2_spatial_alpha_corrs_diffs.p&#39;,
+ &#39;eeg2_spatial_corrs.p&#39;,
+ &#39;eeg2_spatial_exp_corrs.p&#39;,
+ &#39;specparam&#39;,
+ &#39;zOLD&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set time of loaded data</span>
+<span class="n">n_seconds</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define times vector for data</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">create_times</span><span class="p">(</span><span class="n">n_seconds</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">FS</span><span class="p">,</span> <span class="n">FS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add plot kwargs</span>
+<span class="n">dot_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;s&#39;</span> <span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+    <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;52_dev_data&#39;</span>
+
+<span class="c1"># Create helper function to manage figsaver settings</span>
+<span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-data">
+<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load group data</span>
+<span class="n">group_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA_FOLDER</span> <span class="o">/</span> <span class="s1">&#39;MIPDB_extracted_block.npy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the size of the dataset</span>
+<span class="n">n_subjs</span><span class="p">,</span> <span class="n">n_blocks</span><span class="p">,</span> <span class="n">n_chs</span><span class="p">,</span> <span class="n">n_times</span> <span class="o">=</span> <span class="n">group_data</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# of subjects: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">n_subjs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# of blocks: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">n_blocks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# of channels: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">n_chs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># of subjects: 	 111
+# of blocks: 	 5
+# of channels: 	 111
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load metadata</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DATA_FOLDER</span> <span class="o">/</span> <span class="s1">&#39;ages.npy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sub-select the first block of data</span>
+<span class="n">group_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">group_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load MNE info object for the current dataset</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">load_eeg_dev_info</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-checks">
+<h2>Data Checks<a class="headerlink" href="#data-checks" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set example subject index</span>
+<span class="n">subj_ind</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set example channel index</span>
+<span class="n">chi</span> <span class="o">=</span> <span class="mi">110</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check example channel label</span>
+<span class="n">info</span><span class="o">.</span><span class="n">ch_names</span><span class="p">[</span><span class="n">chi</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Cz&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a segment of time series data</span>
+<span class="n">plot_time_series</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">group_data</span><span class="p">[</span><span class="n">subj_ind</span><span class="p">,</span> <span class="n">chi</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;eeg2_timeseries.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_24_0.png" src="../_images/52-DevelopmentalEEGData_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute a power spectrum of an example</span>
+<span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span> <span class="o">=</span> <span class="n">compute_spectrum</span><span class="p">(</span><span class="n">group_data</span><span class="p">[</span><span class="n">subj_ind</span><span class="p">,</span> <span class="n">chi</span><span class="p">],</span> <span class="n">FS</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">FS</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="n">FS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot power spectrum of example signal</span>
+<span class="n">plot_power_spectra</span><span class="p">(</span><span class="o">*</span><span class="n">trim_spectrum</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">powers</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">]),</span> <span class="n">minorticks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                   <span class="n">xticks</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span>
+                   <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.25</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;eeg2_psd&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_26_0.png" src="../_images/52-DevelopmentalEEGData_26_0.png" />
+</div>
+</div>
+<div class="section" id="check-spectral-fits">
+<h3>Check Spectral Fits<a class="headerlink" href="#check-spectral-fits" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load specparam measures</span>
+<span class="n">all_fgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">FOOOFGroup</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">fres</span> <span class="ow">in</span> <span class="n">get_files</span><span class="p">(</span><span class="n">LOADPATH</span> <span class="o">/</span> <span class="s1">&#39;specparam&#39;</span><span class="p">):</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fres</span><span class="p">,</span> <span class="n">LOADPATH</span> <span class="o">/</span> <span class="s1">&#39;specparam&#39;</span><span class="p">)</span>
+    <span class="n">all_fgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">fg</span> <span class="o">=</span> <span class="n">combine_fooofs</span><span class="p">(</span><span class="n">all_fgs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check overall group results</span>
+<span class="n">fg</span><span class="o">.</span><span class="n">print_results</span><span class="p">()</span>
+<span class="n">fg</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>==================================================================================================
+                                                                                                  
+                                       FOOOF - GROUP RESULTS                                      
+                                                                                                  
+                           Number of power spectra in the Group: 12321                            
+                                                                                                  
+                        The model was run on the frequency range 3 - 40 Hz                        
+                                 Frequency Resolution is 0.50 Hz                                  
+                                                                                                  
+                              Power spectra were fit without a knee.                              
+                                                                                                  
+                                      Aperiodic Fit Values:                                       
+                        Exponents - Min: -0.449, Max:  2.924, Mean: 1.685                         
+                                                                                                  
+                        In total 64398 peaks were extracted from the group                        
+                                                                                                  
+                                     Goodness of fit metrics:                                     
+                            R2s -  Min:  0.107, Max:  0.996, Mean: 0.977                          
+                         Errors -  Min:  0.025, Max:  0.170, Mean: 0.061                          
+                                                                                                  
+==================================================================================================
+</pre></div>
+</div>
+<img alt="../_images/52-DevelopmentalEEGData_29_1.png" src="../_images/52-DevelopmentalEEGData_29_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-results">
+<h2>Load Results<a class="headerlink" href="#load-results" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed group results</span>
+<span class="n">group_results</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;eeg2_results&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check size of computed results [n_subjs, n_chs]</span>
+<span class="n">group_results</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(111, 111)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed peak results</span>
+<span class="n">group_results_peaks</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;eeg2_results_peaks&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="check-measures-labels">
+<h3>Check Measures &amp; Labels<a class="headerlink" href="#check-measures-labels" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check list of computed measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">group_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;autocorr_decay_time&#39;, &#39;dfa&#39;, &#39;higuchi_fd&#39;, &#39;hjorth_complexity&#39;, &#39;lempelziv&#39;, &#39;sample_entropy&#39;, &#39;perm_entropy&#39;, &#39;irasa&#39;, &#39;specparam&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect list of exponent &amp; timeseries measure labels</span>
+<span class="n">exp_measures</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">,</span> <span class="s1">&#39;irasa&#39;</span><span class="p">]</span>
+<span class="n">ts_measures</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">group_results</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="p">[</span><span class="n">ts_measures</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">meas</span><span class="p">)</span> <span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">exp_measures</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect labels for time series measures</span>
+<span class="n">ts_labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">]</span> <span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extract-measures-for-example-channel">
+<h3>Extract Measures for Example Channel<a class="headerlink" href="#extract-measures-for-example-channel" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sub-select results to channel of interest</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span> <span class="p">:</span> <span class="n">val</span><span class="p">[:,</span> <span class="n">chi</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">group_results</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">results_peaks</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span> <span class="p">:</span> <span class="n">val</span><span class="p">[:,</span> <span class="n">chi</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">group_results_peaks</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations for selected channel</span>
+<span class="n">all_corrs</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-exponent-measures">
+<h3>Compare Exponent Measures<a class="headerlink" href="#compare-exponent-measures" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the comparison of specparam and IRASA exponent estimations</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+          <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (SP)&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (SP)&#39;</span><span class="p">,</span>
+          <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;eeg2_exp_exp_comp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_42_0.png" src="../_images/52-DevelopmentalEEGData_42_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlation between specparam and irasa exponent estimates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP-EXP &amp; IR-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">][</span><span class="s1">&#39;irasa&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP-EXP &amp; IR-EXP:   r=+0.950  CI[+0.919, +0.965],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-exponent-to-time-series-measures">
+<h3>Compare Exponent to Time Series Measures<a class="headerlink" href="#compare-exponent-to-time-series-measures" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons between exponent and time series measures</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">make_axes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">meas</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">):</span>
+    <span class="n">plot_dots</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span>
+              <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ind</span> <span class="o">==</span> <span class="mi">6</span> <span class="k">else</span> <span class="s1">&#39;br&#39;</span><span class="p">,</span>
+              <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;exp_ts_scatters.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_45_0.png" src="../_images/52-DevelopmentalEEGData_45_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between time series and exponent measures</span>
+<span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">meas</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    SP-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;    IR-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">][</span><span class="n">meas</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>autocorr_decay_time
+    SP-EXP:   r=+0.032  CI[-0.162, +0.232],  p=0.741
+    IR-EXP:   r=-0.075  CI[-0.282, +0.132],  p=0.434
+dfa
+    SP-EXP:   r=-0.405  CI[-0.548, -0.243],  p=0.000
+    IR-EXP:   r=-0.493  CI[-0.628, -0.330],  p=0.000
+higuchi_fd
+    SP-EXP:   r=-0.407  CI[-0.562, -0.224],  p=0.000
+    IR-EXP:   r=-0.486  CI[-0.631, -0.314],  p=0.000
+hjorth_complexity
+    SP-EXP:   r=+0.461  CI[+0.299, +0.600],  p=0.000
+    IR-EXP:   r=+0.467  CI[+0.312, +0.601],  p=0.000
+lempelziv
+    SP-EXP:   r=-0.413  CI[-0.563, -0.241],  p=0.000
+    IR-EXP:   r=-0.409  CI[-0.556, -0.245],  p=0.000
+sample_entropy
+    SP-EXP:   r=-0.423  CI[-0.563, -0.260],  p=0.000
+    IR-EXP:   r=-0.430  CI[-0.562, -0.280],  p=0.000
+perm_entropy
+    SP-EXP:   r=-0.073  CI[-0.257, +0.112],  p=0.445
+    IR-EXP:   r=-0.099  CI[-0.278, +0.091],  p=0.301
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-time-series-measures-to-each-other">
+<h3>Compare Time Series Measures to Each Other<a class="headerlink" href="#compare-time-series-measures-to-each-other" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot multi-panel plot comparing all time series measures to each other</span>
+<span class="n">plot_results_all</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ts_measures</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_48_0.png" src="../_images/52-DevelopmentalEEGData_48_0.png" />
+</div>
+</div>
+<div class="section" id="correlations">
+<h4>Correlations<a class="headerlink" href="#correlations" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subselect time domain measures</span>
+<span class="n">all_corrs_ts</span> <span class="o">=</span> <span class="p">{</span><span class="n">ke</span> <span class="p">:</span> <span class="n">va</span> <span class="k">for</span> <span class="n">ke</span><span class="p">,</span> <span class="n">va</span> <span class="ow">in</span> <span class="n">all_corrs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">ke</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">exp_measures</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlation matrix between time series measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">unpack_corrs</span><span class="p">(</span><span class="n">all_corrs_ts</span><span class="p">),</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+                 <span class="n">xticklabels</span><span class="o">=</span><span class="n">ts_labels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">ts_labels</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;subj_corrs_ts&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_51_0.png" src="../_images/52-DevelopmentalEEGData_51_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract the correlations between specparam and time domain measures</span>
+<span class="n">exp_corrs_subjs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">all_corrs</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">][</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlation of time series measures to exponent</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">exp_corrs_subjs</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;subj_corrs_exp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_53_0.png" src="../_images/52-DevelopmentalEEGData_53_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-to-alpha-power">
+<h3>Compare to Alpha Power<a class="headerlink" href="#compare-to-alpha-power" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations between aperiodic measures and alpha power</span>
+<span class="n">alpha_corrs</span> <span class="o">=</span> <span class="n">compute_corrs_to_feature</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">results_peaks</span><span class="p">[</span><span class="s1">&#39;alpha_power&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Compute differences between correlations to alpha</span>
+<span class="c1"># alpha_corr_diffs = compute_diffs_to_feature(results, results_peaks[&#39;alpha_power&#39;])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between alpha power and aperiodic measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations with alpha:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">alpha_corrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     </span><span class="si">{:20s}</span><span class="s1">:  &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">alpha_corrs</span><span class="p">[</span><span class="n">label</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations with alpha:
+     autocorr_decay_time :   r=-0.189  CI[-0.384, +0.015],  p=0.046
+     dfa                 :   r=-0.484  CI[-0.613, -0.324],  p=0.000
+     higuchi_fd          :   r=-0.609  CI[-0.715, -0.476],  p=0.000
+     hjorth_complexity   :   r=+0.279  CI[+0.105, +0.446],  p=0.003
+     lempelziv           :   r=-0.262  CI[-0.428, -0.087],  p=0.005
+     sample_entropy      :   r=-0.370  CI[-0.516, -0.205],  p=0.000
+     perm_entropy        :   r=-0.487  CI[-0.620, -0.326],  p=0.000
+     irasa               :   r=+0.418  CI[+0.250, +0.562],  p=0.000
+     specparam           :   r=+0.314  CI[+0.137, +0.480],  p=0.001
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Organize correlations between alpha and time domain measures</span>
+<span class="n">alpha_corrs_ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">alpha_corrs</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot correlations between alpha and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">alpha_corrs_ts</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;subj_corrs_alpha&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_59_0.png" src="../_images/52-DevelopmentalEEGData_59_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="check-age-relationship">
+<h2>Check Age Relationship<a class="headerlink" href="#check-age-relationship" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the correlations between each measure and age</span>
+<span class="n">age_corrs</span> <span class="o">=</span> <span class="n">compute_corrs_to_feature</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Compute the differences between measure-to-age correlations</span>
+<span class="c1"># age_corr_diffs = compute_diffs_to_feature(results, ages)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="check-correlations-with-age">
+<h3>Check Correlations with Age<a class="headerlink" href="#check-correlations-with-age" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between age and aperiodic measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations with age:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">age_corrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     </span><span class="si">{:20s}</span><span class="s1">:  &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">age_corrs</span><span class="p">[</span><span class="n">label</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations with age:
+     autocorr_decay_time :   r=-0.146  CI[-0.326, +0.037],  p=0.125
+     dfa                 :   r=+0.127  CI[-0.055, +0.300],  p=0.184
+     higuchi_fd          :   r=+0.157  CI[-0.014, +0.324],  p=0.101
+     hjorth_complexity   :   r=-0.218  CI[-0.394, -0.034],  p=0.021
+     lempelziv           :   r=+0.213  CI[+0.033, +0.381],  p=0.025
+     sample_entropy      :   r=+0.297  CI[+0.118, +0.460],  p=0.002
+     perm_entropy        :   r=+0.194  CI[+0.010, +0.366],  p=0.042
+     irasa               :   r=-0.469  CI[-0.596, -0.315],  p=0.000
+     specparam           :   r=-0.519  CI[-0.633, -0.379],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exponent-age-relationships">
+<h3>Exponent - Age Relationships<a class="headerlink" href="#exponent-age-relationships" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the relationship between exponent (SP) and age</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (SP)&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;eeg2_exp_sp_age_corr&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_66_0.png" src="../_images/52-DevelopmentalEEGData_66_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the relationship between aperiodic exponent and age</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">make_axes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (SP)&#39;</span><span class="p">)</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Aperiodic Exponent (IR)&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;mipdb_exp_age.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_67_0.png" src="../_images/52-DevelopmentalEEGData_67_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="time-domain-age-relationships">
+<h3>Time Domain - Age Relationships<a class="headerlink" href="#time-domain-age-relationships" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the relationship between time domain measures and age</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">make_axes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">meas</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">):</span>
+    <span class="n">plot_dots</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ind</span> <span class="o">==</span> <span class="mi">6</span> <span class="k">else</span> <span class="s1">&#39;br&#39;</span><span class="p">,</span>
+              <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;eeg2_ts_age.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_69_0.png" src="../_images/52-DevelopmentalEEGData_69_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="partial-age-correlations">
+<h3>Partial Age Correlations<a class="headerlink" href="#partial-age-correlations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute residualized versions of measures (remove specparam)</span>
+<span class="n">results_res</span> <span class="o">=</span> <span class="p">{</span><span class="n">meas</span> <span class="p">:</span> <span class="n">compute_reg_var</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the correlations between each measure and age</span>
+<span class="n">age_corrs_res</span> <span class="o">=</span> <span class="n">compute_corrs_to_feature</span><span class="p">(</span><span class="n">results_res</span><span class="p">,</span> <span class="n">ages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the correlations between age and partialed aperiodic measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Correlations with age:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">age_corrs_res</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     </span><span class="si">{:20s}</span><span class="s1">:  &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">age_corrs_res</span><span class="p">[</span><span class="n">label</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations with age:
+     autocorr_decay_time :   r=-0.257  CI[-0.437, -0.066],  p=0.006
+     dfa                 :   r=-0.069  CI[-0.240, +0.103],  p=0.470
+     higuchi_fd          :   r=-0.017  CI[-0.198, +0.171],  p=0.860
+     hjorth_complexity   :   r=-0.035  CI[-0.223, +0.153],  p=0.712
+     lempelziv           :   r=+0.022  CI[-0.159, +0.209],  p=0.818
+     sample_entropy      :   r=+0.087  CI[-0.104, +0.269],  p=0.364
+     perm_entropy        :   r=+0.135  CI[-0.050, +0.308],  p=0.159
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the relationship between time domain measures and age</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">make_axes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">meas</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ts_measures</span><span class="p">):</span>
+    <span class="n">plot_dots</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">results_res</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span>
+              <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ind</span> <span class="o">==</span> <span class="mi">6</span> <span class="k">else</span> <span class="s1">&#39;br&#39;</span><span class="p">,</span>
+              <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">LABELS</span><span class="p">[</span><span class="n">meas</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">SAVE_FIG</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">FIGPATH</span> <span class="o">/</span> <span class="p">(</span><span class="s1">&#39;eeg2_ts_age_partial.pdf&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_74_0.png" src="../_images/52-DevelopmentalEEGData_74_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the bootstrapped difference tests between correlations</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Partial correlations differences:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">ts_measures</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;     </span><span class="si">{:20s}</span><span class="s1">:  &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
+          <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">bootstrap_diff</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">label</span><span class="p">],</span> <span class="n">results_res</span><span class="p">[</span><span class="n">label</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Partial correlations differences:
+     autocorr_decay_time :   r=+0.111  CI[+0.048, +0.185],  p=0.000
+     dfa                 :   r=+0.196  CI[+0.116, +0.277],  p=0.000
+     higuchi_fd          :   r=+0.173  CI[+0.099, +0.248],  p=0.000
+     hjorth_complexity   :   r=-0.183  CI[-0.263, -0.101],  p=0.000
+     lempelziv           :   r=+0.191  CI[+0.114, +0.272],  p=0.000
+     sample_entropy      :   r=+0.210  CI[+0.121, +0.305],  p=0.000
+     perm_entropy        :   r=+0.059  CI[+0.031, +0.091],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spatial-analyses">
+<h2>Spatial Analyses<a class="headerlink" href="#spatial-analyses" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compute-measures-across-channels">
+<h3>Compute Measures Across Channels<a class="headerlink" href="#compute-measures-across-channels" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the group average topographies</span>
+<span class="n">group_avg</span> <span class="o">=</span> <span class="n">compute_avgs</span><span class="p">(</span><span class="n">group_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exponent-topographies">
+<h3>Exponent Topographies<a class="headerlink" href="#exponent-topographies" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the group average topographies for the exponent measures</span>
+<span class="n">plot_topo_row</span><span class="p">(</span><span class="n">group_avg</span><span class="p">,</span> <span class="n">exp_measures</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;exp_topos&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_80_0.png" src="../_images/52-DevelopmentalEEGData_80_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlation between exponent topographies</span>
+<span class="n">exp_spatial_corr</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">({</span><span class="n">meas</span><span class="p">:</span> <span class="n">group_avg</span><span class="p">[</span><span class="n">meas</span><span class="p">]</span> <span class="k">for</span> <span class="n">meas</span> <span class="ow">in</span> <span class="n">exp_measures</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlation between specparam and irasa exponent estimates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP-EXP &amp; IR-EXP:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">exp_spatial_corr</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">][</span><span class="s1">&#39;irasa&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP-EXP &amp; IR-EXP:   r=+0.973  CI[+0.955, +0.981],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-series-measure-topographies">
+<h3>Time Series Measure Topographies<a class="headerlink" href="#time-series-measure-topographies" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the group average topographies for the time domain measures</span>
+<span class="n">plot_topo_row</span><span class="p">(</span><span class="n">group_avg</span><span class="p">,</span> <span class="n">ts_measures</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_84_0.png" src="../_images/52-DevelopmentalEEGData_84_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="spatial-correlations">
+<h3>Spatial Correlations<a class="headerlink" href="#spatial-correlations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed group correlation results</span>
+<span class="n">group_corrs</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;eeg2_spatial_corrs&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unpack correlations for plotting</span>
+<span class="n">group_corrs_mat</span> <span class="o">=</span> <span class="n">unpack_corrs</span><span class="p">(</span><span class="n">group_corrs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unpack correlations for plotting, and compute mask</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">group_corrs_mat</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">group_corrs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the correlation matrix of spatial topographies</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">group_corrs_mat</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+                 <span class="n">xticklabels</span><span class="o">=</span><span class="n">ts_labels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">ts_labels</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spatial_corrs_ts&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_89_0.png" src="../_images/52-DevelopmentalEEGData_89_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed group exponent correlation results</span>
+<span class="n">group_exp_corrs</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;eeg2_spatial_exp_corrs&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Organize the correlations between the exponent and time domain measures</span>
+<span class="n">exp_corr_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">group_exp_corrs</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">group_exp_corrs</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the correlations between exponent and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">exp_corr_mat</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spatial_corrs_exp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_92_0.png" src="../_images/52-DevelopmentalEEGData_92_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="alpha-power-topography">
+<h3>Alpha Power Topography<a class="headerlink" href="#alpha-power-topography" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the average alpha topography across the group</span>
+<span class="n">group_avg_peaks</span> <span class="o">=</span> <span class="n">compute_avgs</span><span class="p">(</span><span class="n">group_results_peaks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check range of alpha power values</span>
+<span class="n">amin</span><span class="p">,</span> <span class="n">amax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">group_avg_peaks</span><span class="p">[</span><span class="s1">&#39;alpha_power&#39;</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">group_avg_peaks</span><span class="p">[</span><span class="s1">&#39;alpha_power&#39;</span><span class="p">])</span>
+<span class="n">amin</span><span class="p">,</span> <span class="n">amax</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.2274266529501394, 0.8801155434513204)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the average alpha topography across the group</span>
+<span class="n">plot_topo</span><span class="p">(</span><span class="n">group_avg_peaks</span><span class="p">[</span><span class="s1">&#39;alpha_power&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">,</span> <span class="n">vlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52-DevelopmentalEEGData_96_0.png" src="../_images/52-DevelopmentalEEGData_96_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed correlations between aperiodic measures and alpha power</span>
+<span class="n">group_alpha_corrs</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;eeg2_spatial_alpha_corrs&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load precomputed differences between correlations between aperiodic measures and alpha power</span>
+<span class="n">group_alpha_corr_diffs</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;eeg2_spatial_alpha_corr_diffs&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">73</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Load precomputed differences between correlations between aperiodic measures and alpha power</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">group_alpha_corr_diffs</span> <span class="o">=</span> <span class="n">load_pickle</span><span class="p">(</span><span class="s1">&#39;eeg2_spatial_alpha_corr_diffs&#39;</span><span class="p">,</span> <span class="n">LOADPATH</span><span class="p">)</span>
+
+<span class="nn">File ~/Code/Projects/APMethods/AperiodicMethods/apm/io/io.py:35,</span> in <span class="ni">load_pickle</span><span class="nt">(f_name, save_path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="k">def</span> <span class="nf">load_pickle</span><span class="p">(</span><span class="n">f_name</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="sd">&quot;&quot;&quot;Load a data object from a pickle file.&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">35</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">check_folder</span><span class="p">(</span><span class="n">check_ext</span><span class="p">(</span><span class="n">f_name</span><span class="p">,</span> <span class="s1">&#39;.p&#39;</span><span class="p">),</span> <span class="n">save_path</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pickle_file</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pickle_file</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">return</span> <span class="n">data</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/tom/Code/Projects/APMethods/AperiodicMethods/data/eeg2/eeg2_spatial_alpha_corr_diffs.p&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Organize the alpha correlations</span>
+<span class="n">alpha_corr_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="n">group_alpha_corrs</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">group_alpha_corrs</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the correlations between alpha activity and time domain measures</span>
+<span class="n">plot_corr_matrix</span><span class="p">(</span><span class="n">alpha_corr_mat</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spatial_corrs_alpha&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Interim conclusions from this analysis:</p>
+<ul class="simple">
+<li><p>specparam &amp; IRASA estimates are consistent in this dataset</p></li>
+<li><p>aperiodic exponent is moderately correlated with time domain measures</p></li>
+</ul>
+<p>Notably, these findings are a replication of the same analyses on the previous EEG dataset.</p>
+<p>In addition, in this larger dataset, we could analyze the relationship between our measures of interest, and age, finding that:</p>
+<ul class="simple">
+<li><p>specparam &amp; IRASA estimates of exponent are equivalently correlated with age</p></li>
+<li><p>time domain measures are more moderately correlated with age than exponent measures</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="51-RestingEEGData.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Resting EEG Data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="53-iEEGData.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">iEEG Data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Thomas Donoghue<br/>
+    
+        &copy; Copyright 2021-.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

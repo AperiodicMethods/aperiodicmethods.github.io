@@ -1,0 +1,1463 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information Metrics &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multiscale Entropy" href="25B-Entropy-Multiscale.html" />
+    <link rel="prev" title="Complexity (State Space)" href="24B-Complexity-State.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Outline.html">
+   Outline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TimeDomainSimulations.html">
+   Time Series Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-TimeSimsParameters.html">
+   Time Domain Simulation Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-SimulationTests.html">
+   Simulation Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-SimulationComparisons.html">
+   Simulation Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-PowerSpectrumSimulations.html">
+   Power Spectrum Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time Domain Method Evaluations
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="20-TimeDomainMethods.html">
+   Time Domain Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="21-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22B-Fluctuations-Multiscale.html">
+   Fluctuations (Multiscale)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23-FractalDimension.html">
+   Fractal Dimension
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23B-Fractal-State.html">
+   Fractal Dimension (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24B-Complexity-State.html">
+   Complexity (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25B-Entropy-Multiscale.html">
+   Multiscale Entropy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Spectral Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="30-SpectralMethods.html">
+   Spectral Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="31-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="33-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="34-ExponentComparisons.html">
+   Exponent Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Method Comparisons
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="40-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="41-WithinComparisons.html">
+   Within Method Type Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="42-BetweenComparisons.html">
+   Between Method Type Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51-RestingEEGData.html">
+   Resting EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52-DevelopmentalEEGData.html">
+   Developmental EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53-iEEGData.html">
+   iEEG Data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/25-Entropy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/25-Entropy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entropy-measures">
+   Entropy Measures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-entropy-measures-on-example-signals">
+     Calculating Entropy Measures on Example Signals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximate-entropy">
+   Approximate Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aperiodic-variations">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#periodic-variations">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knee-variations">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#peak-variations">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-entropy">
+   Sample Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-entropy">
+   Permutation Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weighted-permutation-entropy">
+   Weighted Permutation Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Information Metrics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entropy-measures">
+   Entropy Measures
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-entropy-measures-on-example-signals">
+     Calculating Entropy Measures on Example Signals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximate-entropy">
+   Approximate Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aperiodic-variations">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#periodic-variations">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knee-variations">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#peak-variations">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-entropy">
+   Sample Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#permutation-entropy">
+   Permutation Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weighted-permutation-entropy">
+   Weighted Permutation Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Aperiodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Periodic Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Knee Variations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Peak Variations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="information-metrics">
+<h1>Information Metrics<a class="headerlink" href="#information-metrics" title="Permalink to this headline">¶</a></h1>
+<p>This notebooks runs information theory metrics on time series signals, including several entropy measures.</p>
+<p>This notebook includes:</p>
+<ul class="simple">
+<li><p>approximate entropy</p></li>
+<li><p>sample entropy</p></li>
+<li><p>permutation entropy</p></li>
+<li><p>weighted permutation entropy</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_combined</span>
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims_load</span>
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims_parallel</span> <span class="k">as</span> <span class="n">run_sims</span>
+<span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">wperm_entropy</span>
+<span class="kn">from</span> <span class="nn">apm.methods.settings</span> <span class="kn">import</span> <span class="p">(</span><span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span>
+                                  <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">apm.plts.sims</span> <span class="kn">import</span> <span class="n">plot_ap_sims</span><span class="p">,</span> <span class="n">plot_pe_sims</span><span class="p">,</span> <span class="n">plot_sims_two</span>
+<span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">COLORS</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
+<span class="kn">from</span> <span class="nn">apm.sim.examples</span> <span class="kn">import</span> <span class="n">get_examples</span><span class="p">,</span> <span class="n">check_examples</span>
+<span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">N_SIMS</span>
+<span class="kn">from</span> <span class="nn">apm.sim.defs</span> <span class="kn">import</span> <span class="n">SIM_ITERS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;25_entropy&#39;</span>
+
+<span class="c1"># Create helper function to manage figsaver settings</span>
+<span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for loading simulations</span>
+<span class="n">SIMPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">sims_path</span> <span class="o">/</span> <span class="s1">&#39;time_series&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define structure for precomputed simulation file name</span>
+<span class="n">sim_file</span> <span class="o">=</span> <span class="s1">&#39;ts_sims_</span><span class="si">{}</span><span class="s1">_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the random seed</span>
+<span class="n">set_random_seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define collection of example signals</span>
+<span class="n">examples</span> <span class="o">=</span> <span class="n">get_examples</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="entropy-measures">
+<h2>Entropy Measures<a class="headerlink" href="#entropy-measures" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check settings for entropy measures</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Approximate Entropy:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sample Entropy: </span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Permutation Entropy:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WPermutation Entropy:</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approximate Entropy:	 {&#39;order&#39;: 2}
+Sample Entropy: 	 {&#39;order&#39;: 2}
+Permutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
+WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="calculating-entropy-measures-on-example-signals">
+<h3>Calculating Entropy Measures on Example Signals<a class="headerlink" href="#calculating-entropy-measures-on-example-signals" title="Permalink to this headline">¶</a></h3>
+<p>Entropy measures generally measure the level of ‘randomness’ or complexity in a signal.</p>
+<p>In all cases, smaller values of measured entropy indicate more regular time series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the calculated approximate entropy across some example signals</span>
+<span class="n">check_examples</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="s1">&#39;approximate entropy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed approximate entropy:
+  powerlaw       : 	 1.9050
+  synaptic       : 	 1.9387
+  knee           : 	 1.6985
+  oscillation    : 	 0.1842
+  burst          : 	 0.1081
+  combined       : 	 1.7746
+  comb_burst     : 	 1.8253
+  comb_peak      : 	 1.7808
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the calculated sample entropy across some example signals</span>
+<span class="n">check_examples</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="s1">&#39;sample entropy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed sample entropy:
+  powerlaw       : 	 1.8611
+  synaptic       : 	 1.9033
+  knee           : 	 1.6268
+  oscillation    : 	 0.2815
+  burst          : 	 0.0267
+  combined       : 	 1.7109
+  comb_burst     : 	 1.7600
+  comb_peak      : 	 1.7061
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the calculated permutation entropy across some example signals</span>
+<span class="n">check_examples</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="s1">&#39;permutation entropy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed permutation entropy:
+  powerlaw       : 	 2.5664
+  synaptic       : 	 2.5496
+  knee           : 	 2.4861
+  oscillation    : 	 1.4010
+  burst          : 	 1.1077
+  combined       : 	 2.5515
+  comb_burst     : 	 2.5549
+  comb_peak      : 	 2.5551
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the calculated weighted permutation entropy across some example signals</span>
+<span class="n">check_examples</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span> <span class="s1">&#39;weighted permutation entropy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Computed weighted permutation entropy:
+  powerlaw       : 	 0.9634
+  synaptic       : 	 0.9404
+  knee           : 	 0.8551
+  oscillation    : 	 0.3930
+  burst          : 	 0.4080
+  combined       : 	 0.9552
+  comb_burst     : 	 0.9609
+  comb_peak      : 	 0.9542
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="approximate-entropy">
+<h2>Approximate Entropy<a class="headerlink" href="#approximate-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Approximate entropy quantifies the unpredictability of a time series.</p>
+<div class="section" id="aperiodic-variations">
+<h3>Aperiodic Variations<a class="headerlink" href="#aperiodic-variations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across exponents</span>
+<span class="n">ap_sims_exp</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">],</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across exponents, with an oscillation</span>
+<span class="n">ap_sims_comb</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_exp&#39;</span><span class="p">],</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot approximate entropy measures across aperiodic variations</span>
+<span class="n">plot_ap_sims</span><span class="p">(</span><span class="n">ap_sims_exp</span><span class="p">,</span> <span class="n">ap_sims_comb</span><span class="p">,</span> <span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ap_ap&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_21_0.png" src="../_images/25-Entropy_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="periodic-variations">
+<h3>Periodic Variations<a class="headerlink" href="#periodic-variations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across oscillation frequency</span>
+<span class="n">ap_sims_freq</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_freq&#39;</span><span class="p">],</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across oscillation power</span>
+<span class="n">ap_sims_pow</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_pow&#39;</span><span class="p">],</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot approximate entropy measures across aperiodic variations</span>
+<span class="n">plot_pe_sims</span><span class="p">(</span><span class="n">ap_sims_freq</span><span class="p">,</span> <span class="n">ap_sims_pow</span><span class="p">,</span> <span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ap_pe&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_25_0.png" src="../_images/25-Entropy_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="knee-variations">
+<h3>Knee Variations<a class="headerlink" href="#knee-variations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across timescales</span>
+<span class="n">ap_sims_tscales</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">],</span>
+                           <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate exntropy across different knee parameters (sims from file)</span>
+<span class="n">ap_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated approximate entropy across different timescales &amp; knees</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ap_sims_tscales</span><span class="p">,</span> <span class="s1">&#39;Timescale&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;kn_knee&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ap_sims_knee</span><span class="p">,</span> <span class="s1">&#39;Knee Parameter&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;KN&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ap_kn_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_29_0.png" src="../_images/25-Entropy_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="peak-variations">
+<h3>Peak Variations<a class="headerlink" href="#peak-variations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across peak bandwidths (sims from file)</span>
+<span class="n">ap_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across burst probabilities</span>
+<span class="n">ap_sims_burst</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">],</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated approximate entropy across periodic variations</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;peak_bw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ap_sims_bw</span><span class="p">,</span> <span class="s1">&#39;Bandwidth&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ap_sims_burst</span><span class="p">,</span> <span class="s1">&#39;Burst Probability&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Approximate Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;BW&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ap_pe_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_33_0.png" src="../_images/25-Entropy_33_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sample-entropy">
+<h2>Sample Entropy<a class="headerlink" href="#sample-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Sample entropy is a modification of approxmiate entropy for physiological time series.</p>
+<p>The modifications of sample entropy make it data length independent.</p>
+<div class="section" id="id1">
+<h3>Aperiodic Variations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across exponents</span>
+<span class="n">sa_sims_exp</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">],</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across exponents, with an oscillation</span>
+<span class="n">sa_sims_comb</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_exp&#39;</span><span class="p">],</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot sample entropy measures across aperiodic variations</span>
+<span class="n">plot_ap_sims</span><span class="p">(</span><span class="n">sa_sims_exp</span><span class="p">,</span> <span class="n">sa_sims_comb</span><span class="p">,</span> <span class="s1">&#39;Sample Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;sa_ap&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_38_0.png" src="../_images/25-Entropy_38_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Periodic Variations<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across oscillation frequency</span>
+<span class="n">sa_sims_freq</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span>\
+    <span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_freq&#39;</span><span class="p">],</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across oscillation power</span>
+<span class="n">sa_sims_pow</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span>\
+    <span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_pow&#39;</span><span class="p">],</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot sample entropy measures across periodic variations</span>
+<span class="n">plot_pe_sims</span><span class="p">(</span><span class="n">sa_sims_freq</span><span class="p">,</span> <span class="n">sa_sims_pow</span><span class="p">,</span> <span class="s1">&#39;Sample Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;sa_pe&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_42_0.png" src="../_images/25-Entropy_42_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Knee Variations<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across timescales</span>
+<span class="n">sa_sims_tscales</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">],</span>
+                           <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample exntropy across different knee parameters (sims from file)</span>
+<span class="n">sa_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated sample entropy across different timescales &amp; knees</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sa_sims_tscales</span><span class="p">,</span> <span class="s1">&#39;Timescale&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;kn_knee&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sa_sims_knee</span><span class="p">,</span> <span class="s1">&#39;Knee Parameter&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Sample Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;KN&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;sa_kn_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_46_0.png" src="../_images/25-Entropy_46_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Peak Variations<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across peak bandwidths (sims from file)</span>
+<span class="n">sa_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
+                           <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across burst probabilities</span>
+<span class="n">sa_sims_burst</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">],</span>
+                         <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated sample entropy across periodic variations</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;peak_bw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sa_sims_bw</span><span class="p">,</span> <span class="s1">&#39;Bandwidth&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">sa_sims_burst</span><span class="p">,</span> <span class="s1">&#39;Burst Probability&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Sample Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;BW&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;sa_pe_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_50_0.png" src="../_images/25-Entropy_50_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="permutation-entropy">
+<h2>Permutation Entropy<a class="headerlink" href="#permutation-entropy" title="Permalink to this headline">¶</a></h2>
+<p>Permutation entropy is a measure of entropy based on the probabilities of sequences within the time series.</p>
+<p>Permutation entropy was introduced in 2002 by Bandt &amp; Pompe.</p>
+<div class="section" id="id5">
+<h3>Aperiodic Variations<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across exponents</span>
+<span class="n">pe_sims_exp</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">],</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across exponents, with an oscillation</span>
+<span class="n">pe_sims_comb</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_exp&#39;</span><span class="p">],</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot permutation entropy measures across periodic variations</span>
+<span class="n">plot_ap_sims</span><span class="p">(</span><span class="n">pe_sims_exp</span><span class="p">,</span> <span class="n">pe_sims_comb</span><span class="p">,</span> <span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;pe_ap&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_55_0.png" src="../_images/25-Entropy_55_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Periodic Variations<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across oscillation frequency</span>
+<span class="n">pe_sims_freq</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_freq&#39;</span><span class="p">],</span>
+                        <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across oscillation power</span>
+<span class="n">pe_sims_pow</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_pow&#39;</span><span class="p">],</span>
+                       <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot permutation entropy measures across periodic variations</span>
+<span class="n">plot_pe_sims</span><span class="p">(</span><span class="n">pe_sims_freq</span><span class="p">,</span> <span class="n">pe_sims_pow</span><span class="p">,</span> <span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;pe_pe&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_59_0.png" src="../_images/25-Entropy_59_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Knee Variations<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across timescales</span>
+<span class="n">pe_sims_tscales</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">],</span>
+                           <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across different knee parameters (sims from file)</span>
+<span class="n">pe_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span>
+                             <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated permutation entropy across different timescales &amp; knees</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pe_sims_tscales</span><span class="p">,</span> <span class="s1">&#39;Timescale&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;kn_knee&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pe_sims_knee</span><span class="p">,</span> <span class="s1">&#39;Knee Parameter&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;KN&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;pe_kn_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_63_0.png" src="../_images/25-Entropy_63_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Peak Variations<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across peak bandwidths (sims from file)</span>
+<span class="n">pe_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
+                           <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across burst probabilities</span>
+<span class="n">pe_sims_burst</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">],</span>
+                         <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated permutation entropy across periodic variations</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;peak_bw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pe_sims_bw</span><span class="p">,</span> <span class="s1">&#39;Bandwidth&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">pe_sims_burst</span><span class="p">,</span> <span class="s1">&#39;Burst Probability&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;BW&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;pe_pe_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_67_0.png" src="../_images/25-Entropy_67_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weighted-permutation-entropy">
+<h2>Weighted Permutation Entropy<a class="headerlink" href="#weighted-permutation-entropy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Aperiodic Variations<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across exponents</span>
+<span class="n">wpe_sims_exp</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">],</span>
+                        <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across exponents, with an oscillation</span>
+<span class="n">wpe_sims_comb</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_exp&#39;</span><span class="p">],</span>
+                         <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot weighted permutation entropy measures across periodic variations</span>
+<span class="n">plot_ap_sims</span><span class="p">(</span><span class="n">wpe_sims_exp</span><span class="p">,</span> <span class="n">wpe_sims_comb</span><span class="p">,</span> <span class="s1">&#39;Weighted Permutation Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;wpe_ap&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_72_0.png" src="../_images/25-Entropy_72_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Periodic Variations<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across oscillation frequency</span>
+<span class="n">wpe_sims_freq</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_freq&#39;</span><span class="p">],</span>
+                         <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across oscillation power</span>
+<span class="n">wpe_sims_pow</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_pow&#39;</span><span class="p">],</span>
+                        <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot weighted permutation entropy measures across periodic variations</span>
+<span class="n">plot_pe_sims</span><span class="p">(</span><span class="n">wpe_sims_freq</span><span class="p">,</span> <span class="n">wpe_sims_pow</span><span class="p">,</span> <span class="s1">&#39;Weighted Permutation Entropy&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;wpe_pe&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_76_0.png" src="../_images/25-Entropy_76_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Knee Variations<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across timescales</span>
+<span class="n">wpe_sims_tscales</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">],</span>
+                            <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation exntropy across knee parameters (sims from file)</span>
+<span class="n">wpe_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span>
+                              <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated weighted permutation entropy across different timescales &amp; knees</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">wpe_sims_tscales</span><span class="p">,</span> <span class="s1">&#39;Timescale&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;kn_knee&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">wpe_sims_knee</span><span class="p">,</span> <span class="s1">&#39;Knee Parameter&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Weighted Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;KN&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;wpe_kn_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_80_0.png" src="../_images/25-Entropy_80_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>Peak Variations<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across peak bandwidths (sims from file)</span>
+<span class="n">wpe_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
+                            <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across burst probabilities</span>
+<span class="n">wpe_sims_burst</span> <span class="o">=</span> <span class="n">run_sims</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">],</span>
+                          <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span> <span class="n">N_SIMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the estimated weighted permutation entropy across periodic variations</span>
+<span class="n">plot_sims_two</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;peak_bw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">wpe_sims_bw</span><span class="p">,</span> <span class="s1">&#39;Bandwidth&#39;</span><span class="p">,</span>
+              <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">wpe_sims_burst</span><span class="p">,</span> <span class="s1">&#39;Burst Probability&#39;</span><span class="p">,</span>
+              <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Weighted Permutation Entropy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;BW&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;wpe_pe_vars&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/25-Entropy_84_0.png" src="../_images/25-Entropy_84_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Overall, we can see the following patterns in these simulations:</p>
+<p>Entropy (general patterns across all):</p>
+<ul class="simple">
+<li><p>Entropy increases for decreasing aperiodic exponents, non-linearly</p></li>
+<li><p>Entropy decreases for increasing oscillatory power, approximately linearly</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="24B-Complexity-State.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Complexity (State Space)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="25B-Entropy-Multiscale.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Multiscale Entropy</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Thomas Donoghue<br/>
+    
+        &copy; Copyright 2021-.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

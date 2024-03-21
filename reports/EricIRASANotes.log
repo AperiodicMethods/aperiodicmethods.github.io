@@ -17,33 +17,34 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+import fractions
+from time import time
+from itertools import product
+
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib.widgets import Slider
+from scipy import signal
+from scipy.linalg import norm
+
 from neurodsp.sim import sim_combined
+from neurodsp.sim import sim_knee, sim_peak_oscillation
 from neurodsp.spectral import compute_spectrum, trim_spectrum
 from neurodsp.utils.data import create_times
 from neurodsp.plts import plot_time_series, plot_power_spectra
 from neurodsp.utils.norm import normalize_sig
-# Import IRASA
 from neurodsp.aperiodic import compute_irasa, fit_irasa
-from scipy.linalg import norm
-from itertools import product
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.widgets import Slider
-from time import time
-import fractions
-from scipy import signal
-from scipy.optimize import curve_fit
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-c3cf33e2be1c>[0m in [0;36m<module>[0;34m[0m
-[1;32m      9[0m [0;32mfrom[0m [0mscipy[0m[0;34m.[0m[0mlinalg[0m [0;32mimport[0m [0mnorm[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     10[0m [0;32mfrom[0m [0mitertools[0m [0;32mimport[0m [0mproduct[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 11[0;31m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     12[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     13[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mwidgets[0m [0;32mimport[0m [0mSlider[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-1-e3ff986d14c4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0;32mfrom[0m [0mmatplotlib[0m[0;34m.[0m[0mwidgets[0m [0;32mimport[0m [0mSlider[0m[0;34m[0m[0;34m[0m[0m
 
 [0;31mModuleNotFoundError[0m: No module named 'pandas'
 ModuleNotFoundError: No module named 'pandas'

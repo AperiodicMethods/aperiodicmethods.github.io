@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Within Method Type Comparisons &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Between Method Type Comparisons" href="42-BetweenComparisons.html" />
+    <link rel="prev" title="Method Comparisons" href="40-MethodComparisons.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Outline.html">
+   Outline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TimeDomainSimulations.html">
+   Time Series Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-TimeSimsParameters.html">
+   Time Domain Simulation Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-SimulationTests.html">
+   Simulation Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-SimulationComparisons.html">
+   Simulation Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-PowerSpectrumSimulations.html">
+   Power Spectrum Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time Domain Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="20-TimeDomainMethods.html">
+   Time Domain Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="21-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22B-Fluctuations-Multiscale.html">
+   Fluctuations (Multiscale)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23-FractalDimension.html">
+   Fractal Dimension
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23B-Fractal-State.html">
+   Fractal Dimension (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24B-Complexity-State.html">
+   Complexity (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25-Entropy.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25B-Entropy-Multiscale.html">
+   Multiscale Entropy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Spectral Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="30-SpectralMethods.html">
+   Spectral Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="31-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="33-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="34-ExponentComparisons.html">
+   Exponent Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Method Comparisons
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="40-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Within Method Type Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="42-BetweenComparisons.html">
+   Between Method Type Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51-RestingEEGData.html">
+   Resting EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52-DevelopmentalEEGData.html">
+   Developmental EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53-iEEGData.html">
+   iEEG Data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/41-WithinComparisons.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/41-WithinComparisons.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fluctuations">
+   Fluctuations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluctuations-notes">
+     Fluctuations Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fractal-dimension">
+   Fractal Dimension
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fractal-dimension-notes">
+     Fractal Dimension Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complexity">
+   Complexity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complexity-notes">
+     Complexity Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entropy">
+   Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entropy-notes">
+     Entropy Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Within Method Type Comparisons</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fluctuations">
+   Fluctuations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluctuations-notes">
+     Fluctuations Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fractal-dimension">
+   Fractal Dimension
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fractal-dimension-notes">
+     Fractal Dimension Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complexity">
+   Complexity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complexity-notes">
+     Complexity Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entropy">
+   Entropy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entropy-notes">
+     Entropy Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="within-method-type-comparisons">
+<h1>Within Method Type Comparisons<a class="headerlink" href="#within-method-type-comparisons" title="Permalink to this headline">¶</a></h1>
+<p>This notebooks runs a set of comparisons across methods, within method types (eg. comparing different complexity measures to each other).</p>
+<p>It does so for the following method categories (that have multiple methods):</p>
+<ul class="simple">
+<li><p>Fluctuations</p></li>
+<li><p>Fractal Dimension</p></li>
+<li><p>Complexity</p></li>
+<li><p>Entropy</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_combined</span>
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_comparisons</span>
+<span class="kn">from</span> <span class="nn">apm.analysis</span> <span class="kn">import</span> <span class="n">compute_all_corrs</span>
+<span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_dots</span>
+<span class="kn">from</span> <span class="nn">apm.plts.multi</span> <span class="kn">import</span> <span class="n">plot_results_all</span>
+<span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">COLORS</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
+<span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="p">(</span><span class="n">hurst</span><span class="p">,</span> <span class="n">dfa</span><span class="p">,</span> <span class="n">higuchi_fd</span><span class="p">,</span> <span class="n">katz_fd</span><span class="p">,</span> <span class="n">petrosian_fd</span><span class="p">,</span>
+                         <span class="n">hjorth_mobility</span><span class="p">,</span> <span class="n">hjorth_complexity</span><span class="p">,</span> <span class="n">lempelziv</span><span class="p">,</span>
+                         <span class="n">app_entropy</span><span class="p">,</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">wperm_entropy</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">apm.methods.settings</span> <span class="kn">import</span> <span class="p">(</span><span class="n">HURST_PARAMS</span><span class="p">,</span> <span class="n">DFA_PARAMS</span><span class="p">,</span>
+                                  <span class="n">HFD_PARAMS</span><span class="p">,</span> <span class="n">KFD_PARAMS</span><span class="p">,</span> <span class="n">PFD_PARAMS</span><span class="p">,</span>
+                                  <span class="n">HJM_PARAMS</span><span class="p">,</span> <span class="n">HJC_PARAMS</span><span class="p">,</span> <span class="n">LZ_PARAMS</span><span class="p">,</span>
+                                  <span class="n">AP_ENT_PARAMS</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">print_corr_combs</span>
+<span class="kn">from</span> <span class="nn">apm.sim.defs</span> <span class="kn">import</span> <span class="n">SIM_SAMPLERS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for running comparisons</span>
+<span class="n">RETURN_PARAMS</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;41_within_comp&#39;</span>
+
+<span class="c1"># Create helper function to manage figsaver settings</span>
+<span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect together info &amp; plot settings</span>
+<span class="n">dot_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;s&#39;</span> <span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="mf">0.25</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update data specific settings</span>
+<span class="n">HURST_PARAMS</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">fs</span>
+<span class="n">DFA_PARAMS</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">fs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the random seed</span>
+<span class="n">set_random_seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fluctuations">
+<h2>Fluctuations<a class="headerlink" href="#fluctuations" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define measures to apply - fluctuations</span>
+<span class="n">measures_fluc</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">hurst</span> <span class="p">:</span> <span class="n">HURST_PARAMS</span><span class="p">,</span>
+    <span class="n">dfa</span> <span class="p">:</span> <span class="n">DFA_PARAMS</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing fluctuation measures</span>
+<span class="n">results_fluc</span><span class="p">,</span> <span class="n">all_sim_params_fluc</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;comb_sampler&#39;</span><span class="p">],</span> <span class="n">measures_fluc</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations across all measures, as well as with &amp; without oscillations</span>
+<span class="n">all_corrs_fluc</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_fluc</span><span class="p">)</span>
+<span class="n">all_corrs_osc_fluc</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_fluc</span><span class="p">,</span> <span class="n">all_sim_params_fluc</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">all_corrs_no_osc_fluc</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_fluc</span><span class="p">,</span> <span class="o">~</span><span class="n">all_sim_params_fluc</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;COMB&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">osc</span> <span class="k">else</span> <span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;AP&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">osc</span> <span class="ow">in</span> <span class="n">all_sim_params_fluc</span><span class="o">.</span><span class="n">has_osc</span><span class="p">]</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results_fluc</span><span class="p">[</span><span class="s1">&#39;hurst&#39;</span><span class="p">],</span> <span class="n">results_fluc</span><span class="p">[</span><span class="s1">&#39;dfa&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tr&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cs</span><span class="p">,</span> <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span>
+          <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hurst Exponent&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;DFA Exponent&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;fluc_comp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/41-WithinComparisons_14_0.png" src="../_images/41-WithinComparisons_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print correlations between different fluctuation measures</span>
+<span class="n">print_corr_combs</span><span class="p">(</span><span class="n">all_corrs_fluc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations:
+  HE     &amp; DFA   :   r=+0.121  CI[+0.041, +0.202],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fluctuations-notes">
+<h3>Fluctuations Notes<a class="headerlink" href="#fluctuations-notes" title="Permalink to this headline">¶</a></h3>
+<p>The relationship between fluctuations measures (Hurst Exponent and DFA) is non-linear and there does not appear to be a clear / direct mapping between the two. Despite the similarities of these methods, they seem be fairly different in what they measure in the data.</p>
+</div>
+</div>
+<div class="section" id="fractal-dimension">
+<h2>Fractal Dimension<a class="headerlink" href="#fractal-dimension" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define measures to apply - fractal dimension</span>
+<span class="n">measures_fd</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">higuchi_fd</span> <span class="p">:</span> <span class="n">HFD_PARAMS</span><span class="p">,</span>
+    <span class="n">katz_fd</span> <span class="p">:</span> <span class="n">KFD_PARAMS</span><span class="p">,</span>
+    <span class="n">petrosian_fd</span> <span class="p">:</span> <span class="n">PFD_PARAMS</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing fractal dimension measures</span>
+<span class="n">results_fd</span><span class="p">,</span> <span class="n">all_sim_params_fd</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;comb_sampler&#39;</span><span class="p">],</span> <span class="n">measures_fd</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations across all measures, as well as with &amp; without oscillations</span>
+<span class="n">all_corrs_fd</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_fd</span><span class="p">)</span>
+<span class="n">all_corrs_osc_fd</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_fd</span><span class="p">,</span> <span class="n">all_sim_params_fd</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">all_corrs_no_osc_fd</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_fd</span><span class="p">,</span> <span class="o">~</span><span class="n">all_sim_params_fd</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons across fractal dimension measures</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;COMB&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">osc</span> <span class="k">else</span> <span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;AP&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">osc</span> <span class="ow">in</span> <span class="n">all_sim_params_fd</span><span class="o">.</span><span class="n">has_osc</span><span class="p">]</span>
+<span class="n">plot_results_all</span><span class="p">(</span><span class="n">results_fd</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cs</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;fractal_comp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/41-WithinComparisons_21_0.png" src="../_images/41-WithinComparisons_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print correlations between different fractal measures</span>
+<span class="n">print_corr_combs</span><span class="p">(</span><span class="n">all_corrs_fd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations:
+  HFD    &amp; KFD   :   r=+0.763  CI[+0.731, +0.790],  p=0.000
+  HFD    &amp; PFD   :   r=+0.470  CI[+0.406, +0.529],  p=0.000
+  KFD    &amp; PFD   :   r=+0.765  CI[+0.739, +0.788],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fractal-dimension-notes">
+<h3>Fractal Dimension Notes<a class="headerlink" href="#fractal-dimension-notes" title="Permalink to this headline">¶</a></h3>
+<p>Overall, there is a general consistency across the fractal dimension measures, notably that they are positively correlated with each other. In this sense they are quite consistent, though note that the actual magnitudes of the estimates vary significantly across the different methods.</p>
+</div>
+</div>
+<div class="section" id="complexity">
+<h2>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define measures to apply - complexity</span>
+<span class="n">measures_cp</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">hjorth_mobility</span> <span class="p">:</span> <span class="n">HJM_PARAMS</span><span class="p">,</span>
+    <span class="n">hjorth_complexity</span> <span class="p">:</span> <span class="n">HJC_PARAMS</span><span class="p">,</span>
+    <span class="n">lempelziv</span> <span class="p">:</span> <span class="n">LZ_PARAMS</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing complexity measures</span>
+<span class="n">results_cp</span><span class="p">,</span> <span class="n">all_sim_params_cp</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;comb_sampler&#39;</span><span class="p">],</span> <span class="n">measures_cp</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations across all measures, as well as with &amp; without oscillations</span>
+<span class="n">all_corrs_cp</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_cp</span><span class="p">)</span>
+<span class="n">all_corrs_osc_cp</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_cp</span><span class="p">,</span> <span class="n">all_sim_params_cp</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">all_corrs_no_osc_cp</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_cp</span><span class="p">,</span> <span class="o">~</span><span class="n">all_sim_params_cp</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons across complexity measures</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;COMB&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">osc</span> <span class="k">else</span> <span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;AP&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">osc</span> <span class="ow">in</span> <span class="n">all_sim_params_cp</span><span class="o">.</span><span class="n">has_osc</span><span class="p">]</span>
+<span class="n">plot_results_all</span><span class="p">(</span><span class="n">results_cp</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cs</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;compl_comp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/41-WithinComparisons_28_0.png" src="../_images/41-WithinComparisons_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print correlations between different complexity measures</span>
+<span class="n">print_corr_combs</span><span class="p">(</span><span class="n">all_corrs_cp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations:
+  HJM    &amp; HJC   :   r=-0.904  CI[-0.920, -0.884],  p=0.000
+  HJM    &amp; LZC   :   r=+0.985  CI[+0.981, +0.988],  p=0.000
+  HJC    &amp; LZC   :   r=-0.849  CI[-0.874, -0.820],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="complexity-notes">
+<h3>Complexity Notes<a class="headerlink" href="#complexity-notes" title="Permalink to this headline">¶</a></h3>
+<p>The complexity methods included here are quite highly correlated with each other, though notably in varying directions. Notably, all the relationships between estimates are quite non-linear. Overall, this suggests that while they capture similar aspects of the data, there is a not a direct one-to-one mapping between the different measures, and also the scales appear to go in different directions across different measures.</p>
+</div>
+</div>
+<div class="section" id="entropy">
+<h2>Entropy<a class="headerlink" href="#entropy" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define measures to apply - entropy</span>
+<span class="n">measures_ent</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">app_entropy</span> <span class="p">:</span> <span class="n">AP_ENT_PARAMS</span><span class="p">,</span>
+    <span class="n">sample_entropy</span> <span class="p">:</span> <span class="n">SA_ENT_PARAMS</span><span class="p">,</span>
+    <span class="n">perm_entropy</span> <span class="p">:</span> <span class="n">PE_ENT_PARAMS</span><span class="p">,</span>
+    <span class="n">wperm_entropy</span> <span class="p">:</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing entropy measures</span>
+<span class="n">results_ent</span><span class="p">,</span> <span class="n">all_sim_params_ent</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;comb_sampler&#39;</span><span class="p">],</span> <span class="n">measures_ent</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute correlations across all measures, as well as with &amp; without oscillations</span>
+<span class="n">all_corrs_ent</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_ent</span><span class="p">)</span>
+<span class="n">all_corrs_osc_ent</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_ent</span><span class="p">,</span> <span class="n">all_sim_params_ent</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">all_corrs_no_osc_ent</span> <span class="o">=</span> <span class="n">compute_all_corrs</span><span class="p">(</span><span class="n">results_ent</span><span class="p">,</span> <span class="o">~</span><span class="n">all_sim_params_ent</span><span class="p">[</span><span class="s1">&#39;has_osc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot comparisons across entropy measures</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="p">[</span><span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;COMB&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">osc</span> <span class="k">else</span> <span class="n">COLORS</span><span class="p">[</span><span class="s1">&#39;AP&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">osc</span> <span class="ow">in</span> <span class="n">all_sim_params_ent</span><span class="o">.</span><span class="n">has_osc</span><span class="p">]</span>
+<span class="n">plot_results_all</span><span class="p">(</span><span class="n">results_ent</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cs</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dot_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ent_comp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/41-WithinComparisons_35_0.png" src="../_images/41-WithinComparisons_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print correlations between different entropy measures</span>
+<span class="n">print_corr_combs</span><span class="p">(</span><span class="n">all_corrs_ent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations:
+  ApEn   &amp; SampEn:   r=+1.000  CI[+0.999, +1.000],  p=0.000
+  ApEn   &amp; PeEn  :   r=+0.883  CI[+0.867, +0.897],  p=0.000
+  ApEn   &amp; wPeEn :   r=+0.901  CI[+0.887, +0.912],  p=0.000
+  SampEn &amp; PeEn  :   r=+0.874  CI[+0.857, +0.888],  p=0.000
+  SampEn &amp; wPeEn :   r=+0.893  CI[+0.878, +0.905],  p=0.000
+  PeEn   &amp; wPeEn :   r=+0.997  CI[+0.997, +0.998],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="entropy-notes">
+<h3>Entropy Notes<a class="headerlink" href="#entropy-notes" title="Permalink to this headline">¶</a></h3>
+<p>There is generally a fairly high degree of similarity across the different entropy methods - notably, they are all highly positively correlated. The most notable difference is perhaps the degree to which some methods / pairs of methods differentiate more between signals with/without oscillations.</p>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Overall, through these comparisons, we can see that of the included methods, some groupings have similar properties / results, but not all - even within a category there can be notably differences in the results across different data. Overall, this is not too surprising, though these categories are grouped based on having some commonalities, it is not the case that all methods within a category are <em>supposed</em> to estimate the same quantity.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="40-MethodComparisons.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Method Comparisons</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="42-BetweenComparisons.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Between Method Type Comparisons</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Thomas Donoghue<br/>
+    
+        &copy; Copyright 2021-.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

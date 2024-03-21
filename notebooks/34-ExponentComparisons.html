@@ -1,0 +1,1520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exponent Comparisons &#8212; Aperiodic  Methods</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Method Comparisons" href="40-MethodComparisons.html" />
+    <link rel="prev" title="IRASA" href="33-IRASA.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Aperiodic  Methods</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Outline.html">
+   Outline
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Simulations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Simulations.html">
+   Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-TimeDomainSimulations.html">
+   Time Series Simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-TimeSimsParameters.html">
+   Time Domain Simulation Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-SimulationTests.html">
+   Simulation Tests
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-SimulationComparisons.html">
+   Simulation Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-PowerSpectrumSimulations.html">
+   Power Spectrum Simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time Domain Method Evaluations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="20-TimeDomainMethods.html">
+   Time Domain Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="21-AutoCorrelation.html">
+   AutoCorrelation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22-Fluctuations.html">
+   Fluctuation Analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="22B-Fluctuations-Multiscale.html">
+   Fluctuations (Multiscale)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23-FractalDimension.html">
+   Fractal Dimension
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="23B-Fractal-State.html">
+   Fractal Dimension (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24-Complexity.html">
+   Complexity Measures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="24B-Complexity-State.html">
+   Complexity (State Space)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25-Entropy.html">
+   Information Metrics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="25B-Entropy-Multiscale.html">
+   Multiscale Entropy
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Spectral Method Evaluations
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="30-SpectralMethods.html">
+   Spectral Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="31-SpectralFitting.html">
+   Spectral Fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="33-IRASA.html">
+   IRASA
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exponent Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Method Comparisons
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="40-MethodComparisons.html">
+   Method Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="41-WithinComparisons.html">
+   Within Method Type Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="42-BetweenComparisons.html">
+   Between Method Type Comparisons
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="50-DataComparisons.html">
+   Data Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="51-RestingEEGData.html">
+   Resting EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="52-DevelopmentalEEGData.html">
+   Developmental EEG Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="53-iEEGData.html">
+   iEEG Data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/34-ExponentComparisons.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/aperiodicmethods//master?urlpath=tree/apmethods/notebooks/34-ExponentComparisons.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-methods">
+     Collect Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-samples-across-aperiodic-signals">
+   Simulations - Samples Across Aperiodic Signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errors">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistics">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-samples-across-combined-signals">
+   Simulations - Samples Across Combined Signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-across-timescales-synaptic-sims">
+   Simulations - Across Timescales (Synaptic Sims)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-across-knees">
+   Simulations - Across Knees
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-samples-across-peak-signals">
+   Simulations - Samples Across Peak Signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exponent Comparisons</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#settings">
+   Settings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-methods">
+     Collect Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-samples-across-aperiodic-signals">
+   Simulations - Samples Across Aperiodic Signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errors">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistics">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-samples-across-combined-signals">
+   Simulations - Samples Across Combined Signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-across-timescales-synaptic-sims">
+   Simulations - Across Timescales (Synaptic Sims)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-across-knees">
+   Simulations - Across Knees
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-samples-across-peak-signals">
+   Simulations - Samples Across Peak Signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Errors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Visualize
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="exponent-comparisons">
+<h1>Exponent Comparisons<a class="headerlink" href="#exponent-comparisons" title="Permalink to this headline">¶</a></h1>
+<p>This notebook compares methods that directly estimate aperiodic exponents, including:</p>
+<ul class="simple">
+<li><p>spectral parameterization</p></li>
+<li><p>IRASA</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_rel</span>
+
+<span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_knee</span><span class="p">,</span> <span class="n">sim_combined</span><span class="p">,</span> <span class="n">sim_synaptic_current</span>
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
+
+<span class="kn">from</span> <span class="nn">bootstrap</span> <span class="kn">import</span> <span class="n">bootstrap_corr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
+<span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_comparisons</span>
+<span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">specparam</span>
+<span class="kn">from</span> <span class="nn">apm.methods.settings</span> <span class="kn">import</span> <span class="p">(</span><span class="n">SPECPARAM_PARAMS</span><span class="p">,</span> <span class="n">SPECPARAM_PARAMS_KNEE</span><span class="p">,</span>
+                                  <span class="n">IRASA_PARAMS</span><span class="p">,</span> <span class="n">IRASA_PARAMS_KNEE</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">apm.analysis.results</span> <span class="kn">import</span> <span class="n">cohens_d</span>
+<span class="kn">from</span> <span class="nn">apm.analysis.error</span> <span class="kn">import</span> <span class="n">calculate_errors</span>
+<span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_dots</span>
+<span class="kn">from</span> <span class="nn">apm.plts.errors</span> <span class="kn">import</span> <span class="n">plot_boxplot_errors</span><span class="p">,</span> <span class="n">plot_violin_errors</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
+<span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">METHOD_COLORS</span>
+<span class="kn">from</span> <span class="nn">apm.sim.funcs</span> <span class="kn">import</span> <span class="n">sim_combined_peak</span>
+<span class="kn">from</span> <span class="nn">apm.sim.defs</span> <span class="kn">import</span> <span class="n">SIM_SAMPLERS</span>
+<span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS2</span> <span class="k">as</span> <span class="n">FS</span>
+<span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">format_corr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update sampling frequency for simulation definition</span>
+<span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">update_base</span><span class="p">(</span><span class="n">fs</span><span class="o">=</span><span class="n">FS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set data specific settings</span>
+<span class="n">SPECPARAM_PARAMS</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FS</span>
+<span class="n">SPECPARAM_PARAMS_KNEE</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FS</span>
+<span class="n">IRASA_PARAMS</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FS</span>
+<span class="n">IRASA_PARAMS_KNEE</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FS</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define run settings</span>
+<span class="n">RETURN_PARAMS</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot settings</span>
+<span class="n">DOTS_KWARGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;s&#39;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="s1">&#39;color&#39;</span> <span class="p">:</span> <span class="s1">&#39;#70706e&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;xlabel&#39;</span> <span class="p">:</span> <span class="s1">&#39;Aperiodic Exponent (SP)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ylabel&#39;</span> <span class="p">:</span> <span class="s1">&#39;Aperiodic Exponent (IR)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="n">ERROR_PLT_KWARGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;labels&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;IR&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;palette&#39;</span> <span class="p">:</span> <span class="n">METHOD_COLORS</span><span class="p">,</span>
+    <span class="s1">&#39;saturation&#39;</span> <span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+    <span class="s1">&#39;width&#39;</span> <span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+    <span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;34_exp_comp&#39;</span>
+
+<span class="c1"># Create helper function to manage figsaver settings</span>
+<span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the random seed</span>
+<span class="n">set_random_seed</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="collect-methods">
+<h3>Collect Methods<a class="headerlink" href="#collect-methods" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define measures to apply</span>
+<span class="n">measures</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">specparam</span> <span class="p">:</span> <span class="n">SPECPARAM_PARAMS</span><span class="p">,</span>
+    <span class="n">irasa</span> <span class="p">:</span> <span class="n">IRASA_PARAMS</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">measures_knee</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">specparam</span> <span class="p">:</span> <span class="n">SPECPARAM_PARAMS_KNEE</span><span class="p">,</span>
+    <span class="n">irasa</span> <span class="p">:</span> <span class="n">IRASA_PARAMS_KNEE</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulations-samples-across-aperiodic-signals">
+<h2>Simulations - Samples Across Aperiodic Signals<a class="headerlink" href="#simulations-samples-across-aperiodic-signals" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing SpecParam &amp; IRASA, sampling across aperiodic exponents</span>
+<span class="n">results_ap</span><span class="p">,</span> <span class="n">sim_params_ap</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;exp_sampler&#39;</span><span class="p">],</span> <span class="n">measures</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the simulated exponent values</span>
+<span class="n">sim_exps_ap</span> <span class="o">=</span> <span class="o">-</span><span class="n">sim_params_ap</span><span class="o">.</span><span class="n">exponent</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="errors">
+<h3>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate errors of each method, as compared to ground truth simulations</span>
+<span class="n">errors_ap</span> <span class="o">=</span> <span class="n">calculate_errors</span><span class="p">(</span><span class="n">results_ap</span><span class="p">,</span> <span class="n">sim_exps_ap</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the errors per method, and the difference between them</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">errors_ap</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:10s}</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_ap</span><span class="p">[</span><span class="n">method</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">difference:</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+    <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_ap</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_ap</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0503
+irasa     	0.0195
+
+difference:	0.0308
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="statistics">
+<h3>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the statistical difference between measure errors</span>
+<span class="n">ttest_rel</span><span class="p">(</span><span class="n">errors_ap</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_ap</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=25.423270607751284, pvalue=2.3290784686220295e-110, df=999)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the effect size of the difference between method errors</span>
+<span class="n">cohens_d</span><span class="p">(</span><span class="n">errors_ap</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_ap</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0711712512652223
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualize">
+<h3>Visualize<a class="headerlink" href="#visualize" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - violinplot</span>
+<span class="n">plot_violin_errors</span><span class="p">(</span><span class="n">errors_ap</span><span class="p">,</span> <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_23_0.png" src="../_images/34-ExponentComparisons_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - boxplot</span>
+<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_ap</span><span class="p">,</span> <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_exp_errors&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_24_0.png" src="../_images/34-ExponentComparisons_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the comparison between specparam and IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results_ap</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_ap</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">DOTS_KWARGS</span><span class="p">,</span>
+          <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">],</span>
+          <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_exp&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_25_0.png" src="../_images/34-ExponentComparisons_25_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlations</span>
+<span class="n">corrs_ap</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">results_ap</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_ap</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP &amp; IR:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_ap</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.997  CI[+0.997, +0.997],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulations-samples-across-combined-signals">
+<h2>Simulations - Samples Across Combined Signals<a class="headerlink" href="#simulations-samples-across-combined-signals" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing SpecParam &amp; IRASA, sampling across combined signal parameters</span>
+<span class="n">results_comb</span><span class="p">,</span> <span class="n">sim_params_comb</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;comb_sampler&#39;</span><span class="p">],</span> <span class="n">measures</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the simulated exponent values</span>
+<span class="n">sim_exps_comb</span> <span class="o">=</span> <span class="o">-</span><span class="n">sim_params_comb</span><span class="o">.</span><span class="n">exponent</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Errors<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate errors of each method, as compared to ground truth simulations</span>
+<span class="n">errors_comb</span> <span class="o">=</span> <span class="n">calculate_errors</span><span class="p">(</span><span class="n">results_comb</span><span class="p">,</span> <span class="n">sim_exps_comb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the errors per method</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">errors_comb</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:10s}</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_comb</span><span class="p">[</span><span class="n">method</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">difference:</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+    <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_comb</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_comb</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0357
+irasa     	0.0194
+
+difference:	0.0163
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Statistics<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the statistical difference between measure errors</span>
+<span class="n">ttest_rel</span><span class="p">(</span><span class="n">errors_comb</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_comb</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=17.101023543283908, pvalue=1.055930908434204e-57, df=999)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the effect size of the difference between method errors</span>
+<span class="n">cohens_d</span><span class="p">(</span><span class="n">errors_comb</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_comb</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7293764050510116
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Visualize<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - violinplot</span>
+<span class="n">plot_violin_errors</span><span class="p">(</span><span class="n">errors_comb</span><span class="p">,</span> <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_37_0.png" src="../_images/34-ExponentComparisons_37_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - boxplot</span>
+<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_comb</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span>
+                    <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_comb_errors&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_38_0.png" src="../_images/34-ExponentComparisons_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the comparison between specparam and IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results_comb</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_comb</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">DOTS_KWARGS</span><span class="p">,</span>
+          <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">],</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_comb&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_39_0.png" src="../_images/34-ExponentComparisons_39_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlations</span>
+<span class="n">corrs_comb</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">results_comb</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_comb</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP &amp; IR:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_comb</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.998  CI[+0.998, +0.998],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulations-across-timescales-synaptic-sims">
+<h2>Simulations - Across Timescales (Synaptic Sims)<a class="headerlink" href="#simulations-across-timescales-synaptic-sims" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing SpecParam &amp; IRASA, sampling across timescale values</span>
+<span class="n">results_tscale</span><span class="p">,</span> <span class="n">sim_params_tscale</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;tscale_sampler&#39;</span><span class="p">],</span>
+    <span class="n">measures_knee</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the expected aperiodic exponent for the synapse knee model</span>
+<span class="n">sim_exps_tscale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">n_samples</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Errors<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate errors of each method, as compared to ground truth simulations</span>
+<span class="n">errors_tscale</span> <span class="o">=</span> <span class="n">calculate_errors</span><span class="p">(</span><span class="n">results_tscale</span><span class="p">,</span> <span class="n">sim_exps_tscale</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the errors per method</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">errors_tscale</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:10s}</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">[</span><span class="n">method</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">difference:</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+    <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0647
+irasa     	0.0655
+
+difference:	-0.0008
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Statistics<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the statistical difference between measure errors</span>
+<span class="n">ttest_rel</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_tscale</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-2.810472047266782, pvalue=0.0050435509100114646, df=999)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the effect size of the difference between method errors</span>
+<span class="n">cohens_d</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_tscale</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.09514238661095703
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Visualize<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - violinplot</span>
+<span class="n">plot_violin_errors</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">,</span> <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_51_0.png" src="../_images/34-ExponentComparisons_51_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - boxplot</span>
+<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> 
+                    <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_tscale_errors&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_52_0.png" src="../_images/34-ExponentComparisons_52_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the comparison between specparam and IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results_tscale</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_tscale</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mf">1.45</span><span class="p">,</span> <span class="mf">2.25</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">1.45</span><span class="p">,</span> <span class="mf">2.25</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mf">1.45</span><span class="p">,</span> <span class="mf">2.25</span><span class="p">],</span> 
+          <span class="o">**</span><span class="n">DOTS_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_tscale&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_53_0.png" src="../_images/34-ExponentComparisons_53_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlations</span>
+<span class="n">corrs_knee</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">results_tscale</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_tscale</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP &amp; IR:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_knee</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.302  CI[+0.237, +0.365],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulations-across-knees">
+<h2>Simulations - Across Knees<a class="headerlink" href="#simulations-across-knees" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing SpecParam &amp; IRASA, sampling across knee values</span>
+<span class="n">results_knee</span><span class="p">,</span> <span class="n">sim_params_knee</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_knee</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;knee_sampler&#39;</span><span class="p">],</span> <span class="n">measures_knee</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the simulated exponent values</span>
+<span class="n">sim_exps_knee</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">sim_params_knee</span><span class="o">.</span><span class="n">exponent2</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Errors<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate errors of each method, as compared to ground truth simulations</span>
+<span class="n">errors_knee</span> <span class="o">=</span> <span class="n">calculate_errors</span><span class="p">(</span><span class="n">results_knee</span><span class="p">,</span> <span class="n">sim_exps_knee</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the errors per method</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">errors_knee</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:10s}</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">errors_knee</span><span class="p">[</span><span class="n">method</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">difference:</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+    <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">errors_knee</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">errors_knee</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0779
+irasa     	0.1089
+
+difference:	-0.0310
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Statistics<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the statistical difference between measure errors</span>
+<span class="n">ttest_rel</span><span class="p">(</span><span class="n">errors_knee</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_knee</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="n">nan_policy</span><span class="o">=</span><span class="s1">&#39;omit&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=1.8384604834110296, pvalue=0.06629250061796713, df=995)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the effect size of the difference between method errors</span>
+<span class="n">cohens_d</span><span class="p">(</span><span class="n">errors_knee</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_knee</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.058418129261585273
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>Visualize<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - violinplot</span>
+<span class="n">plot_violin_errors</span><span class="p">(</span><span class="n">errors_knee</span><span class="p">,</span> <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_65_0.png" src="../_images/34-ExponentComparisons_65_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - boxplot</span>
+<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_knee</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+                    <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_knee_errors&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_66_0.png" src="../_images/34-ExponentComparisons_66_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the comparison between specparam and IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results_knee</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_knee</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span>
+          <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> 
+          <span class="o">**</span><span class="n">DOTS_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_knee&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_67_0.png" src="../_images/34-ExponentComparisons_67_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlations</span>
+<span class="n">corrs_knee</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">results_tscale</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_tscale</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP &amp; IR:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_knee</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.302  CI[+0.238, +0.364],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulations-samples-across-peak-signals">
+<h2>Simulations - Samples Across Peak Signals<a class="headerlink" href="#simulations-samples-across-peak-signals" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations, comparing SpecParam &amp; IRASA, sampling across peak signals</span>
+<span class="n">results_bw</span><span class="p">,</span> <span class="n">sim_params_bw</span> <span class="o">=</span> <span class="n">run_comparisons</span><span class="p">(</span>\
+    <span class="n">sim_combined_peak</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="p">[</span><span class="s1">&#39;peak_sampler&#39;</span><span class="p">],</span> <span class="n">measures</span><span class="p">,</span> <span class="n">return_params</span><span class="o">=</span><span class="n">RETURN_PARAMS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the simulated exponent values</span>
+<span class="n">sim_exps_bw</span> <span class="o">=</span> <span class="o">-</span><span class="n">sim_params_bw</span><span class="o">.</span><span class="n">exponent</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate errors of each method, as compared to ground truth simulations</span>
+<span class="n">errors_bw</span> <span class="o">=</span> <span class="n">calculate_errors</span><span class="p">(</span><span class="n">results_bw</span><span class="p">,</span> <span class="n">sim_exps_bw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Errors<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the errors per method</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">errors_bw</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:10s}</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">[</span><span class="n">method</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">difference:</span><span class="se">\t</span><span class="si">{:1.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>\
+    <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0496
+irasa     	0.1084
+
+difference:	-0.0588
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Statistics<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the statistical difference between measure errors</span>
+<span class="n">ttest_rel</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_bw</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-20.497923017088052, pvalue=3.220214373658878e-78, df=999)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the effect size of the difference between method errors</span>
+<span class="n">cohens_d</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">errors_bw</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.8438532084216073
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>Visualize<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - violinplot</span>
+<span class="n">plot_violin_errors</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">,</span> <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_79_0.png" src="../_images/34-ExponentComparisons_79_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - boxplot</span>
+<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">],</span>
+                    <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_bw_errors&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_80_0.png" src="../_images/34-ExponentComparisons_80_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the comparison between specparam and IRASA</span>
+<span class="n">plot_dots</span><span class="p">(</span><span class="n">results_bw</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_bw</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">],</span> <span class="n">tposition</span><span class="o">=</span><span class="s1">&#39;tl&#39;</span><span class="p">,</span> 
+          <span class="n">expected</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">],</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">],</span>
+          <span class="o">**</span><span class="n">DOTS_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_bw&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/34-ExponentComparisons_81_0.png" src="../_images/34-ExponentComparisons_81_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check correlation</span>
+<span class="n">corrs_bw</span> <span class="o">=</span> <span class="n">bootstrap_corr</span><span class="p">(</span><span class="n">results_bw</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> <span class="n">results_bw</span><span class="p">[</span><span class="s1">&#39;irasa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  SP &amp; IR:  &#39;</span><span class="p">,</span> <span class="n">format_corr</span><span class="p">(</span><span class="o">*</span><span class="n">corrs_bw</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.976  CI[+0.973, +0.979],  p=0.000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Comparing between these methods, overall we can see that:</p>
+<ul class="simple">
+<li><p>In simple cases (powerlaw + oscillations), specparam and IRASA perform very similarly</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="33-IRASA.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">IRASA</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="40-MethodComparisons.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Method Comparisons</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Thomas Donoghue<br/>
+    
+        &copy; Copyright 2021-.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
