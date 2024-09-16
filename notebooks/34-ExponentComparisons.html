@@ -653,12 +653,25 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_rel</span>
-
-<span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_knee</span><span class="p">,</span> <span class="n">sim_combined</span><span class="p">,</span> <span class="n">sim_synaptic_current</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_knee</span><span class="p">,</span> <span class="n">sim_combined</span><span class="p">,</span>
+                          <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_combined_peak</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
-
 <span class="kn">from</span> <span class="nn">bootstrap</span> <span class="kn">import</span> <span class="n">bootstrap_corr</span>
 </pre></div>
 </div>
@@ -666,10 +679,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_comparisons</span>
 <span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">specparam</span>
@@ -681,19 +691,9 @@
 <span class="kn">from</span> <span class="nn">apm.plts.errors</span> <span class="kn">import</span> <span class="n">plot_boxplot_errors</span><span class="p">,</span> <span class="n">plot_violin_errors</span>
 <span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
 <span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">METHOD_COLORS</span>
-<span class="kn">from</span> <span class="nn">apm.sim.funcs</span> <span class="kn">import</span> <span class="n">sim_combined_peak</span>
 <span class="kn">from</span> <span class="nn">apm.sim.defs</span> <span class="kn">import</span> <span class="n">SIM_SAMPLERS</span>
 <span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS2</span> <span class="k">as</span> <span class="n">FS</span>
 <span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">format_corr</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -848,7 +848,7 @@ difference:	0.0308
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=25.423270607751284, pvalue=2.3290784686220295e-110, df=999)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=25.42327060910109, pvalue=2.3290784200192167e-110, df=999)
 </pre></div>
 </div>
 </div>
@@ -861,7 +861,7 @@ difference:	0.0308
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0711712512652223
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.071171251325719
 </pre></div>
 </div>
 </div>
@@ -877,7 +877,7 @@ difference:	0.0308
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_23_0.png" src="../_images/34-ExponentComparisons_23_0.png" />
+<img alt="../_images/34-ExponentComparisons_24_0.png" src="../_images/34-ExponentComparisons_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -888,7 +888,7 @@ difference:	0.0308
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_24_0.png" src="../_images/34-ExponentComparisons_24_0.png" />
+<img alt="../_images/34-ExponentComparisons_25_0.png" src="../_images/34-ExponentComparisons_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -901,7 +901,7 @@ difference:	0.0308
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_25_0.png" src="../_images/34-ExponentComparisons_25_0.png" />
+<img alt="../_images/34-ExponentComparisons_26_0.png" src="../_images/34-ExponentComparisons_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -979,7 +979,7 @@ difference:	0.0163
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=17.101023543283908, pvalue=1.055930908434204e-57, df=999)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=17.101023541019725, pvalue=1.0559309401684798e-57, df=999)
 </pre></div>
 </div>
 </div>
@@ -992,7 +992,7 @@ difference:	0.0163
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7293764050510116
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7293764049652732
 </pre></div>
 </div>
 </div>
@@ -1008,7 +1008,7 @@ difference:	0.0163
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_37_0.png" src="../_images/34-ExponentComparisons_37_0.png" />
+<img alt="../_images/34-ExponentComparisons_38_0.png" src="../_images/34-ExponentComparisons_38_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1020,7 +1020,7 @@ difference:	0.0163
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_38_0.png" src="../_images/34-ExponentComparisons_38_0.png" />
+<img alt="../_images/34-ExponentComparisons_39_0.png" src="../_images/34-ExponentComparisons_39_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1032,7 +1032,7 @@ difference:	0.0163
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_39_0.png" src="../_images/34-ExponentComparisons_39_0.png" />
+<img alt="../_images/34-ExponentComparisons_40_0.png" src="../_images/34-ExponentComparisons_40_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1092,10 +1092,10 @@ difference:	0.0163
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0647
-irasa     	0.0655
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0629
+irasa     	0.0669
 
-difference:	-0.0008
+difference:	-0.0040
 </pre></div>
 </div>
 </div>
@@ -1111,7 +1111,7 @@ difference:	-0.0008
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-2.810472047266782, pvalue=0.0050435509100114646, df=999)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-3.7429900350805534, pvalue=0.0001922154900069521, df=999)
 </pre></div>
 </div>
 </div>
@@ -1124,7 +1124,7 @@ difference:	-0.0008
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.09514238661095703
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.12402656493705909
 </pre></div>
 </div>
 </div>
@@ -1140,19 +1140,19 @@ difference:	-0.0008
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_51_0.png" src="../_images/34-ExponentComparisons_51_0.png" />
+<img alt="../_images/34-ExponentComparisons_52_0.png" src="../_images/34-ExponentComparisons_52_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - boxplot</span>
-<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">],</span> 
+<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_tscale</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">],</span> 
                     <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_tscale_errors&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_52_0.png" src="../_images/34-ExponentComparisons_52_0.png" />
+<img alt="../_images/34-ExponentComparisons_53_0.png" src="../_images/34-ExponentComparisons_53_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1165,7 +1165,7 @@ difference:	-0.0008
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_53_0.png" src="../_images/34-ExponentComparisons_53_0.png" />
+<img alt="../_images/34-ExponentComparisons_54_0.png" src="../_images/34-ExponentComparisons_54_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1177,7 +1177,7 @@ difference:	-0.0008
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.302  CI[+0.237, +0.365],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.343  CI[+0.281, +0.404],  p=0.000
 </pre></div>
 </div>
 </div>
@@ -1224,10 +1224,10 @@ difference:	-0.0008
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0779
-irasa     	0.1089
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0753
+irasa     	0.1110
 
-difference:	-0.0310
+difference:	-0.0357
 </pre></div>
 </div>
 </div>
@@ -1243,7 +1243,7 @@ difference:	-0.0310
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=1.8384604834110296, pvalue=0.06629250061796713, df=995)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=2.137320194161163, pvalue=0.032815205492808926, df=995)
 </pre></div>
 </div>
 </div>
@@ -1256,7 +1256,7 @@ difference:	-0.0310
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.058418129261585273
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08243276198951752
 </pre></div>
 </div>
 </div>
@@ -1272,7 +1272,7 @@ difference:	-0.0310
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_65_0.png" src="../_images/34-ExponentComparisons_65_0.png" />
+<img alt="../_images/34-ExponentComparisons_66_0.png" src="../_images/34-ExponentComparisons_66_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1284,7 +1284,7 @@ difference:	-0.0310
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_66_0.png" src="../_images/34-ExponentComparisons_66_0.png" />
+<img alt="../_images/34-ExponentComparisons_67_0.png" src="../_images/34-ExponentComparisons_67_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1297,7 +1297,7 @@ difference:	-0.0310
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_67_0.png" src="../_images/34-ExponentComparisons_67_0.png" />
+<img alt="../_images/34-ExponentComparisons_68_0.png" src="../_images/34-ExponentComparisons_68_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1309,7 +1309,7 @@ difference:	-0.0310
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.302  CI[+0.238, +0.364],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.343  CI[+0.280, +0.402],  p=0.000
 </pre></div>
 </div>
 </div>
@@ -1356,10 +1356,10 @@ difference:	-0.0310
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0496
-irasa     	0.1084
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>specparam 	0.0553
+irasa     	0.1377
 
-difference:	-0.0588
+difference:	-0.0824
 </pre></div>
 </div>
 </div>
@@ -1375,7 +1375,7 @@ difference:	-0.0588
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-20.497923017088052, pvalue=3.220214373658878e-78, df=999)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=-24.826045176664056, pvalue=2.3264616334450653e-106, df=999)
 </pre></div>
 </div>
 </div>
@@ -1388,7 +1388,7 @@ difference:	-0.0588
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.8438532084216073
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9161249711756813
 </pre></div>
 </div>
 </div>
@@ -1404,19 +1404,19 @@ difference:	-0.0588
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_79_0.png" src="../_images/34-ExponentComparisons_79_0.png" />
+<img alt="../_images/34-ExponentComparisons_80_0.png" src="../_images/34-ExponentComparisons_80_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the errors - boxplot</span>
-<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">],</span>
+<span class="n">plot_boxplot_errors</span><span class="p">(</span><span class="n">errors_bw</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">],</span>
                     <span class="o">**</span><span class="n">ERROR_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;spec_irasa_bw_errors&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_80_0.png" src="../_images/34-ExponentComparisons_80_0.png" />
+<img alt="../_images/34-ExponentComparisons_81_0.png" src="../_images/34-ExponentComparisons_81_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1429,7 +1429,7 @@ difference:	-0.0588
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34-ExponentComparisons_81_0.png" src="../_images/34-ExponentComparisons_81_0.png" />
+<img alt="../_images/34-ExponentComparisons_82_0.png" src="../_images/34-ExponentComparisons_82_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1441,7 +1441,7 @@ difference:	-0.0588
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.976  CI[+0.973, +0.979],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP &amp; IR:   r=+0.966  CI[+0.961, +0.969],  p=0.000
 </pre></div>
 </div>
 </div>

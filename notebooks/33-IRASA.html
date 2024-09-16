@@ -657,33 +657,33 @@
 <p>The purpose of this notebook is to test the robustness of IRASA to these deviations and to quantify the error in estimating <span class="math notranslate nohighlight">\(\chi\)</span> as we test IRASA on various signals whose power spectrum deviates from a strict <span class="math notranslate nohighlight">\(1/f\)</span> structure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_combined</span>
-<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
-<span class="kn">from</span> <span class="nn">neurodsp.aperiodic</span> <span class="kn">import</span> <span class="n">compute_irasa</span><span class="p">,</span> <span class="n">fit_irasa</span>
-<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
-
-<span class="kn">from</span> <span class="nn">fooof.plts</span> <span class="kn">import</span> <span class="n">plot_spectra</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/59/8y2d5r257c77vzymnqs47x080000gn/T/ipykernel_16054/3211052454.py:8: DeprecationWarning: 
-The `fooof` package is being deprecated and replaced by the `specparam` (spectral parameterization) package.
-This version of `fooof` (1.1) is fully functional, but will not be further updated.
-New projects are recommended to update to using `specparam` (see Changelog for details).
-  from fooof.plts import plot_spectra
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_combined</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
+<span class="kn">from</span> <span class="nn">neurodsp.aperiodic</span> <span class="kn">import</span> <span class="n">compute_irasa</span><span class="p">,</span> <span class="n">fit_irasa</span>
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
+<span class="kn">from</span> <span class="nn">fooof.plts</span> <span class="kn">import</span> <span class="n">plot_spectra</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims</span><span class="p">,</span> <span class="n">run_sims_load</span>
 <span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">fit_irasa_knee</span>
@@ -691,19 +691,11 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 <span class="kn">from</span> <span class="nn">apm.plts.sims</span> <span class="kn">import</span> <span class="n">plot_sims</span><span class="p">,</span> <span class="n">plot_ap_sims</span><span class="p">,</span> <span class="n">plot_pe_sims</span>
 <span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
 <span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">COLORS</span>
+<span class="kn">from</span> <span class="nn">apm.plts.style</span> <span class="kn">import</span> <span class="n">custom_psd_style_no_ticks</span>
 <span class="kn">from</span> <span class="nn">apm.sim.examples</span> <span class="kn">import</span> <span class="n">get_examples</span>
 <span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">N_SIMS</span>
 <span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS2</span> <span class="k">as</span> <span class="n">FS</span>
 <span class="kn">from</span> <span class="nn">apm.sim.defs</span> <span class="kn">import</span> <span class="n">SIM_ITERS</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -735,7 +727,9 @@ New projects are recommended to update to using `specparam` (see Changelog for d
     <span class="s1">&#39;log_powers&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="s1">&#39;colors&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span>
     <span class="s1">&#39;alpha&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">],</span>
-    <span class="s1">&#39;labels&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Full PSD&#39;</span><span class="p">,</span> <span class="s1">&#39;PSD-AP&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;labels&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Original Spectrum&#39;</span><span class="p">,</span> <span class="s1">&#39;Aperiodic Component&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;legend_loc&#39;</span> <span class="p">:</span> <span class="s1">&#39;lower left&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -749,22 +743,6 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 
 <span class="c1"># Create helper function to manage figsaver settings</span>
 <span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for loading simulations</span>
-<span class="n">SIMPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">sims_path</span> <span class="o">/</span> <span class="s1">&#39;time_series&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define structure for precomputed simulation file name</span>
-<span class="n">sim_file</span> <span class="o">=</span> <span class="s1">&#39;ts_sims_</span><span class="si">{}</span><span class="s1">_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -841,12 +819,13 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare the full spectrum the IRASA separate aperiodic component</span>
 <span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs_full</span><span class="p">,</span> <span class="n">freqs</span><span class="p">],</span> <span class="p">[</span><span class="n">psd_full</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span>
+             <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span>
              <span class="o">**</span><span class="n">PSD_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ir_example_ap&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_21_0.png" src="../_images/33-IRASA_21_0.png" />
+<img alt="../_images/33-IRASA_20_0.png" src="../_images/33-IRASA_20_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -888,12 +867,13 @@ Expected Exponent:	 -1.0000
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare the full spectrum the IRASA separate aperiodic component</span>
 <span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs_full</span><span class="p">,</span> <span class="n">freqs</span><span class="p">],</span> <span class="p">[</span><span class="n">psd_full</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span>
+             <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span>
              <span class="o">**</span><span class="n">PSD_PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ir_example_pe&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_26_0.png" src="../_images/33-IRASA_26_0.png" />
+<img alt="../_images/33-IRASA_25_0.png" src="../_images/33-IRASA_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -935,12 +915,13 @@ Expected Exponent:	 -1.0000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare the full spectrum the IRASA separate aperiodic component</span>
-<span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs_full</span><span class="p">,</span> <span class="n">freqs</span><span class="p">],</span> <span class="p">[</span><span class="n">psd_full</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span> <span class="o">**</span><span class="n">PSD_PLT_KWARGS</span><span class="p">)</span>
+<span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs_full</span><span class="p">,</span> <span class="n">freqs</span><span class="p">],</span> <span class="p">[</span><span class="n">psd_full</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span> 
+             <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">PSD_PLT_KWARGS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_31_0.png" src="../_images/33-IRASA_31_0.png" />
+<img alt="../_images/33-IRASA_30_0.png" src="../_images/33-IRASA_30_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -983,12 +964,13 @@ Expected Exponent:		 -2.0000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare the full spectrum the IRASA separate aperiodic component</span>
-<span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs_full</span><span class="p">,</span> <span class="n">freqs</span><span class="p">],</span> <span class="p">[</span><span class="n">psd_full</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span> <span class="o">**</span><span class="n">PSD_PLT_KWARGS</span><span class="p">)</span>
+<span class="n">plot_spectra</span><span class="p">([</span><span class="n">freqs_full</span><span class="p">,</span> <span class="n">freqs</span><span class="p">],</span> <span class="p">[</span><span class="n">psd_full</span><span class="p">,</span> <span class="n">psd_ap</span><span class="p">],</span>
+             <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">PSD_PLT_KWARGS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_36_0.png" src="../_images/33-IRASA_36_0.png" />
+<img alt="../_images/33-IRASA_35_0.png" src="../_images/33-IRASA_35_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1046,7 +1028,7 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_45_0.png" src="../_images/33-IRASA_45_0.png" />
+<img alt="../_images/33-IRASA_44_0.png" src="../_images/33-IRASA_44_0.png" />
 </div>
 </div>
 </div>
@@ -1087,7 +1069,7 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_52_0.png" src="../_images/33-IRASA_52_0.png" />
+<img alt="../_images/33-IRASA_51_0.png" src="../_images/33-IRASA_51_0.png" />
 </div>
 </div>
 </div>
@@ -1117,13 +1099,13 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_56_0.png" src="../_images/33-IRASA_56_0.png" />
+<img alt="../_images/33-IRASA_55_0.png" src="../_images/33-IRASA_55_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating irasa exponent across knee parameters (sims from file)</span>
-<span class="n">ir_sims_knee_lin</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">)</span>
+<span class="n">ir_sims_knee_lin</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">FS</span><span class="p">),</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1139,7 +1121,7 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_58_0.png" src="../_images/33-IRASA_58_0.png" />
+<img alt="../_images/33-IRASA_57_0.png" src="../_images/33-IRASA_57_0.png" />
 </div>
 </div>
 </div>
@@ -1163,13 +1145,13 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_61_0.png" src="../_images/33-IRASA_61_0.png" />
+<img alt="../_images/33-IRASA_60_0.png" src="../_images/33-IRASA_60_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating irasa exponent across knee parameters (sims from file)</span>
-<span class="n">ir_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS_KNEE</span><span class="p">)</span>
+<span class="n">ir_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">FS</span><span class="p">),</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS_KNEE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1185,7 +1167,7 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_63_0.png" src="../_images/33-IRASA_63_0.png" />
+<img alt="../_images/33-IRASA_62_0.png" src="../_images/33-IRASA_62_0.png" />
 </div>
 </div>
 </div>
@@ -1197,7 +1179,7 @@ Expected Exponent:	 -1.0000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating IRASA estimate across peak bandwidth (sims from file)</span>
-<span class="n">ir_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">)</span>
+<span class="n">ir_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">FS</span><span class="p">),</span> <span class="n">irasa</span><span class="p">,</span> <span class="n">IRASA_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1212,7 +1194,7 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_67_0.png" src="../_images/33-IRASA_67_0.png" />
+<img alt="../_images/33-IRASA_66_0.png" src="../_images/33-IRASA_66_0.png" />
 </div>
 </div>
 </div>
@@ -1237,7 +1219,7 @@ Expected Exponent:	 -1.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33-IRASA_70_0.png" src="../_images/33-IRASA_70_0.png" />
+<img alt="../_images/33-IRASA_69_0.png" src="../_images/33-IRASA_69_0.png" />
 </div>
 </div>
 </div>

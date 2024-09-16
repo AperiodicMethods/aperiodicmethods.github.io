@@ -662,6 +662,14 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_combined</span>
 <span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
 </pre></div>
@@ -670,10 +678,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims_load</span>
 <span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims_parallel</span> <span class="k">as</span> <span class="n">run_sims</span>
@@ -690,16 +695,16 @@
 </div>
 </div>
 </div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get current sampling rate</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="settings">
-<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
@@ -708,22 +713,6 @@
 
 <span class="c1"># Create helper function to manage figsaver settings</span>
 <span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for loading simulations</span>
-<span class="n">SIMPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">sims_path</span> <span class="o">/</span> <span class="s1">&#39;time_series&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define structure for precomputed simulation file name</span>
-<span class="n">sim_file</span> <span class="o">=</span> <span class="s1">&#39;ts_sims_</span><span class="si">{}</span><span class="s1">_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -885,7 +874,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_21_0.png" src="../_images/25-Entropy_21_0.png" />
+<img alt="../_images/25-Entropy_20_0.png" src="../_images/25-Entropy_20_0.png" />
 </div>
 </div>
 </div>
@@ -915,7 +904,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_25_0.png" src="../_images/25-Entropy_25_0.png" />
+<img alt="../_images/25-Entropy_24_0.png" src="../_images/25-Entropy_24_0.png" />
 </div>
 </div>
 </div>
@@ -933,7 +922,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate exntropy across different knee parameters (sims from file)</span>
-<span class="n">ap_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">ap_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -948,7 +937,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_29_0.png" src="../_images/25-Entropy_29_0.png" />
+<img alt="../_images/25-Entropy_28_0.png" src="../_images/25-Entropy_28_0.png" />
 </div>
 </div>
 </div>
@@ -957,7 +946,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating approximate entropy across peak bandwidths (sims from file)</span>
-<span class="n">ap_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">ap_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">app_entropy</span><span class="p">,</span> <span class="n">AP_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -980,7 +969,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_33_0.png" src="../_images/25-Entropy_33_0.png" />
+<img alt="../_images/25-Entropy_32_0.png" src="../_images/25-Entropy_32_0.png" />
 </div>
 </div>
 </div>
@@ -1015,7 +1004,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_38_0.png" src="../_images/25-Entropy_38_0.png" />
+<img alt="../_images/25-Entropy_37_0.png" src="../_images/25-Entropy_37_0.png" />
 </div>
 </div>
 </div>
@@ -1047,7 +1036,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_42_0.png" src="../_images/25-Entropy_42_0.png" />
+<img alt="../_images/25-Entropy_41_0.png" src="../_images/25-Entropy_41_0.png" />
 </div>
 </div>
 </div>
@@ -1065,7 +1054,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample exntropy across different knee parameters (sims from file)</span>
-<span class="n">sa_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">sa_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1069,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_46_0.png" src="../_images/25-Entropy_46_0.png" />
+<img alt="../_images/25-Entropy_45_0.png" src="../_images/25-Entropy_45_0.png" />
 </div>
 </div>
 </div>
@@ -1089,8 +1078,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating sample entropy across peak bandwidths (sims from file)</span>
-<span class="n">sa_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
-                           <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">sa_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">sample_entropy</span><span class="p">,</span> <span class="n">SA_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1114,7 +1102,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_50_0.png" src="../_images/25-Entropy_50_0.png" />
+<img alt="../_images/25-Entropy_49_0.png" src="../_images/25-Entropy_49_0.png" />
 </div>
 </div>
 </div>
@@ -1149,7 +1137,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_55_0.png" src="../_images/25-Entropy_55_0.png" />
+<img alt="../_images/25-Entropy_54_0.png" src="../_images/25-Entropy_54_0.png" />
 </div>
 </div>
 </div>
@@ -1181,7 +1169,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_59_0.png" src="../_images/25-Entropy_59_0.png" />
+<img alt="../_images/25-Entropy_58_0.png" src="../_images/25-Entropy_58_0.png" />
 </div>
 </div>
 </div>
@@ -1199,8 +1187,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across different knee parameters (sims from file)</span>
-<span class="n">pe_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span>
-                             <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">pe_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1215,7 +1202,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_63_0.png" src="../_images/25-Entropy_63_0.png" />
+<img alt="../_images/25-Entropy_62_0.png" src="../_images/25-Entropy_62_0.png" />
 </div>
 </div>
 </div>
@@ -1224,8 +1211,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating permutation entropy across peak bandwidths (sims from file)</span>
-<span class="n">pe_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
-                           <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">pe_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">perm_entropy</span><span class="p">,</span> <span class="n">PE_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1249,7 +1235,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_67_0.png" src="../_images/25-Entropy_67_0.png" />
+<img alt="../_images/25-Entropy_66_0.png" src="../_images/25-Entropy_66_0.png" />
 </div>
 </div>
 </div>
@@ -1284,7 +1270,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_72_0.png" src="../_images/25-Entropy_72_0.png" />
+<img alt="../_images/25-Entropy_71_0.png" src="../_images/25-Entropy_71_0.png" />
 </div>
 </div>
 </div>
@@ -1316,7 +1302,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_76_0.png" src="../_images/25-Entropy_76_0.png" />
+<img alt="../_images/25-Entropy_75_0.png" src="../_images/25-Entropy_75_0.png" />
 </div>
 </div>
 </div>
@@ -1334,8 +1320,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation exntropy across knee parameters (sims from file)</span>
-<span class="n">wpe_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span>
-                              <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">wpe_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1350,7 +1335,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_80_0.png" src="../_images/25-Entropy_80_0.png" />
+<img alt="../_images/25-Entropy_79_0.png" src="../_images/25-Entropy_79_0.png" />
 </div>
 </div>
 </div>
@@ -1359,8 +1344,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating weighted permutation entropy across peak bandwidths (sims from file)</span>
-<span class="n">wpe_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
-                            <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
+<span class="n">wpe_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">wperm_entropy</span><span class="p">,</span> <span class="n">WPE_ENT_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1384,7 +1368,7 @@ WPermutation Entropy:	 {&#39;order&#39;: 3, &#39;delay&#39;: 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25-Entropy_84_0.png" src="../_images/25-Entropy_84_0.png" />
+<img alt="../_images/25-Entropy_83_0.png" src="../_images/25-Entropy_83_0.png" />
 </div>
 </div>
 </div>

@@ -17,31 +17,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Import custom code
-import sys; from pathlib import Path
-sys.path.append(str(Path('..').resolve()))
-
-from apm.io import APMDB
-from apm.run import run_sims, run_sims_load
-from apm.methods import correlation_dimension
-from apm.methods.settings import CD_PARAMS
-from apm.plts.sims import plot_ap_sims, plot_pe_sims, plot_sims_two
-from apm.plts.settings import COLORS
-from apm.plts.utils import figsaver
-from apm.sim.examples import get_examples, check_examples
-from apm.sim.settings import N_SIMS2 as N_SIMS
-from apm.sim.defs import SIM_ITERS
+# Setup notebook state
+from nbutils import setup_notebook; setup_notebook()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-2-79f748210893>[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m [0msys[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mstr[0m[0;34m([0m[0mPath[0m[0;34m([0m[0;34m'..'[0m[0;34m)[0m[0;34m.[0m[0mresolve[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;34m[0m[0m
-[0;32m----> 5[0;31m [0;32mfrom[0m [0mapm[0m[0;34m.[0m[0mio[0m [0;32mimport[0m [0mAPMDB[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      6[0m [0;32mfrom[0m [0mapm[0m[0;34m.[0m[0mrun[0m [0;32mimport[0m [0mrun_sims[0m[0;34m,[0m [0mrun_sims_load[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      7[0m [0;32mfrom[0m [0mapm[0m[0;34m.[0m[0mmethods[0m [0;32mimport[0m [0mcorrelation_dimension[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-1-9505ce7c4baa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Setup notebook state[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mnbutils[0m [0;32mimport[0m [0msetup_notebook[0m[0;34m;[0m [0msetup_notebook[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/Code/Projects/APMethods/Site/apmethods/notebooks/nbutils.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mpathlib[0m [0;32mimport[0m [0mPath[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;31m###################################################################################################[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'apm'
-ModuleNotFoundError: No module named 'apm'
+[0;31mModuleNotFoundError[0m: No module named 'seaborn'
+ModuleNotFoundError: No module named 'seaborn'
 

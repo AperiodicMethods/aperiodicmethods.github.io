@@ -484,6 +484,14 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_combined</span>
 <span class="kn">from</span> <span class="nn">neurodsp.aperiodic.conversions</span> <span class="kn">import</span> <span class="n">convert_exponent_hfd</span>
 <span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
@@ -493,10 +501,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims</span><span class="p">,</span> <span class="n">run_sims_load</span>
 <span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">higuchi_fd</span><span class="p">,</span> <span class="n">petrosian_fd</span><span class="p">,</span> <span class="n">katz_fd</span>
@@ -511,16 +516,16 @@
 </div>
 </div>
 </div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get current sampling rate</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="settings">
-<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
@@ -529,22 +534,6 @@
 
 <span class="c1"># Create helper function to manage figsaver settings</span>
 <span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for loading simulations</span>
-<span class="n">SIMPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">sims_path</span> <span class="o">/</span> <span class="s1">&#39;time_series&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define structure for precomputed simulation file name</span>
-<span class="n">sim_file</span> <span class="o">=</span> <span class="s1">&#39;ts_sims_</span><span class="si">{}</span><span class="s1">_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -703,7 +692,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_21_0.png" src="../_images/23-FractalDimension_21_0.png" />
+<img alt="../_images/23-FractalDimension_20_0.png" src="../_images/23-FractalDimension_20_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -714,7 +703,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_22_0.png" src="../_images/23-FractalDimension_22_0.png" />
+<img alt="../_images/23-FractalDimension_21_0.png" src="../_images/23-FractalDimension_21_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -725,7 +714,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_23_0.png" src="../_images/23-FractalDimension_23_0.png" />
+<img alt="../_images/23-FractalDimension_22_0.png" src="../_images/23-FractalDimension_22_0.png" />
 </div>
 </div>
 </div>
@@ -759,7 +748,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_27_0.png" src="../_images/23-FractalDimension_27_0.png" />
+<img alt="../_images/23-FractalDimension_26_0.png" src="../_images/23-FractalDimension_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -770,7 +759,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_28_0.png" src="../_images/23-FractalDimension_28_0.png" />
+<img alt="../_images/23-FractalDimension_27_0.png" src="../_images/23-FractalDimension_27_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -781,7 +770,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_29_0.png" src="../_images/23-FractalDimension_29_0.png" />
+<img alt="../_images/23-FractalDimension_28_0.png" src="../_images/23-FractalDimension_28_0.png" />
 </div>
 </div>
 </div>
@@ -803,9 +792,9 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating fractal dimension across knee values (sims from file)</span>
-<span class="n">hfd_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">higuchi_fd</span><span class="p">,</span> <span class="n">HFD_PARAMS</span><span class="p">)</span>
-<span class="n">kfd_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">katz_fd</span><span class="p">,</span> <span class="n">KFD_PARAMS</span><span class="p">)</span>
-<span class="n">pfd_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ap_knee&#39;</span><span class="p">),</span> <span class="n">petrosian_fd</span><span class="p">,</span> <span class="n">PFD_PARAMS</span><span class="p">)</span>
+<span class="n">hfd_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">higuchi_fd</span><span class="p">,</span> <span class="n">HFD_PARAMS</span><span class="p">)</span>
+<span class="n">kfd_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">katz_fd</span><span class="p">,</span> <span class="n">KFD_PARAMS</span><span class="p">)</span>
+<span class="n">pfd_sims_knee</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;ap-knee-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">petrosian_fd</span><span class="p">,</span> <span class="n">PFD_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -820,7 +809,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_33_0.png" src="../_images/23-FractalDimension_33_0.png" />
+<img alt="../_images/23-FractalDimension_32_0.png" src="../_images/23-FractalDimension_32_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -833,7 +822,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_34_0.png" src="../_images/23-FractalDimension_34_0.png" />
+<img alt="../_images/23-FractalDimension_33_0.png" src="../_images/23-FractalDimension_33_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -846,7 +835,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_35_0.png" src="../_images/23-FractalDimension_35_0.png" />
+<img alt="../_images/23-FractalDimension_34_0.png" src="../_images/23-FractalDimension_34_0.png" />
 </div>
 </div>
 </div>
@@ -855,9 +844,9 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulations calculating fractal dimension across peak bandwidths (sims from file)</span>
-<span class="n">hfd_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span> <span class="n">higuchi_fd</span><span class="p">,</span> <span class="n">HFD_PARAMS</span><span class="p">)</span>
-<span class="n">kfd_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span> <span class="n">katz_fd</span><span class="p">,</span> <span class="n">KFD_PARAMS</span><span class="p">)</span>
-<span class="n">pfd_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span> <span class="n">petrosian_fd</span><span class="p">,</span> <span class="n">PFD_PARAMS</span><span class="p">)</span>
+<span class="n">hfd_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">higuchi_fd</span><span class="p">,</span> <span class="n">HFD_PARAMS</span><span class="p">)</span>
+<span class="n">kfd_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">katz_fd</span><span class="p">,</span> <span class="n">KFD_PARAMS</span><span class="p">)</span>
+<span class="n">pfd_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">petrosian_fd</span><span class="p">,</span> <span class="n">PFD_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -882,7 +871,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_39_0.png" src="../_images/23-FractalDimension_39_0.png" />
+<img alt="../_images/23-FractalDimension_38_0.png" src="../_images/23-FractalDimension_38_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -895,7 +884,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_40_0.png" src="../_images/23-FractalDimension_40_0.png" />
+<img alt="../_images/23-FractalDimension_39_0.png" src="../_images/23-FractalDimension_39_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -908,7 +897,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/23-FractalDimension_41_0.png" src="../_images/23-FractalDimension_41_0.png" />
+<img alt="../_images/23-FractalDimension_40_0.png" src="../_images/23-FractalDimension_40_0.png" />
 </div>
 </div>
 </div>

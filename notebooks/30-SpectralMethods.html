@@ -422,6 +422,14 @@
 <p>Notably, for the spectral methods, they all estimate the ‘aperiodic exponent’. Given that we also create our simulations to have specified aperiodic exponents (colors of noise), then in this case we can actually evaluate the correctness of the methods, calculated as the accuracy to which these methods estimate the correct aperiodic exponent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">(</span><span class="n">set_plt_context</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import neurodsp functions</span>
 <span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span>
 <span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
@@ -432,23 +440,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/59/8y2d5r257c77vzymnqs47x080000gn/T/ipykernel_15885/2548772434.py:6: DeprecationWarning: 
-The `fooof` package is being deprecated and replaced by the `specparam` (spectral parameterization) package.
-This version of `fooof` (1.1) is fully functional, but will not be further updated.
-New projects are recommended to update to using `specparam` (see Changelog for details).
-  from fooof import FOOOF
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
-<span class="c1">#from apm.sim.examples import TIMES, SIG_COMB</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.sim.examples</span> <span class="kn">import</span> <span class="n">get_times</span><span class="p">,</span> <span class="n">get_examples</span>
 <span class="kn">from</span> <span class="nn">apm.sim.settings</span> <span class="kn">import</span> <span class="n">FS</span>
 </pre></div>
@@ -474,7 +469,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/30-SpectralMethods_5_0.png" src="../_images/30-SpectralMethods_5_0.png" />
+<img alt="../_images/30-SpectralMethods_6_0.png" src="../_images/30-SpectralMethods_6_0.png" />
 </div>
 </div>
 </div>
@@ -507,7 +502,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/30-SpectralMethods_9_0.png" src="../_images/30-SpectralMethods_9_0.png" />
+<img alt="../_images/30-SpectralMethods_10_0.png" src="../_images/30-SpectralMethods_10_0.png" />
 </div>
 </div>
 </div>

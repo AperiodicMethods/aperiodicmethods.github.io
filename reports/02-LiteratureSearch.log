@@ -17,24 +17,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Import LISC code
-from lisc import Counts, Counts1D
-from lisc.collect import collect_info, collect_across_time
-from lisc.io import (save_meta_data, load_meta_data, save_object, load_object,
-                     save_time_results, load_time_results)
-from lisc.plts.counts import plot_matrix, plot_vector
-from lisc.plts.time import plot_results_across_years
+# Setup notebook state
+from nbutils import setup_notebook; setup_notebook()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-1-3b825db83a8a>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;31m# Import LISC code[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0;32mfrom[0m [0mlisc[0m [0;32mimport[0m [0mCounts[0m[0;34m,[0m [0mCounts1D[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      3[0m [0;32mfrom[0m [0mlisc[0m[0;34m.[0m[0mcollect[0m [0;32mimport[0m [0mcollect_info[0m[0;34m,[0m [0mcollect_across_time[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m from lisc.io import (save_meta_data, load_meta_data, save_object, load_object,
-[1;32m      5[0m                      save_time_results, load_time_results)
+[0;32m<ipython-input-1-9505ce7c4baa>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Setup notebook state[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mfrom[0m [0mnbutils[0m [0;32mimport[0m [0msetup_notebook[0m[0;34m;[0m [0msetup_notebook[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/Code/Projects/APMethods/Site/apmethods/notebooks/nbutils.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0;32mfrom[0m [0mpathlib[0m [0;32mimport[0m [0mPath[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;34m[0m[0m
+[0;32m----> 7[0;31m [0;32mimport[0m [0mseaborn[0m [0;32mas[0m [0msns[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      8[0m [0;34m[0m[0m
+[1;32m      9[0m [0;31m###################################################################################################[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mModuleNotFoundError[0m: No module named 'lisc'
-ModuleNotFoundError: No module named 'lisc'
+[0;31mModuleNotFoundError[0m: No module named 'seaborn'
+ModuleNotFoundError: No module named 'seaborn'
 

@@ -636,10 +636,23 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="kn">from</span> <span class="nn">neurodsp.aperiodic</span> <span class="kn">import</span> <span class="n">compute_autocorr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.aperiodic</span> <span class="kn">import</span> <span class="n">compute_autocorr</span>
 <span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_combined</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_knee</span>
 <span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
 </pre></div>
@@ -648,10 +661,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.run</span> <span class="kn">import</span> <span class="n">run_sims</span><span class="p">,</span> <span class="n">run_sims_load</span>
 <span class="kn">from</span> <span class="nn">apm.methods</span> <span class="kn">import</span> <span class="n">autocorr</span><span class="p">,</span> <span class="n">autocorr_decay_time</span>
@@ -668,20 +678,20 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="settings">
 <h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get current sampling rate</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add sampling rate to settings</span>
-<span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span>
+<span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fs</span>
 </pre></div>
 </div>
 </div>
@@ -697,7 +707,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Custom settings for autocorrelation - downsample frequencies and powers</span>
-<span class="n">FREQS2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">FREQS2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">5.</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">POWERS2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -777,22 +787,6 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for loading simulations</span>
-<span class="n">SIMPATH</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span><span class="o">.</span><span class="n">sims_path</span> <span class="o">/</span> <span class="s1">&#39;time_series&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define structure for precomputed simulation file name</span>
-<span class="n">sim_file</span> <span class="o">=</span> <span class="s1">&#39;ts_sims_</span><span class="si">{}</span><span class="s1">_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the random seed</span>
 <span class="n">set_random_seed</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
 </pre></div>
@@ -843,13 +837,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the autocorrelation across time delays</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">sig_ap_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_ap&#39;</span><span class="p">))</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">sig_ap_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_ap&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ap_decay</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b5ffc7df0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7ef6e7a8b0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/21-AutoCorrelation_22_1.png" src="../_images/21-AutoCorrelation_22_1.png" />
@@ -883,13 +877,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the autocorrelation across time delays</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">sig_osc_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc&#39;</span><span class="p">))</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">sig_osc_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">osc_decay</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b7c846fd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7eda244370&gt;]
 </pre></div>
 </div>
 <img alt="../_images/21-AutoCorrelation_26_1.png" src="../_images/21-AutoCorrelation_26_1.png" />
@@ -923,13 +917,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the autocorrelation across time delays</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">sig_comb_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_comb&#39;</span><span class="p">))</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">sig_comb_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_comb&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">comb_decay</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b7cf9e640&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7eda52f6a0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/21-AutoCorrelation_30_1.png" src="../_images/21-AutoCorrelation_30_1.png" />
@@ -963,13 +957,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the autocorrelation across time delays</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">sig_syn_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_syn&#39;</span><span class="p">))</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">sig_syn_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_syn&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">syn_decay</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b7ca71370&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7eda800a30&gt;]
 </pre></div>
 </div>
 <img alt="../_images/21-AutoCorrelation_34_1.png" src="../_images/21-AutoCorrelation_34_1.png" />
@@ -1003,13 +997,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the autocorrelation across time delays</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">sig_kn_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_knee&#39;</span><span class="p">))</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">sig_kn_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_knee&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kn_decay</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b7cd2c1c0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7eda827ee0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/21-AutoCorrelation_38_1.png" src="../_images/21-AutoCorrelation_38_1.png" />
@@ -1043,13 +1037,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the autocorrelation across time delays</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">sig_bw_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_bw&#39;</span><span class="p">))</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">sig_bw_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_bw&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bw_decay</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b7b643c70&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7edab4c460&gt;]
 </pre></div>
 </div>
 <img alt="../_images/21-AutoCorrelation_42_1.png" src="../_images/21-AutoCorrelation_42_1.png" />
@@ -1083,13 +1077,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the autocorrelation across time delays</span>
-<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">sig_burst_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_burst&#39;</span><span class="p">))</span>
+<span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">sig_burst_ac</span><span class="p">,</span> <span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_burst&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">burst_decay</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">[</span><span class="s1">&#39;level&#39;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b7b5371c0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7edacfe2e0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/21-AutoCorrelation_46_1.png" src="../_images/21-AutoCorrelation_46_1.png" />
@@ -1114,7 +1108,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across exponent values</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_exp</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">exp_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_exp&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1148,7 +1142,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across exponent values</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_comb</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">exp_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_comb&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1196,7 +1190,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across oscillation frequency</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_freq</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">freq_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc_freq&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1230,7 +1224,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across oscillation power</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_pow</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">power_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc_pow&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1277,7 +1271,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across synaptic timescale values</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_tscales</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">power_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc_tscale&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1323,7 +1317,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across knee values</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_knee</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">power_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc_kn&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1359,8 +1353,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating autocorrelation across peak bandwidth (sims from file)</span>
-<span class="n">ac_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
-                           <span class="n">autocorr</span><span class="p">,</span> <span class="n">AC_PARAMS</span><span class="p">,</span> <span class="n">outsize</span><span class="o">=</span><span class="n">OUTSIZE</span><span class="p">)</span>
+<span class="n">ac_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">autocorr</span><span class="p">,</span> <span class="n">AC_PARAMS</span><span class="p">,</span> <span class="n">outsize</span><span class="o">=</span><span class="n">OUTSIZE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1369,7 +1362,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across oscillation bandwidth</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_bw</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">power_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc_bw&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1381,8 +1374,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a set of simulations, calculating AC decay rate across peak bandwidths</span>
-<span class="n">decay_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="n">SIMPATH</span> <span class="o">/</span> <span class="n">sim_file</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;comb_bw&#39;</span><span class="p">),</span>
-                              <span class="n">autocorr_decay_time</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">)</span>
+<span class="n">decay_sims_bw</span> <span class="o">=</span> <span class="n">run_sims_load</span><span class="p">(</span><span class="s1">&#39;comb-bw-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">fs</span><span class="p">),</span> <span class="n">autocorr_decay_time</span><span class="p">,</span> <span class="n">AC_DECAY_PARAMS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1415,7 +1407,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot autocorrelation across oscillation burst probability</span>
 <span class="k">for</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac_sims_burst</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">power_colors</span><span class="p">):</span>
-    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plot_lines</span><span class="p">(</span><span class="n">times</span> <span class="o">/</span> <span class="n">fs</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 <span class="n">plot_lines</span><span class="p">(</span><span class="o">**</span><span class="n">PLT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;ac_osc_burst&#39;</span><span class="p">))</span>
 </pre></div>
 </div>

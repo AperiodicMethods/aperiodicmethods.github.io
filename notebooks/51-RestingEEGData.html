@@ -624,35 +624,36 @@
 <p>This dataset is a dataset of extra-cranial eyes-closed resting-state EEG data recorded in the Voytek Lab.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOFGroup</span>
-<span class="kn">from</span> <span class="nn">fooof.utils</span> <span class="kn">import</span> <span class="n">trim_spectrum</span>
-<span class="kn">from</span> <span class="nn">fooof.objs</span> <span class="kn">import</span> <span class="n">combine_fooofs</span>
-
-<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">create_times</span>
-<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
-<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/59/8y2d5r257c77vzymnqs47x080000gn/T/ipykernel_21819/2455431065.py:4: DeprecationWarning: 
-The `fooof` package is being deprecated and replaced by the `specparam` (spectral parameterization) package.
-This version of `fooof` (1.1) is fully functional, but will not be further updated.
-New projects are recommended to update to using `specparam` (see Changelog for details).
-  from fooof import FOOOFGroup
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fooof</span> <span class="kn">import</span> <span class="n">FOOOFGroup</span>
+<span class="kn">from</span> <span class="nn">fooof.utils</span> <span class="kn">import</span> <span class="n">trim_spectrum</span>
+<span class="kn">from</span> <span class="nn">fooof.objs</span> <span class="kn">import</span> <span class="n">combine_fooofs</span>
+<span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">create_times</span>
+<span class="kn">from</span> <span class="nn">neurodsp.spectral</span> <span class="kn">import</span> <span class="n">compute_spectrum</span>
+<span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_time_series</span><span class="p">,</span> <span class="n">plot_power_spectra</span>
+<span class="kn">from</span> <span class="nn">neurodsp.plts.utils</span> <span class="kn">import</span> <span class="n">make_axes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span><span class="p">,</span> <span class="n">get_files</span><span class="p">,</span> <span class="n">load_pickle</span>
 <span class="kn">from</span> <span class="nn">apm.io.data</span> <span class="kn">import</span> <span class="n">load_eeg_demo_group_data</span><span class="p">,</span> <span class="n">load_eeg_demo_info</span>
 <span class="kn">from</span> <span class="nn">apm.analysis</span> <span class="kn">import</span> <span class="p">(</span><span class="n">compute_avgs</span><span class="p">,</span> <span class="n">unpack_corrs</span><span class="p">,</span> <span class="n">compute_all_corrs</span><span class="p">,</span>
@@ -660,7 +661,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 <span class="kn">from</span> <span class="nn">apm.plts</span> <span class="kn">import</span> <span class="n">plot_dots</span><span class="p">,</span> <span class="n">plot_corr_matrix</span>
 <span class="kn">from</span> <span class="nn">apm.plts.results</span> <span class="kn">import</span> <span class="n">plot_topo</span>
 <span class="kn">from</span> <span class="nn">apm.plts.multi</span> <span class="kn">import</span> <span class="n">plot_results_all</span><span class="p">,</span> <span class="n">plot_topo_row</span>
-<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">make_axes</span><span class="p">,</span> <span class="n">figsaver</span>
+<span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span><span class="p">,</span> <span class="n">plot_colorbar</span>
 <span class="kn">from</span> <span class="nn">apm.plts.settings</span> <span class="kn">import</span> <span class="n">LABELS</span>
 <span class="kn">from</span> <span class="nn">apm.utils</span> <span class="kn">import</span> <span class="n">format_corr</span>
 </pre></div>
@@ -669,16 +670,8 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import dataset settings from script</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span><span class="p">;</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;scripts&#39;</span><span class="p">))</span>
 <span class="kn">from</span> <span class="nn">scripts.analyze_eeg1</span> <span class="kn">import</span> <span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="n">FS</span><span class="p">,</span> <span class="n">N_SECONDS</span>
 </pre></div>
@@ -745,6 +738,24 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 
 <span class="c1"># Create helper function to manage figsaver settings</span>
 <span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define topography vlims for each measure</span>
+<span class="n">vlims</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;autocorr_decay_time&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span>
+    <span class="s1">&#39;dfa&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+    <span class="s1">&#39;higuchi_fd&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">),</span>
+    <span class="s1">&#39;hjorth_complexity&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span>
+    <span class="s1">&#39;lempelziv&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">515</span><span class="p">),</span>
+    <span class="s1">&#39;sample_entropy&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">),</span>
+    <span class="s1">&#39;perm_entropy&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">),</span>
+    <span class="s1">&#39;irasa&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">0.70</span><span class="p">,</span> <span class="mf">1.85</span><span class="p">),</span>
+    <span class="s1">&#39;specparam&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">0.70</span><span class="p">,</span> <span class="mf">1.85</span><span class="p">),</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -824,7 +835,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_21_0.png" src="../_images/51-RestingEEGData_21_0.png" />
+<img alt="../_images/51-RestingEEGData_23_0.png" src="../_images/51-RestingEEGData_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -845,7 +856,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_23_0.png" src="../_images/51-RestingEEGData_23_0.png" />
+<img alt="../_images/51-RestingEEGData_25_0.png" src="../_images/51-RestingEEGData_25_0.png" />
 </div>
 </div>
 <div class="section" id="check-spectral-fits">
@@ -895,7 +906,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 ==================================================================================================
 </pre></div>
 </div>
-<img alt="../_images/51-RestingEEGData_26_1.png" src="../_images/51-RestingEEGData_26_1.png" />
+<img alt="../_images/51-RestingEEGData_28_1.png" src="../_images/51-RestingEEGData_28_1.png" />
 </div>
 </div>
 </div>
@@ -1007,7 +1018,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_40_0.png" src="../_images/51-RestingEEGData_40_0.png" />
+<img alt="../_images/51-RestingEEGData_42_0.png" src="../_images/51-RestingEEGData_42_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1018,7 +1029,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP-EXP &amp; IR-EXP:   r=+0.946  CI[+0.854, +0.979],  p=0.000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  SP-EXP &amp; IR-EXP:   r=+0.946  CI[+0.853, +0.979],  p=0.000
 </pre></div>
 </div>
 </div>
@@ -1039,7 +1050,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_43_0.png" src="../_images/51-RestingEEGData_43_0.png" />
+<img alt="../_images/51-RestingEEGData_45_0.png" src="../_images/51-RestingEEGData_45_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1054,26 +1065,26 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>autocorr_decay_time
-    SP-EXP:   r=+0.261  CI[-0.137, +0.595],  p=0.172
-    IR-EXP:   r=+0.130  CI[-0.243, +0.490],  p=0.501
+    SP-EXP:   r=+0.261  CI[-0.131, +0.600],  p=0.172
+    IR-EXP:   r=+0.130  CI[-0.265, +0.480],  p=0.501
 dfa
-    SP-EXP:   r=+0.017  CI[-0.387, +0.419],  p=0.931
-    IR-EXP:   r=-0.098  CI[-0.479, +0.316],  p=0.613
+    SP-EXP:   r=+0.017  CI[-0.384, +0.435],  p=0.931
+    IR-EXP:   r=-0.098  CI[-0.480, +0.315],  p=0.613
 higuchi_fd
-    SP-EXP:   r=-0.517  CI[-0.771, -0.149],  p=0.004
-    IR-EXP:   r=-0.638  CI[-0.805, -0.369],  p=0.000
+    SP-EXP:   r=-0.517  CI[-0.770, -0.159],  p=0.004
+    IR-EXP:   r=-0.638  CI[-0.801, -0.372],  p=0.000
 hjorth_complexity
-    SP-EXP:   r=+0.723  CI[+0.458, +0.881],  p=0.000
-    IR-EXP:   r=+0.693  CI[+0.399, +0.848],  p=0.000
+    SP-EXP:   r=+0.723  CI[+0.463, +0.878],  p=0.000
+    IR-EXP:   r=+0.693  CI[+0.424, +0.847],  p=0.000
 lempelziv
-    SP-EXP:   r=-0.605  CI[-0.808, -0.297],  p=0.001
-    IR-EXP:   r=-0.572  CI[-0.768, -0.241],  p=0.001
+    SP-EXP:   r=-0.605  CI[-0.807, -0.298],  p=0.001
+    IR-EXP:   r=-0.572  CI[-0.767, -0.241],  p=0.001
 sample_entropy
-    SP-EXP:   r=-0.628  CI[-0.825, -0.331],  p=0.000
-    IR-EXP:   r=-0.636  CI[-0.806, -0.345],  p=0.000
+    SP-EXP:   r=-0.628  CI[-0.827, -0.315],  p=0.000
+    IR-EXP:   r=-0.636  CI[-0.800, -0.357],  p=0.000
 perm_entropy
-    SP-EXP:   r=-0.190  CI[-0.467, +0.141],  p=0.323
-    IR-EXP:   r=-0.309  CI[-0.552, -0.004],  p=0.102
+    SP-EXP:   r=-0.190  CI[-0.468, +0.135],  p=0.323
+    IR-EXP:   r=-0.309  CI[-0.554, -0.002],  p=0.102
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1100,7 @@ perm_entropy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_46_0.png" src="../_images/51-RestingEEGData_46_0.png" />
+<img alt="../_images/51-RestingEEGData_48_0.png" src="../_images/51-RestingEEGData_48_0.png" />
 </div>
 </div>
 <div class="section" id="correlations">
@@ -1111,7 +1122,7 @@ perm_entropy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_49_0.png" src="../_images/51-RestingEEGData_49_0.png" />
+<img alt="../_images/51-RestingEEGData_51_0.png" src="../_images/51-RestingEEGData_51_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1130,7 +1141,7 @@ perm_entropy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_51_0.png" src="../_images/51-RestingEEGData_51_0.png" />
+<img alt="../_images/51-RestingEEGData_53_0.png" src="../_images/51-RestingEEGData_53_0.png" />
 </div>
 </div>
 </div>
@@ -1164,15 +1175,15 @@ perm_entropy
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlations with alpha:
-     autocorr_decay_time :   r=-0.464  CI[-0.710, -0.119],  p=0.011
-     dfa                 :   r=-0.636  CI[-0.813, -0.353],  p=0.000
-     higuchi_fd          :   r=-0.635  CI[-0.838, -0.311],  p=0.000
-     hjorth_complexity   :   r=+0.317  CI[-0.089, +0.629],  p=0.094
-     lempelziv           :   r=-0.324  CI[-0.608, +0.050],  p=0.086
-     sample_entropy      :   r=-0.388  CI[-0.675, +0.002],  p=0.038
-     perm_entropy        :   r=-0.595  CI[-0.804, -0.289],  p=0.001
-     irasa               :   r=+0.309  CI[-0.046, +0.619],  p=0.103
-     specparam           :   r=+0.287  CI[-0.083, +0.591],  p=0.132
+     autocorr_decay_time :   r=-0.464  CI[-0.718, -0.111],  p=0.011
+     dfa                 :   r=-0.636  CI[-0.808, -0.362],  p=0.000
+     higuchi_fd          :   r=-0.635  CI[-0.832, -0.334],  p=0.000
+     hjorth_complexity   :   r=+0.317  CI[-0.084, +0.630],  p=0.094
+     lempelziv           :   r=-0.324  CI[-0.606, +0.064],  p=0.086
+     sample_entropy      :   r=-0.388  CI[-0.671, +0.014],  p=0.038
+     perm_entropy        :   r=-0.595  CI[-0.807, -0.276],  p=0.001
+     irasa               :   r=+0.309  CI[-0.062, +0.628],  p=0.103
+     specparam           :   r=+0.287  CI[-0.082, +0.592],  p=0.132
 </pre></div>
 </div>
 </div>
@@ -1193,7 +1204,7 @@ perm_entropy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_57_0.png" src="../_images/51-RestingEEGData_57_0.png" />
+<img alt="../_images/51-RestingEEGData_59_0.png" src="../_images/51-RestingEEGData_59_0.png" />
 </div>
 </div>
 </div>
@@ -1216,12 +1227,21 @@ perm_entropy
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the group average topographies for the exponent measures</span>
-<span class="n">plot_topo_row</span><span class="p">(</span><span class="n">group_avg</span><span class="p">,</span> <span class="n">exp_measures</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;exp_topos&#39;</span><span class="p">))</span>
+<span class="n">plot_topo_row</span><span class="p">(</span><span class="n">group_avg</span><span class="p">,</span> <span class="n">exp_measures</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">vlims</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;exp_topos&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_62_0.png" src="../_images/51-RestingEEGData_62_0.png" />
+<img alt="../_images/51-RestingEEGData_64_0.png" src="../_images/51-RestingEEGData_64_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create colorbar for the aperiodic exponent topographies</span>
+<span class="n">plot_colorbar</span><span class="p">(</span><span class="s1">&#39;Aperiodic Exponent&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">vlims</span><span class="p">[</span><span class="s1">&#39;specparam&#39;</span><span class="p">],</span> 
+              <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;colorbar_eeg1_exp&#39;</span><span class="p">),</span> <span class="n">close</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1251,12 +1271,12 @@ perm_entropy
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the group average topographies for the time domain measures</span>
-<span class="n">plot_topo_row</span><span class="p">(</span><span class="n">group_avg</span><span class="p">,</span> <span class="n">ts_measures</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;eeg1_topo_row&#39;</span><span class="p">))</span>
+<span class="n">plot_topo_row</span><span class="p">(</span><span class="n">group_avg</span><span class="p">,</span> <span class="n">ts_measures</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">vlims</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;eeg1_topo_row&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_66_0.png" src="../_images/51-RestingEEGData_66_0.png" />
+<img alt="../_images/51-RestingEEGData_69_0.png" src="../_images/51-RestingEEGData_69_0.png" />
 </div>
 </div>
 </div>
@@ -1279,7 +1299,7 @@ perm_entropy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_69_0.png" src="../_images/51-RestingEEGData_69_0.png" />
+<img alt="../_images/51-RestingEEGData_72_0.png" src="../_images/51-RestingEEGData_72_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1306,7 +1326,7 @@ perm_entropy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_72_0.png" src="../_images/51-RestingEEGData_72_0.png" />
+<img alt="../_images/51-RestingEEGData_75_0.png" src="../_images/51-RestingEEGData_75_0.png" />
 </div>
 </div>
 </div>
@@ -1337,13 +1357,30 @@ perm_entropy
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set alpha vlimits</span>
+<span class="n">alpha_vlim</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">11.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the average alpha topography across the group</span>
-<span class="n">plot_topo</span><span class="p">(</span><span class="n">group_avg_peaks</span><span class="p">[</span><span class="s1">&#39;alpha_power&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">,</span> <span class="n">vlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">11.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.5</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;alpha_topo&#39;</span><span class="p">))</span>
+<span class="n">plot_topo</span><span class="p">(</span><span class="n">group_avg_peaks</span><span class="p">[</span><span class="s1">&#39;alpha_power&#39;</span><span class="p">],</span> <span class="n">info</span><span class="p">,</span> <span class="n">vlim</span><span class="o">=</span><span class="n">alpha_vlim</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;alpha_topo&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_76_0.png" src="../_images/51-RestingEEGData_76_0.png" />
+<img alt="../_images/51-RestingEEGData_80_0.png" src="../_images/51-RestingEEGData_80_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create colorbar for the aperiodic exponent topographies</span>
+<span class="n">plot_colorbar</span><span class="p">(</span><span class="s1">&#39;Alpha Power (uV**2)&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">alpha_vlim</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">2.65</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+              <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;colorbar_eeg1_alpha&#39;</span><span class="p">),</span> <span class="n">close</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1370,7 +1407,7 @@ perm_entropy
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51-RestingEEGData_79_0.png" src="../_images/51-RestingEEGData_79_0.png" />
+<img alt="../_images/51-RestingEEGData_84_0.png" src="../_images/51-RestingEEGData_84_0.png" />
 </div>
 </div>
 </div>

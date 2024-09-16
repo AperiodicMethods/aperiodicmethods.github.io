@@ -2,7 +2,8 @@
 
 Welcome to the Aperiodic Methods project!
 
-This website hosts an online version of the code and figures for the project 'Aperiodic Methods' project, which
+This website hosts an online version of the code and figures for the
+[Aperiodic Methods](https://doi.org/10.1101/2024.09.15.613114) project, which
 surveys and compares available methods for measuring aperiodic activity in neural data.
 
 This project is led by
@@ -12,8 +13,8 @@ with contributions from members and affiliates (past and present) of the
 
 ## Overview
 
-To examine these methods, we use simulated data with known aperiodic and periodic properties in order to evaluate aperiodic
-methods and how they perform on neural data.
+To examine these methods, we use simulated data with known aperiodic and periodic properties in order to
+evaluate aperiodic methods and how they perform on neural data.
 
 This broadly is organized into the following sections:
 1. Introduction: introducing the main ideas and approaches of this project
@@ -46,7 +47,12 @@ Methods included in this project:
 
 ## Reference
 
-A reference for this project is upcoming.
+This project is described in the following preprint:
+
+    Donoghue T, Hammonds R, Eric Lybrand, Waschke L, Gao R, & Voytek B. Evaluating and
+    Comparing Measures of Aperiodic Neural Activity. bioRxiv. DOI: 10.1101/2024.09.15.613114
+
+Direct Link: https://doi.org/10.1101/2024.09.15.613114
 
 ## Source
 

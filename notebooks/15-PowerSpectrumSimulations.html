@@ -484,42 +484,28 @@
 <p>Power spectra are simulated using <a class="reference external" href="https://fooof-tools.github.io/">specparam</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fooof.sim</span> <span class="kn">import</span> <span class="n">gen_power_spectrum</span>
 <span class="kn">from</span> <span class="nn">fooof.plts</span> <span class="kn">import</span> <span class="n">plot_spectra</span>
-
 <span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
 <span class="kn">from</span> <span class="nn">neurodsp.plts</span> <span class="kn">import</span> <span class="n">plot_power_spectra</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/59/8y2d5r257c77vzymnqs47x080000gn/T/ipykernel_13242/3896582769.py:1: DeprecationWarning: 
-The `fooof` package is being deprecated and replaced by the `specparam` (spectral parameterization) package.
-This version of `fooof` (1.1) is fully functional, but will not be further updated.
-New projects are recommended to update to using `specparam` (see Changelog for details).
-  from fooof.sim import gen_power_spectrum
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
 <span class="kn">from</span> <span class="nn">apm.plts.style</span> <span class="kn">import</span> <span class="n">custom_psd_style_no_grid</span><span class="p">,</span> <span class="n">custom_psd_style_no_ticks</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -543,6 +529,21 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 
 <span class="c1"># Create helper function to manage figsaver settings</span>
 <span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot settings</span>
+<span class="n">plt_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;log_freqs&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;log_powers&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span> 
+    <span class="s1">&#39;lw&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s1">&#39;colors&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> 
+    <span class="s1">&#39;linestyle&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;figsize&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mf">8.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +576,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15-PowerSpectrumSimulations_10_0.png" src="../_images/15-PowerSpectrumSimulations_10_0.png" />
+<img alt="../_images/15-PowerSpectrumSimulations_11_0.png" src="../_images/15-PowerSpectrumSimulations_11_0.png" />
 </div>
 </div>
 </div>
@@ -599,7 +600,7 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15-PowerSpectrumSimulations_13_0.png" src="../_images/15-PowerSpectrumSimulations_13_0.png" />
+<img alt="../_images/15-PowerSpectrumSimulations_14_0.png" src="../_images/15-PowerSpectrumSimulations_14_0.png" />
 </div>
 </div>
 </div>
@@ -623,14 +624,13 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the simulated aperiodic signal and model</span>
-<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_ap</span><span class="p">,</span> <span class="n">model</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_powers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-             <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_ap</span><span class="p">,</span> <span class="n">model</span><span class="p">],</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span>             
              <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;psd_exp_ap&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15-PowerSpectrumSimulations_17_0.png" src="../_images/15-PowerSpectrumSimulations_17_0.png" />
+<img alt="../_images/15-PowerSpectrumSimulations_18_0.png" src="../_images/15-PowerSpectrumSimulations_18_0.png" />
 </div>
 </div>
 </div>
@@ -648,14 +648,13 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the simulated combined signal and model</span>
-<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_comb</span><span class="p">,</span> <span class="n">model</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_powers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-             <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_comb</span><span class="p">,</span> <span class="n">model</span><span class="p">],</span>  <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span>
              <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;psd_exp_comb&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15-PowerSpectrumSimulations_20_0.png" src="../_images/15-PowerSpectrumSimulations_20_0.png" />
+<img alt="../_images/15-PowerSpectrumSimulations_21_0.png" src="../_images/15-PowerSpectrumSimulations_21_0.png" />
 </div>
 </div>
 </div>
@@ -682,14 +681,13 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the simulated knee signal and model</span>
-<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_knee</span><span class="p">,</span> <span class="n">model_knee</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_powers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-             <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_knee</span><span class="p">,</span> <span class="n">model_knee</span><span class="p">],</span>  <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span>
              <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;psd_exp_knee&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15-PowerSpectrumSimulations_24_0.png" src="../_images/15-PowerSpectrumSimulations_24_0.png" />
+<img alt="../_images/15-PowerSpectrumSimulations_25_0.png" src="../_images/15-PowerSpectrumSimulations_25_0.png" />
 </div>
 </div>
 </div>
@@ -707,14 +705,13 @@ New projects are recommended to update to using `specparam` (see Changelog for d
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the simulated combined knee signal and model</span>
-<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_knee_comb</span><span class="p">,</span> <span class="n">model_knee</span><span class="p">],</span> <span class="n">log_freqs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_powers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-             <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">],</span>
+<span class="n">plot_spectra</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="p">[</span><span class="n">powers_knee_comb</span><span class="p">,</span> <span class="n">model_knee</span><span class="p">],</span>  <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span>
              <span class="n">custom_styler</span><span class="o">=</span><span class="n">custom_psd_style_no_ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;psd_exp_knee_comb&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/15-PowerSpectrumSimulations_27_0.png" src="../_images/15-PowerSpectrumSimulations_27_0.png" />
+<img alt="../_images/15-PowerSpectrumSimulations_28_0.png" src="../_images/15-PowerSpectrumSimulations_28_0.png" />
 </div>
 </div>
 </div>

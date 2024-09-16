@@ -544,7 +544,22 @@
 <p>Note that collecting literature data in this way is likely an under-estimate of the use of these measures, as the approach employed here only searches for search terms occurring in titles and abstracts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import LISC code</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import LISC code for literature collection &amp; analysis</span>
 <span class="kn">from</span> <span class="nn">lisc</span> <span class="kn">import</span> <span class="n">Counts</span><span class="p">,</span> <span class="n">Counts1D</span>
 <span class="kn">from</span> <span class="nn">lisc.collect</span> <span class="kn">import</span> <span class="n">collect_info</span><span class="p">,</span> <span class="n">collect_across_time</span>
 <span class="kn">from</span> <span class="nn">lisc.io</span> <span class="kn">import</span> <span class="p">(</span><span class="n">save_meta_data</span><span class="p">,</span> <span class="n">load_meta_data</span><span class="p">,</span> <span class="n">save_object</span><span class="p">,</span> <span class="n">load_object</span><span class="p">,</span>
@@ -557,19 +572,9 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -581,7 +586,6 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for literature collection</span>
 <span class="n">db</span> <span class="o">=</span> <span class="s1">&#39;pubmed&#39;</span>
-<span class="c1">#db = &#39;pmc&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -589,8 +593,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notebook settings</span>
-<span class="n">RUN_COLLECTION</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">SAVE_DATA</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">RUN_COLLECTION</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">SAVE_DATA</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
@@ -598,7 +602,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># File path settings</span>
-<span class="n">APDB</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">APMDB</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -606,8 +610,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Settings for saving figures</span>
-<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">APDB</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;02_literature&#39;</span>
+<span class="n">SAVE_FIG</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">FIGPATH</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">figs_path</span> <span class="o">/</span> <span class="s1">&#39;02_literature&#39;</span>
 
 <span class="c1"># Create helper function to manage figsaver settings</span>
 <span class="n">fsaver</span> <span class="o">=</span> <span class="n">figsaver</span><span class="p">(</span><span class="n">SAVE_FIG</span><span class="p">,</span> <span class="n">FIGPATH</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -771,16 +775,10 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">RUN_COLLECTION</span><span class="p">:</span>
     <span class="n">meta_data</span> <span class="o">=</span> <span class="n">collect_info</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">SAVE_DATA</span><span class="p">:</span>
-        <span class="n">save_meta_data</span><span class="p">(</span><span class="n">meta_data</span><span class="p">,</span> <span class="s1">&#39;meta_data&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+        <span class="n">save_meta_data</span><span class="p">(</span><span class="n">meta_data</span><span class="p">,</span> <span class="s1">&#39;meta_data&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">meta_data</span> <span class="o">=</span> <span class="n">load_meta_data</span><span class="p">(</span><span class="s1">&#39;meta_data&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/bs4/builder/__init__.py:545: XMLParsedAsHTMLWarning: It looks like you&#39;re parsing an XML document using an HTML parser. If this really is an HTML document (maybe it&#39;s XHTML?), you can ignore or filter this warning. If it&#39;s XML, you should know that using an XML parser will be more reliable. To parse this document as XML, make sure you have the lxml package installed, and pass the keyword argument `features=&quot;xml&quot;` into the BeautifulSoup constructor.
-  warnings.warn(
+    <span class="n">meta_data</span> <span class="o">=</span> <span class="n">load_meta_data</span><span class="p">(</span><span class="s1">&#39;meta_data&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -793,7 +791,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;date&#39;: &#39;2024-03-19_21:42:51&#39;, &#39;log&#39;: None, &#39;requester_n_requests&#39;: 1, &#39;requester_wait_time&#39;: 0.3333333333333333, &#39;requester_start_time&#39;: &#39;21:42:51 Tuesday 19 March 2024&#39;, &#39;requester_end_time&#39;: &#39;21:42:51 Tuesday 19 March 2024&#39;, &#39;requester_logging&#39;: None, &#39;db_info_dbname&#39;: &#39;pubmed&#39;, &#39;db_info_menuname&#39;: &#39;PubMed&#39;, &#39;db_info_description&#39;: &#39;PubMed bibliographic record&#39;, &#39;db_info_dbbuild&#39;: &#39;Build-2024.03.19.16.28&#39;, &#39;db_info_count&#39;: &#39;36986071&#39;, &#39;db_info_lastupdate&#39;: &#39;2024/03/19 16:28&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;date&#39;: &#39;2024-08-31_23:05:22&#39;, &#39;log&#39;: None, &#39;requester_n_requests&#39;: 1, &#39;requester_wait_time&#39;: 0.3333333333333333, &#39;requester_start_time&#39;: &#39;23:05:22 Saturday 31 August 2024&#39;, &#39;requester_end_time&#39;: &#39;23:05:22 Saturday 31 August 2024&#39;, &#39;requester_logging&#39;: None, &#39;db_info_dbname&#39;: &#39;pubmed&#39;, &#39;db_info_menuname&#39;: &#39;PubMed&#39;, &#39;db_info_description&#39;: &#39;PubMed bibliographic record&#39;, &#39;db_info_dbbuild&#39;: &#39;Build-2024.08.31.10.21&#39;, &#39;db_info_count&#39;: &#39;37683730&#39;, &#39;db_info_lastupdate&#39;: &#39;2024/08/31 10:21&#39;}
 </pre></div>
 </div>
 </div>
@@ -936,9 +934,9 @@ clinical   : clinical, disorder, psychopathology, psychiatry, diagnose, mental i
     <span class="n">counts_methods</span><span class="o">.</span><span class="n">run_collection</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
     <span class="n">counts_measures</span><span class="o">.</span><span class="n">run_collection</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">counts_concepts</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_concepts.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-    <span class="n">counts_methods</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_methods.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-    <span class="n">counts_measures</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_measures.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">counts_concepts</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_concepts.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">counts_methods</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_methods.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">counts_measures</span> <span class="o">=</span> <span class="n">load_object</span><span class="p">(</span><span class="s1">&#39;counts_measures.p&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -956,12 +954,12 @@ clinical   : clinical, disorder, psychopathology, psychiatry, diagnose, mental i
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of documents found for each search term is:
-  &#39;aperiodic&#39;      -   236
-  &#39;1/f&#39;            -   172
-  &#39;scale free&#39;     -   531
-  &#39;criticality&#39;    -   153
-  &#39;chaos&#39;          -   248
-  &#39;neural noise&#39;   -    47
+  &#39;aperiodic&#39;      -   287
+  &#39;1/f&#39;            -   239
+  &#39;scale free&#39;     -   552
+  &#39;criticality&#39;    -   158
+  &#39;chaos&#39;          -   254
+  &#39;neural noise&#39;   -    51
 </pre></div>
 </div>
 </div>
@@ -975,12 +973,12 @@ clinical   : clinical, disorder, psychopathology, psychiatry, diagnose, mental i
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of documents found for each search term is:
-  &#39;autocorrelation&#39;   -    167
-  &#39;fluctuation&#39;       -    234
-  &#39;fractal&#39;           -    632
-  &#39;complexity&#39;        -   2614
-  &#39;entropy&#39;           -   2175
-  &#39;exponent&#39;          -    104
+  &#39;autocorrelation&#39;   -    171
+  &#39;fluctuation&#39;       -    245
+  &#39;fractal&#39;           -    650
+  &#39;complexity&#39;        -   2777
+  &#39;entropy&#39;           -   2292
+  &#39;exponent&#39;          -    135
 </pre></div>
 </div>
 </div>
@@ -994,26 +992,26 @@ clinical   : clinical, disorder, psychopathology, psychiatry, diagnose, mental i
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of documents found for each search term is:
-  &#39;autocorrelation&#39;                  -   167
-  &#39;autocorrelation decay&#39;            -    15
-  &#39;hurst exponent&#39;                   -    69
-  &#39;detrended fluctuation analysis&#39;   -   188
-  &#39;multiscale dfa&#39;                   -    18
+  &#39;autocorrelation&#39;                  -   171
+  &#39;autocorrelation decay&#39;            -    16
+  &#39;hurst exponent&#39;                   -    73
+  &#39;detrended fluctuation analysis&#39;   -   195
+  &#39;multiscale dfa&#39;                   -    20
   &#39;correlation dimension&#39;            -   221
-  &#39;higuchi fractal dimension&#39;        -    45
-  &#39;katz fractal dimension&#39;           -    27
+  &#39;higuchi fractal dimension&#39;        -    48
+  &#39;katz fractal dimension&#39;           -    30
   &#39;petrosian fractal dimension&#39;      -     9
-  &#39;hjorth complexity&#39;                -   120
-  &#39;lempel-ziv complexity&#39;            -   166
-  &#39;lyapunov exponent&#39;                -   144
-  &#39;approximate entropy&#39;              -   259
-  &#39;sample entropy&#39;                   -   309
-  &#39;permutation entropy&#39;              -   159
+  &#39;hjorth complexity&#39;                -   126
+  &#39;lempel-ziv complexity&#39;            -   175
+  &#39;lyapunov exponent&#39;                -   146
+  &#39;approximate entropy&#39;              -   272
+  &#39;sample entropy&#39;                   -   332
+  &#39;permutation entropy&#39;              -   180
   &#39;weighted permutation entropy&#39;     -     8
-  &#39;spectral entropy&#39;                 -   221
-  &#39;multiscale entropy&#39;               -   163
+  &#39;spectral entropy&#39;                 -   227
+  &#39;multiscale entropy&#39;               -   176
   &#39;irasa&#39;                            -    15
-  &#39;specparam&#39;                        -    80
+  &#39;specparam&#39;                        -    99
 </pre></div>
 </div>
 </div>
@@ -1031,9 +1029,9 @@ clinical   : clinical, disorder, psychopathology, psychiatry, diagnose, mental i
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of aperiodic papers (concepts): 	 1387
-Total number of aperiodic papers (methods): 	 5926
-Total number of aperiodic papers (measures): 	 2403
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of aperiodic papers (concepts): 	 1541
+Total number of aperiodic papers (methods): 	 6270
+Total number of aperiodic papers (measures): 	 2539
 </pre></div>
 </div>
 </div>
@@ -1062,7 +1060,7 @@ Total number of aperiodic papers (measures): 	 2403
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-LiteratureSearch_40_0.png" src="../_images/02-LiteratureSearch_40_0.png" />
+<img alt="../_images/02-LiteratureSearch_41_0.png" src="../_images/02-LiteratureSearch_41_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1073,7 +1071,7 @@ Total number of aperiodic papers (measures): 	 2403
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-LiteratureSearch_41_0.png" src="../_images/02-LiteratureSearch_41_0.png" />
+<img alt="../_images/02-LiteratureSearch_42_0.png" src="../_images/02-LiteratureSearch_42_0.png" />
 </div>
 </div>
 </div>
@@ -1089,7 +1087,7 @@ Total number of aperiodic papers (measures): 	 2403
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-LiteratureSearch_43_0.png" src="../_images/02-LiteratureSearch_43_0.png" />
+<img alt="../_images/02-LiteratureSearch_44_0.png" src="../_images/02-LiteratureSearch_44_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1100,7 +1098,7 @@ Total number of aperiodic papers (measures): 	 2403
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-LiteratureSearch_44_0.png" src="../_images/02-LiteratureSearch_44_0.png" />
+<img alt="../_images/02-LiteratureSearch_45_0.png" src="../_images/02-LiteratureSearch_45_0.png" />
 </div>
 </div>
 </div>
@@ -1117,16 +1115,16 @@ Total number of aperiodic papers (measures): 	 2403
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-LiteratureSearch_46_0.png" src="../_images/02-LiteratureSearch_46_0.png" />
+<img alt="../_images/02-LiteratureSearch_47_0.png" src="../_images/02-LiteratureSearch_47_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save out the collected data</span>
 <span class="k">if</span> <span class="n">SAVE_DATA</span><span class="p">:</span>
-    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_concepts</span><span class="p">,</span> <span class="s1">&#39;counts_concepts&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_methods</span><span class="p">,</span> <span class="s1">&#39;counts_methods&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_measures</span><span class="p">,</span> <span class="s1">&#39;counts_measures&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_concepts</span><span class="p">,</span> <span class="s1">&#39;counts_concepts&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_methods</span><span class="p">,</span> <span class="s1">&#39;counts_methods&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">save_object</span><span class="p">(</span><span class="n">counts_measures</span><span class="p">,</span> <span class="s1">&#39;counts_measures&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1160,18 +1158,12 @@ Total number of aperiodic papers (measures): 	 2403
     <span class="n">years_method_results</span> <span class="o">=</span> <span class="n">collect_across_time</span><span class="p">(</span><span class="n">years_methods</span><span class="p">,</span> <span class="n">years</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">SAVE_DATA</span><span class="p">:</span>
-        <span class="n">save_time_results</span><span class="p">(</span><span class="n">years_concept_results</span><span class="p">,</span> <span class="s1">&#39;time_concepts&#39;</span><span class="p">,</span> <span class="s1">&#39;concepts&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-        <span class="n">save_time_results</span><span class="p">(</span><span class="n">years_method_results</span><span class="p">,</span> <span class="s1">&#39;time_methods&#39;</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">,</span> <span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+        <span class="n">save_time_results</span><span class="p">(</span><span class="n">years_concept_results</span><span class="p">,</span> <span class="s1">&#39;time_concepts&#39;</span><span class="p">,</span> <span class="s1">&#39;concepts&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+        <span class="n">save_time_results</span><span class="p">(</span><span class="n">years_method_results</span><span class="p">,</span> <span class="s1">&#39;time_methods&#39;</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">years_concept_results</span> <span class="o">=</span> <span class="n">load_time_results</span><span class="p">(</span><span class="s1">&#39;time_concepts&#39;</span><span class="p">,</span> <span class="s1">&#39;concepts&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-    <span class="n">years_method_results</span> <span class="o">=</span> <span class="n">load_time_results</span><span class="p">(</span><span class="s1">&#39;time_methods&#39;</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">APDB</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/tom/opt/anaconda3/envs/apm/lib/python3.9/site-packages/bs4/builder/__init__.py:545: XMLParsedAsHTMLWarning: It looks like you&#39;re parsing an XML document using an HTML parser. If this really is an HTML document (maybe it&#39;s XHTML?), you can ignore or filter this warning. If it&#39;s XML, you should know that using an XML parser will be more reliable. To parse this document as XML, make sure you have the lxml package installed, and pass the keyword argument `features=&quot;xml&quot;` into the BeautifulSoup constructor.
-  warnings.warn(
+    <span class="n">years_concept_results</span> <span class="o">=</span> <span class="n">load_time_results</span><span class="p">(</span><span class="s1">&#39;time_concepts&#39;</span><span class="p">,</span> <span class="s1">&#39;concepts&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
+    <span class="n">years_method_results</span> <span class="o">=</span> <span class="n">load_time_results</span><span class="p">(</span><span class="s1">&#39;time_methods&#39;</span><span class="p">,</span> <span class="s1">&#39;methods&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">literature_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1179,25 +1171,25 @@ Total number of aperiodic papers (measures): 	 2403
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the results over time of the concept results</span>
-<span class="n">plot_results_across_years</span><span class="p">(</span><span class="n">years_concept_results</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">1959.5</span><span class="p">,</span> <span class="mf">2023.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">55</span><span class="p">],</span>
+<span class="n">plot_results_across_years</span><span class="p">(</span><span class="n">years_concept_results</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">1959.5</span><span class="p">,</span> <span class="mf">2023.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">65</span><span class="p">],</span>
                           <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;years_concepts&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-LiteratureSearch_51_0.png" src="../_images/02-LiteratureSearch_51_0.png" />
+<img alt="../_images/02-LiteratureSearch_52_0.png" src="../_images/02-LiteratureSearch_52_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the results over time of the method results</span>
-<span class="n">plot_results_across_years</span><span class="p">(</span><span class="n">years_method_results</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">1959.5</span><span class="p">,</span> <span class="mf">2023.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span>
+<span class="n">plot_results_across_years</span><span class="p">(</span><span class="n">years_method_results</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">1959.5</span><span class="p">,</span> <span class="mf">2023.5</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">155</span><span class="p">],</span>
                           <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;years_methods&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-LiteratureSearch_52_0.png" src="../_images/02-LiteratureSearch_52_0.png" />
+<img alt="../_images/02-LiteratureSearch_53_0.png" src="../_images/02-LiteratureSearch_53_0.png" />
 </div>
 </div>
 </div>

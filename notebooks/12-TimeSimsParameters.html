@@ -587,9 +587,25 @@
 <p>In this notebook, we introduce and explore functionality for managing simulation parameters, including simulating multiple samples of time series simulations, and iterating across parameter values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup notebook state</span>
+<span class="kn">from</span> <span class="nn">nbutils</span> <span class="kn">import</span> <span class="n">setup_notebook</span><span class="p">;</span> <span class="n">setup_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_combined</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_knee</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neurodsp.sim</span> <span class="kn">import</span> <span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">sim_knee</span><span class="p">,</span>
+                          <span class="n">sim_combined</span><span class="p">,</span> <span class="n">sim_combined_peak</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">neurodsp.sim.multi</span> <span class="kn">import</span> <span class="p">(</span><span class="n">sim_multiple</span><span class="p">,</span> <span class="n">sim_from_sampler</span><span class="p">,</span>
+                                <span class="n">sim_across_values</span><span class="p">,</span> <span class="n">sim_multi_across_values</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">neurodsp.plts.combined</span> <span class="kn">import</span> <span class="n">plot_timeseries_and_spectra</span>
 <span class="kn">from</span> <span class="nn">neurodsp.utils</span> <span class="kn">import</span> <span class="n">set_random_seed</span>
 </pre></div>
@@ -598,24 +614,10 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom code</span>
-<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import custom project code</span>
 <span class="kn">from</span> <span class="nn">apm.io</span> <span class="kn">import</span> <span class="n">APMDB</span>
 <span class="kn">from</span> <span class="nn">apm.plts.utils</span> <span class="kn">import</span> <span class="n">figsaver</span>
-<span class="kn">from</span> <span class="nn">apm.sim.funcs</span> <span class="kn">import</span> <span class="n">sim_combined_peak</span>
-<span class="kn">from</span> <span class="nn">apm.sim.sim</span> <span class="kn">import</span> <span class="n">sim_multiple</span><span class="p">,</span> <span class="n">sim_across_values</span><span class="p">,</span> <span class="n">sim_from_sampler</span>
 <span class="kn">from</span> <span class="nn">apm.sim.defs</span> <span class="kn">import</span> <span class="n">SIM_PARAMS</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set plot style</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;talk&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -679,7 +681,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;apm.sim.objs.SimParams at 0x7fb53f50f910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;neurodsp.sim.params.SimParams at 0x7fb3d5415910&gt;
 </pre></div>
 </div>
 </div>
@@ -786,13 +788,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize simulated aperiodic signals</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">ap_sigs</span><span class="p">,</span> <span class="n">SIM_PARAMS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;params_ap&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">ap_sigs</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_PARAMS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;params_ap&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ap_sigs</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12-TimeSimsParameters_20_0.png" src="../_images/12-TimeSimsParameters_20_0.png" />
+<img alt="../_images/12-TimeSimsParameters_21_0.png" src="../_images/12-TimeSimsParameters_21_0.png" />
 </div>
 </div>
 </div>
@@ -808,7 +810,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;apm.sim.objs.SimIters at 0x7fb53f50f9a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;neurodsp.sim.params.SimIters at 0x7fb3d5415370&gt;
 </pre></div>
 </div>
 </div>
@@ -870,20 +872,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate across different aperiodic exponents, creating 3 time series per parameter value</span>
-<span class="n">iter_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">],</span> <span class="n">n_sims</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># By default, the simulated signals are organized into a dictionary</span>
-<span class="n">iter_sims</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([-3.0, -2.5, -2.0, -1.5, -1.0, -0.5, 0.0])
+<span class="n">iter_sims</span> <span class="o">=</span> <span class="n">sim_multi_across_values</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">],</span> <span class="n">n_sims</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -891,7 +880,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot time series samples for a particular exponent value</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">iter_sims</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">iter_sims</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">iter_sims</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])))</span>
 </pre></div>
 </div>
@@ -905,7 +894,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of the aperiodic exponent</span>
-<span class="n">exp_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">exp_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_powerlaw</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;ap_exp&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -913,7 +902,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across the aperiodic exponent</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">exp_sims</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_ap&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">exp_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_ap&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">exp_sims</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -928,7 +917,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of the aperiodic exponent, in a combined signal</span>
-<span class="n">comb_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_exp&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">comb_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_exp&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -936,7 +925,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across the aperiodic exponent, in a combined signal</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">comb_sims</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_comb&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">comb_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_comb&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">comb_sims</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -951,7 +940,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of oscillation frequency</span>
-<span class="n">freq_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_freq&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">freq_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_freq&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -959,8 +948,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across oscillation frequency</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">freq_sims</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">5</span><span class="p">,</span> <span class="p">:],</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_cf&#39;</span><span class="p">),</span>
-                            <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">freq_sims</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">5</span><span class="p">,</span> <span class="p">:])))</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">freq_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">5</span><span class="p">,</span> <span class="p">:],</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_cf&#39;</span><span class="p">),</span>
+                            <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">freq_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">5</span><span class="p">,</span> <span class="p">:])))</span>
 </pre></div>
 </div>
 </div>
@@ -974,7 +963,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of oscillation power</span>
-<span class="n">pow_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_pow&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">pow_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;osc_pow&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -982,8 +971,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across oscillation power</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">pow_sims</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">4</span><span class="p">,</span> <span class="p">:],</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_pw&#39;</span><span class="p">),</span>
-                            <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pow_sims</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">4</span><span class="p">,</span> <span class="p">:])))</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">pow_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">4</span><span class="p">,</span> <span class="p">:],</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_pw&#39;</span><span class="p">),</span>
+                            <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pow_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">4</span><span class="p">,</span> <span class="p">:])))</span>
 </pre></div>
 </div>
 </div>
@@ -997,7 +986,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of synaptic timescales</span>
-<span class="n">tscale_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">tscale_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_synaptic_current</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;syn_tscales&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1005,7 +994,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across synaptic timescale</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">tscale_sims</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_tscale&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">tscale_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_tscale&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tscale_sims</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1020,7 +1009,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of aperiodic knee</span>
-<span class="n">knee_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_knee</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;kn_knee&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">knee_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_knee</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;kn_knee&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1028,7 +1017,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across the aperiodic knee</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">knee_sims</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_knee&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">knee_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_knee&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">knee_sims</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1043,7 +1032,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of peak bandwidth</span>
-<span class="n">bw_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined_peak</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;peak_bw&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">bw_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined_peak</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;peak_bw&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1051,7 +1040,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across peak bandwidth</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">bw_sims</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_bw&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">bw_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_bw&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bw_sims</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1066,7 +1055,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate signals across variations of burst probability</span>
-<span class="n">burst_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;array&#39;</span><span class="p">)</span>
+<span class="n">burst_sims</span> <span class="o">=</span> <span class="n">sim_across_values</span><span class="p">(</span><span class="n">sim_combined</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="p">[</span><span class="s1">&#39;comb_burst&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1074,7 +1063,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations across burst probability</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">burst_sims</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_burst&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">burst_sims</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_ITERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;iters_burst&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">burst_sims</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1095,7 +1084,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;apm.sim.objs.SimSamplers at 0x7fb53f50fa30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;neurodsp.sim.params.SimSamplers at 0x7fb3d5415af0&gt;
 </pre></div>
 </div>
 </div>
@@ -1130,7 +1119,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations from sampled parameters</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">sampled_sigs_comb</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;samplers_comb&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">sampled_sigs_comb</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span>
+                            <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;samplers_comb&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_sigs_comb</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1153,7 +1143,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot example simulations from sampled parameters</span>
-<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">sampled_sigs_peak</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;samplers_peak&#39;</span><span class="p">),</span>
+<span class="n">plot_timeseries_and_spectra</span><span class="p">(</span><span class="n">sampled_sigs_peak</span><span class="o">.</span><span class="n">signals</span><span class="p">,</span> <span class="n">SIM_SAMPLERS</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span>
+                            <span class="o">**</span><span class="n">plt_kwargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fsaver</span><span class="p">(</span><span class="s1">&#39;samplers_peak&#39;</span><span class="p">),</span>
                             <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">almin</span><span class="p">,</span> <span class="n">almax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sampled_sigs_peak</span><span class="p">)))</span>
 </pre></div>
 </div>
